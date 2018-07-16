@@ -16,29 +16,26 @@ layout: default
   {{ content }}
   </div>
 </section>
+
+{% assign extra = site.pages | where: "path","extra_childrens_section.md" | first %}
+
 <section class="info-panel dark image-right">
-  <div class="text"><h1>For all Ages</h1>
-    We are a church who seek to engage heart and mind, as we learn from the Bible of what God is like, we look after one another in community and reach out to those around us and tell them about Jesus.
+  <div class="text"><h1>{{extra.title}}</h1>
+    {{ extra.content }}
   </div>
   <div class="photo">
-  <img src="/assets/images/children_with_toy.jpg"/>
+  <img src="{{ extra.image }}"/>
 </div>
 </section>
 
+{% assign littlelambs = site.pages | where: "path","littlelambs.md" | first %}
+
 <section class="info-panel full-bleed" responsive-background-image>
-  <img src="/assets/images/von_cropped.jpg"/>
+  <img src="{{littlelambs.image}}"/>
   <div class="text">
-    <h1>Little Lambs</h1>
-    We are a church who seek to engage heart and mind, as we learn from the Bible of what God is like, we look after one another in community and reach out to those around us and tell them about Jesus.
+    <h1>{{littlelambs.title}}</h1>
+    {{ littlelambs.content }}
   </div>
 </section>
 
-<section class="bio">
-  <div class="photo">
-    <img src="/assets/headshots/James.jpg"/>
-  </div>
-    <h1>James Kight</h1>
-    <div class="text">
-      Something about James Kight and how very lovely he is. Your children are safe!
-    </div>
-</section>
+{% include bio.html role_type="childrens_worker" %}

@@ -16,34 +16,16 @@ layout: default
   {{ content }}
   </div>
 </section>
+
+{% assign extra = site.pages | where: "path","extra_student_section.md" | first %}
+
 <section class="info-panel dark image-right">
-  <div class="text"><h1>For all Ages</h1>
-    We are a church who seek to engage heart and mind, as we learn from the Bible of what God is like, we look after one another in community and reach out to those around us and tell them about Jesus.
+  <div class="text"><h1>{{extra.title}}</h1>
+    {{ extra.content }}
   </div>
   <div class="photo">
-    <img src="/assets/images/girl_with_ball.jpg"/>
-  </div>
+  <img src="{{ extra.image }}"/>
+</div>
 </section>
 
-<section class="bio">
-  <div class="photo">
-  <img src="/assets/headshots/Scott.jpg"/>
-  </div>
-  <h1>Scott Fury</h1>
-  <div class="text">
-    We are a church who seek to engage heart and mind, as we learn from the Bible of what God is like, we look after one another in community and reach out to those around us and tell them about Jesus.
-  </div>
-</section>
-
-
-<section class="bio">
-    <div class="photo">
-    <img src="/assets/headshots/Loz.jpg"/>
-    </div>
-    <h1>Loz Oliphant</h1>
-    <div class="text">
-      We are a church who seek to engage heart and mind, as we learn from the Bible of what God is like, we look after one another in community and reach out to those around us and tell them about Jesus.
-    </div>
-</section>
-
-
+{% include bio.html role_type="student_worker" %}

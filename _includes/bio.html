@@ -1,0 +1,16 @@
+
+{% assign people_to_render = site.people | where_exp: "person", "person.roles contains include.role_type" | sort: "order" %}
+{{ include.type }}
+{% for person in people_to_render %}
+
+<section class="bio">
+<div class="photo">
+    <img src="/assets/headshots/{{ person.headshot }}"/>
+</div>
+    <h1>{{ person.name }} - {{ person.title_role }}</h1>
+    <div class="text">
+    {{ person.content }}
+    </div>
+</section>
+
+{% endfor %}

@@ -18,34 +18,22 @@ layout: default
   </div>
 </section>
 
-<section class="info-panel dark image-right">
-  <div class="text"><h1>Speaking of Jesus</h1>
-    We are a church who seek to engage heart and mind, as we learn from the Bible of what God is like, we look after one another in community and reach out to those around us and tell them about Jesus.
-  </div>
-  <div class="photo">
-    <img src="/assets/images/bella_bible_study_cropped.jpg"/>
-  </div>
-</section>
+{% assign about_us_sections = site.about_us | sort: "order" %}
 
-<section class="info-panel full-bleed" responsive-background-image>
-  <div class="photo">
-    <img src="/assets/images/von_cropped.jpg"/>
+{% for section in about_us_sections %}
+{% assign extra_attribute = "" %}
+{% if section.style_classes contains "full-bleed" %}
+  {% assign extra_attribute = "responsive-background-image" %}
+{% endif %}
+<section class="info-panel {{ section.style_classes | join: " " }}" {{ extra_attribute }}>
+  <div class="text"><h1>{{ section.title }}</h1>
+    {{ section.content }}
   </div>
-  <div class="text">
-    <h1>Growing Together</h1>
-    We are a church who seek to engage heart and mind, as we learn from the Bible of what God is like, we look after one another in community and reach out to those around us and tell them about Jesus.
+  <div class="photo">
+    <img src="{{ section.image }}"/>
   </div>
 </section>
-
-<section class="info-panel fancy-overlay">
-  <div class="photo">
-    <img src="/assets/images/von_cropped.jpg"/>
-  </div>
-  <div class="text">
-    <h1>Serving Our City</h1>
-    We are a church who seek to engage heart and mind, as we learn from the Bible of what God is like, we look after one another in community and reach out to those around us and tell them about Jesus.
-  </div>
-</section>
+{% endfor %}
 
 {% assign staff = site.people | where: "type", "staff" | sort: "order" %}
 <section class="highlight">

@@ -1,7 +1,7 @@
-
+{% assign page = site.pages | where: "path","music_resources.md" | first %}
 <section>
-<h1>Resources</h1>
-<p>Some blurb about music resources.</p>
+<h1>{{ page.title }}</h1>
+<p>{{ page.content }}</p>
 {% for resource in site.music_resources %}
 
 <div class="music-resource">

@@ -1,0 +1,12 @@
+{% assign extra_attribute = "" %}
+{% if include.style_classes contains "full-bleed" %}
+  {% assign extra_attribute = "responsive-background-image" %}
+{% endif %}
+<section class="info-panel {{ section.style_classes | join: " " }}" {{ extra_attribute }}>
+  <div class="text"><h1>{{ include.title }}</h1>
+    {{ include.content }}
+  </div>
+  <div class="photo">
+    <img src="{{ include.image }}"/>
+  </div>
+</section>

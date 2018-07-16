@@ -1,17 +1,25 @@
 ---
 layout: default
 ---
-<section class="full-bleed" style="background-image: url({{ page.mainImage }});">
+<section class="hero centred" responsive-background-image>
+  <img class="responsive-background" src="/images/test-1600.jpg"
+    sizes="
+      (min-width: 640px) 100vw,
+      (max-width: 640px) 100vw"
+    srcset="
+      {{ page.mainImage }} 3840w,
+      {{ page.mobileImage }} 2147w" >
   <h1>{{ page.overlayCaption }}</h1>
 </section>
-  
 
-<section id="intro">
-  {{ content }}
+<section id="intro wider">
+  <div>
+    {{ content }}
 
-  <div style="display:none" id="podcast-link">
-    <a href="pcast://{{ page.podcastURL }}"><img src="/assets/images/Listen_on_Apple_Podcasts_sRGB_US.svg"/></a>
-    <a href="http://subscribeonandroid.com/{{ page.podcastURL }}" title="Subscribe on Android"><img src="/assets/images/Subscribe_on_Android.svg" alt="Subscribe on Android" style="border:0;" /></a>
+    <div style="display:none" id="podcast-link">
+      <a href="pcast://{{ page.podcastURL }}"><img src="/assets/images/Listen_on_Apple_Podcasts_sRGB_US.svg"/></a>
+      <a href="http://subscribeonandroid.com/{{ page.podcastURL }}" title="Subscribe on Android"><img src="/assets/images/Subscribe_on_Android.svg" alt="Subscribe on Android" style="border:0;" /></a>
+    </div>
   </div>
 </section>
 
