@@ -1,0 +1,22 @@
+<section class="music-releases">
+  <H1>Our Releases</H1>
+  <p>Some blurb about releases.</p>
+  <div class="music-release-list">
+{% assign releases = site.music_releases | sort: 'date' | reverse %}
+{% for release in releases %}
+<div class="music-release">
+  <img class="music-release-cover" src="{{ release.coverImage }}"/>
+    <h2 class="music-release-title">{{ release.title }}</h2>
+    <div class="music-release-description">{{ release.content }}</div>
+    <div class="music-service-links">
+      {% if release.spotifyLink %}
+      <a class="music-service-link spotify-link" href="{{ release.spotifyLink }}"></a>
+      {% endif %}
+      {% if release.appleMusicLink %}
+      <a class="music-service-link apple-music-link" href="{{ release.appleMusicLink }}"></a>
+      {% endif %}
+    </div>
+</div>
+{% endfor %}
+</div>
+</section>

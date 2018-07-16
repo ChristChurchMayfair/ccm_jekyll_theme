@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<section class="hero" responsive-background-image>
+    <img class="responsive-background" src="/images/test-1600.jpg"
+      sizes="
+        (min-width: 640px) 100vw,
+        (max-width: 640px) 100vw"
+      srcset="
+        {{ page.mainImage }} 3840w,
+        {{ page.mobileImage }} 2147w" >
+    <h1>{{ page.overlayCaption }}</h1>
+  </section>
+  
+  <section class="intro wider">
+    <div class="text">
+      {{ content }}
+    </div>
+  </section>
+
+<a name="releases"></a>
+{%- include music_releases.html -%}
+
+<a name="music_resources"></a>
+{%- include music_resources.html -%}
+
+<a name="music_videos"></a>
+{%- include music_videos.html -%}

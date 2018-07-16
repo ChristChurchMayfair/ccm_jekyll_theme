@@ -1,0 +1,1376 @@
+:root {
+
+  --section-columns: repeat(12, 1fr);
+
+  --logo-height: 60px;
+
+  --hero-height: 55vh;
+  --hero-font-size: 5.6em;
+
+  --general-padding: 16px;
+  --header-vertical-padding: var(--general-padding);
+  
+  --ios-bottom-furniture-padding: 140px; /*This is tuned for iPhone X only!*/
+
+  --next-section-peek: 175px;
+
+  --body-margin: 11vw;
+
+  --menu-button-size: 55px;
+  --header-height: var(--menu-button-size);
+  --nav-height: auto;
+  --footer-height: auto;
+  --button-height: 30px;
+
+  --base-font-size: 22px;
+
+  --standard-shadow: 5px 5px 5px 5px rgba(0,0,0,0.3);
+
+  --dark-colour: rgb(40,50,70);
+  --light-colour: white;
+  --knockout-background-colour: #656565;
+  --header-background-colour: rgba(16,14,40,0.2);
+  /* --header-background-colour: rgba(255,255,255,0.25);
+  --header-background-colour: rgba(255,255,255,0.0); */
+  --navigation-background-colour: rgba(246,246,255, 0.95);
+  /* --button-width: 200px; */
+  --button-colour: var(--dark-colour);
+  --button-text-colour: var(--light-colour);
+  --alternate-tabular-highlight: rgba(16, 14, 40,0.03);
+  --button-push-colour: rgb(200,200,200);
+  --theme-colour: rgba(74,127,197,1);
+  --highlight-colour: rgb(65,150,190);
+
+  --menu-transition-time: 0.2s;
+
+  --beta-banner-colour: rgba(244,66,92,0.5);
+
+  --heading-font: 'Franchise';
+  --body-font: 'Klinic Slab';
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --body-margin: var(--general-padding);
+    --logo-height: 15vw;
+    --hero-height: 55vh;
+    --hero-font-size: 4em;
+  }
+}
+
+@font-face {
+  font-family: 'Klinic Slab';
+  src: url(../fonts/KlinicSlabMedium.otf);
+}
+
+@font-face {
+  font-family: 'Franchise';
+  src: url(../fonts/Franchise-Bold-hinted.ttf);
+}
+
+body:after{
+  content: "Work in Progress";
+  position: fixed;
+  z-index: 3;
+  width: 180;
+  height: 25px;
+  background: var(--beta-banner-colour);
+  top: 40px;
+  left: -35px;
+  text-align: center;
+  font-size: 13px;
+  font-family: Kl;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--light-colour);
+  line-height: 27px;
+  
+  -ms-transform:rotate(-45deg);
+  -webkit-transform:rotate(-45deg);
+  transform:rotate(-45deg);
+}
+
+#viewsizedebug {
+  position: fixed;
+  right:0px;
+  bottom:0;
+  background-color: red;
+  color: white;
+}
+
+body {
+  margin:0;
+  width: 100vw;
+  min-width: 320px;
+  font-family: var(--body-font);
+  font-size: var(--base-font-size);
+  line-height: 1.5;
+  color: var(--dark-colour);
+  display: grid;
+  background-color: var(--light-colour);
+  grid-template-rows: auto var(--footer-height);
+  text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 3em;
+  margin-top: 0.2em;
+  margin-bottom: 0.5em;
+}
+
+a {
+  color: var(--highlight-colour);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+[responsive-background-image] img {
+  display: none;
+}
+
+/* NAVIGATION */
+
+nav {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: calc(100vw - calc(var(--body-margin) * 2));
+  height: var(--nav-height);
+
+  background-color: var(--navigation-background-colour);
+
+  display: grid;
+  visibility: hidden;
+
+  padding-top: var(--header-vertical-padding);
+  padding-bottom: var(--header-vertical-padding);
+
+  grid-template-columns: auto var(--menu-button-size);
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "logo menu-button"
+    "menu-content menu-content";
+  column-gap: 15px;
+  grid-row-gap: 15px;
+  align-items: center;
+  /* overflow: hidden; */
+
+  z-index: 2;
+
+  box-shadow: var(--standard-shadow);
+
+  transition: opacity var(--menu-transition-time);
+  -webkit-transition: opacity var(--menu-transition-time);
+}
+
+nav svg {
+  fill: var(--dark-colour);
+}
+
+.logo svg {
+  height: var(--logo-height);
+}
+
+.logo {
+  display: inline-block;
+  position: relative;
+  transition: transform 0.1s;
+}
+
+.logo svg:hover {
+  transform: scale(1.05);
+}
+
+.logo svg:active {
+  transform: scale(0.9);
+}
+
+nav .logo {
+  grid-area: logo;
+}
+
+nav a {
+  color: var(--dark-colour);
+}
+
+nav #close-menu-icon {
+  width: calc(var(--menu-button-size) - 10px);
+  grid-area: menu-button;
+  justify-content: right;
+  margin: auto;
+  fill: var(--dark-colour);
+  transition: transform, 0.1s;
+}
+
+nav #close-menu-icon:hover {
+  transform: scale(1.1);
+}
+
+nav #close-menu-icon:active {
+  transform: scale(0.9);
+}
+
+#menu-content {
+  font-size: 0.8em;
+  grid-area: menu-content;
+  /* width: calc(100vw - calc(var(--general-padding) * 2)); */
+  justify-items: center;
+
+  margin-top: var(--general-padding);
+
+  display: grid;
+
+  grid-template-columns: 1fr;
+  column-gap: var(--general-padding);
+  row-gap: var(--general-padding);
+}
+
+@media only screen and (min-width: 900px) {
+  #menu-content {
+    grid-column-gap: var(--general-padding);
+    grid-template-columns: auto auto auto auto auto;
+  }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 900px) {
+  #menu-content {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+#menu-content h2 {
+  display: block;
+  font-size: 1.3em;
+  padding: 0;
+  margin: 0;
+  margin-top: var(--general-padding);
+}
+
+#menu-content a {
+  font-size: 1.3em;
+  font-style: normal;
+  display: block;
+  line-height: 1em;
+  height: 1.2em;;
+}
+
+#menu-content a.current {
+  border-bottom-color: var(--light-colour);
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+}
+
+#menu-content a:hover {
+  font-size: 1.3em;
+  font-style: normal;
+  display: block;
+  text-decoration: none;
+  border-bottom-color: var(--light-colour);
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+}
+
+#menu-content a:visited {
+  font-size: 1.3em;
+  font-style: normal;
+}
+
+/* HEADER */
+
+header {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100vw - calc(var(--body-margin) * 2));
+  height: calc(var(--header-height) + 50px);
+
+  padding-top: var(--header-vertical-padding);
+  padding-bottom: var(--header-vertical-padding);
+  padding-left: var(--body-margin);
+  padding-right: var(--body-margin);
+
+  align-content: start;
+  display: grid;
+  background: linear-gradient(var(--header-background-colour), rgba(0,0,0,0));
+}
+
+header.desktop-header {
+  
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  grid-template-areas: "logo menu-content";
+}
+
+header.desktop-header a {
+  color: var(--light-colour);
+}
+
+header.mobile-header {
+  grid-template-columns: auto var(--menu-button-size);
+  column-gap: var(--general-padding);
+  align-items: center;
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  header.mobile-header {
+    display: grid;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header.desktop-header {
+    display: none;
+  }
+}
+
+header .logo {
+  grid-column: 1;
+}
+
+header svg{
+  fill: var(--light-colour);
+}
+
+header #open-menu {
+  grid-column: 2;
+  justify-content: right;
+  margin: auto;
+  transition: transform, 0.1s;
+}
+
+header #open-menu:hover {
+  transform: scale(1.1);
+}
+
+header #open-menu:active {
+  transform: scale(0.9);
+}
+
+header #open-menu svg {
+  width: calc(var(--menu-button-size) - 10px);
+  height: calc(var(--menu-button-size) - 10px);
+}
+
+main {
+  grid-row: 1;
+}
+
+header, nav, footer {
+  padding-left: var(--body-margin);
+  padding-right: var(--body-margin);
+  padding-top: var(--general-padding);
+  padding-bottom: var(--general-padding);
+}
+
+section {
+  padding-top: var(--general-padding);
+  padding-bottom: var(--general-padding);
+
+  display: grid;
+  grid-template-columns: calc(var(--body-margin) - var(--general-padding)) 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr calc(var(--body-margin) - var(--general-padding));
+  grid-template-areas: ". content content content content content content content content content content content content .";
+  grid-column-gap: var(--general-padding);
+
+  background-color: var(--light-colour);
+  border-bottom: 1px;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+  border-color: rgba(0,0,0,0.1);
+  border-style: solid;
+  /* end */
+}
+
+section div {
+  grid-area: content;
+}
+
+section.highlight {
+  background-color: var(--highlight-colour);
+}
+
+@media only screen and (max-width: 768px) {
+  section {
+    grid-template-columns: 0px 1fr 1fr 1fr 1fr 0px;
+  }
+}
+
+#full-page {
+  height: 100vh;
+}
+
+/* Special first one with padding to pull content below the header */
+/* and padding to pull action buttons up so they are not hidden by iOS furniture!*/
+/* section:first-of-type {
+  padding: 0;
+} */
+
+section:first-of-type h1 {
+  align-self: end;
+  margin-bottom: 0px;
+}
+
+section.intro {
+  grid-template-areas: ". content content content content content content . . . . . . ."
+  ". leftbutton leftbutton leftbutton rightbutton rightbutton rightbutton . . . . . . .";
+}
+
+section.intro.wider {
+  grid-template-areas: ". content content content content content content content content content . . . .";
+}
+
+@media screen and (max-width: 768px) {
+  section.intro {
+    grid-template-areas: ". content content content content ."
+    ". leftbutton leftbutton rightbutton rightbutton .";
+  }
+}
+
+.intro .text {
+  grid-area: content;
+  font-size: 1.4em;
+}
+
+@media screen and (max-width: 768px) {
+  .intro .text {
+    font-size: 1em;
+  }
+}
+
+.hero {
+  padding-top: calc(var(--header-height) + calc(var(--header-vertical-padding) * 2) + var(--general-padding));
+  background-size:cover;
+  background-repeat: no-repeat;
+  height: var(--hero-height);
+  grid-template-areas: ". text text text text . . . . . . . . .";
+}
+
+.hero.centred {
+  grid-template-areas: ". . . text text text text text text text text . . .";
+  justify-items: center
+}
+
+.hero h1 {
+  grid-area: text;
+  color: var(--light-colour);
+  font-size: var(--hero-font-size);
+  text-align: left;
+  line-height: 1em;
+  /* position: absolute;
+  /* This is lame and needs fixing! */
+  /* top: calc(var(--hero-height) - calc(var(--hero-font-size) / 3));*/
+  
+}
+
+/* PROMOTIONAL */
+
+.promotion {
+  height: var(--next-section-peek);
+  background-color: var(--highlight-colour);
+  padding: var(--general-padding);
+}
+
+.promotion h1 {
+  font-size: 1.5em;
+}
+
+@media only screen and (min-width: 768px) {
+  .promotion {
+    text-align: center;
+  }
+}
+
+.caption-overlay {
+  grid-area: caption;
+}
+
+@media only screen and (max-width: 768px) {
+  .caption-overlay {
+    display: none;
+  }
+}
+
+.caption-overlay h1 {
+  font-size: 3.5em;
+  color: white;
+  text-align: center;
+}
+
+section p {
+  margin-top: 0px;
+  font-size: 1em;
+  grid-column: 1/-1;
+}
+
+section.music-release {
+  height: 40vh;
+}
+
+.music-resource {
+  display: grid;
+  grid-template-columns: 1fr 1.618fr;
+  grid-template-areas: "title resources";
+  border-width: 1px;
+  border-color: red;
+  border-style: solid;
+}
+
+.music-resource h2 {
+  grid-area: title;
+}
+
+.music-resource .downloads {
+  display: grid;
+  grid-template-columns: auto;
+  border-width: 1px;
+  border-color: blue;
+  border-style: solid;
+}
+
+.music-resource .downloads .download {
+  display: block;
+}
+
+/* SERVICES */
+
+section.services {
+  height: auto;
+  grid-template-areas: ". title title title title title title title title title title title title ."
+  ". left left left left left left right right right right right right .";
+  grid-auto-rows: auto auto;
+  background-color: var(--highlight-colour);
+}
+
+@media only screen and (max-width: 768px) {
+  section.services {
+    grid-template-areas: ". title title title title ."
+    ". left left left left ."
+    ". right right right right .";
+  }
+}
+
+.services>h1 {
+  color: var(--light-colour);
+  padding-bottom: 0.1em;
+  border-width: 0px;
+  border-bottom-width: 2px;
+  border-color: var(--light-colour);
+  border-style: solid;
+}
+
+.service {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas: "image"
+  "title"
+  "time"
+  "info";
+}
+
+.service>h1, .service>h2 {
+  font-family: var(--body-font);
+}
+
+.service>h1 {
+  font-size: 1.5em;
+  color: var(--light-colour);
+  margin-bottom: 0.1em;
+  line-height: 1.1;
+}
+
+.service>h2 {
+  font-size: 1.2em;
+  margin-top: 0.1em;
+  margin-bottom: 0.2em;
+  line-height: 1em;
+}
+
+.service:nth-of-type(1) {
+  grid-area: left;
+}
+
+.service:nth-of-type(2) {
+  grid-area: right;
+}
+
+.services h1 {
+  grid-area: title;
+}
+
+.service .photo {
+    grid-area: image;
+    background: yellow;
+    height: 300px;
+    background-size: cover; /* <-- background size */
+    background-position: center; /* <-- background position */
+
+}
+
+.service .title {
+  grid-area: title;
+}
+
+.service .time {
+  grid-area: time;
+}
+
+.service .info {
+  grid-area: info;
+}
+
+
+footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  color: var(--light-colour);
+  background-color: var(--dark-colour);
+  font-size: 0.7em;
+}
+
+footer div.item {
+  display: inline;
+  margin-bottom: var(--general-padding);
+}
+
+address {
+  font-style: unset;
+  display: inline;
+}
+
+.button {
+  display: block;
+  color: var(--button-text-colour);
+  background-color: var(--button-colour);
+  /* min-width: 100px; */
+  padding-left: var(--general-padding);
+  padding-right: var(--general-padding);
+  height: var(--button-height);
+  padding-top: 4px;
+  padding-bottom: 4px;
+  align-content: center;
+  justify-content: center;
+  font-family: var(--body-font);
+  font-size: 0.8em;
+  text-align: center;
+  text-decoration: none;
+  line-height: var(--button-height);
+  transition: transform 0.05s, background-color 0.05s;
+  -webkit-transition: transform 0.05s, background-color 0.05s;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  text-decoration: none;
+}
+
+.button:active {
+  transform: scale(0.95);
+  background-color: var(--button-push-colour);
+}
+
+.index-top-section-btn:nth-of-type(1) {
+  grid-area: leftbutton;
+}
+
+.index-top-section-btn:nth-of-type(2) {
+  grid-area: rightbutton;
+}
+
+/* ABOUT US */
+
+section.info-panel {
+  height: 70vh;
+  padding: 0;
+}
+
+@media screen and (max-width:768px) {
+  section.info-panel {
+    height:auto;
+  }
+
+  section.info-panel h1 {
+    font-size: 3em;
+  }
+}
+
+section.dark {
+  background-color: var(--dark-colour);
+  color: var(--light-colour);
+}
+
+section.image-right {
+  grid-template-areas: ". text text text text text . image image image image image image image";
+}
+
+@media screen and (max-width:768px) {
+  section.image-right {
+    grid-template-areas: ". text text text text ."
+    "image image image image image image";
+  }
+}
+
+section.fancy-overlay {
+  grid-template-areas: "image image image image image image image text text text text text text .";
+}
+
+@media screen and (max-width:768px) {
+  section.fancy-overlay {
+    grid-template-areas: ". text text text text ."
+    "image image image image image image";
+  }
+}
+
+.info-panel h1 {
+  font-size: 6em;
+  line-height: 1em;
+}
+
+.info-panel .text {
+  grid-area: text;
+}
+
+.info-panel .photo {
+  grid-area: image;
+  display: block;
+  width: 100%;
+  height: 70vh;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+.info-panel .photo img {
+  height: 100%;
+}
+
+section.full-bleed {
+  grid-template-areas: ". text text text text text . . . . . . . .";
+  padding: 0;
+  color: var(--light-colour);
+  background-size: cover;
+}
+
+@media screen and (max-width:768px) {
+  section.full-bleed {
+    grid-template-areas: ". text text text text .";
+  }
+}
+
+.full-bleed .text {
+  grid-area: text;
+}
+
+section.bio {
+  grid-template-areas: ". name name name name name name name name name name name name ."
+  ". photo photo info info info info info info info info info info .";
+  grid-template-rows: auto, 100px;
+}
+
+@media screen and (max-width:768px) {
+  section.bio {
+    grid-template-areas: ". name name name name ."
+    ". photo photo info info .";
+  }
+}
+
+.bio .photo {
+  grid-area: photo;
+  object-fit: cover;
+  height: 200px;
+  overflow: hidden;
+}
+
+.bio .photo img {
+  height: 100%;
+}
+
+.bio .text {
+  grid-area: info;
+}
+
+.bio h1 {
+  grid-area: name;
+}
+
+/* STAFF */
+
+section.staff {
+   background-color: var(--highlight-colour);
+}
+
+section.ministry {
+  grid-auto-rows: 300px;
+  grid-auto-flow: column;
+}
+
+div.person {
+  grid-column: 2 / span 6;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "photo text";
+  grid-column-gap: var(--general-padding);
+  background-color: var(--light-colour);
+}
+
+div.person:nth-last-of-type(1)
+
+div.person:nth-of-type(even) {
+  grid-column: 8 / span 6;
+}
+
+div.person .info {
+  grid-area: text;
+}
+
+div.person img {
+  grid-area: photo;
+  height: 100px;
+}
+
+section.person:nth-of-type(even) {
+  grid-template-areas: "title photo"
+    "bio photo";
+  grid-template-columns: 1.618fr 1fr;
+}
+
+section.person .title {
+  grid-area: title;
+}
+
+section.person img {
+  grid-area: photo;
+  border-radius: 50%;
+  width: 300px;
+}
+
+section.person .bio {
+  grid-area: bio;
+}
+
+section.people {
+  display: grid;
+  grid-column-gap: var(--general-padding);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: "title title title title"
+    ". . . .";
+}
+
+section.people h1 {
+  grid-area: title;
+}
+
+section.people img {
+  grid-area: photo;
+  border-radius: 50%;
+  width: 200px;
+}
+
+/* SERMONS/TALKS */
+
+section.sermons {
+  grid-template-areas: "pg pg pg pg pg pg pg pg pg pg pg pg"
+  "ct ct ct ct ct ct ct ct ct ct ct ct "
+  "pg2 pg2 pg2 pg2 pg2 pg2 pg2 pg2 pg2 pg2 pg2 pg2"
+}
+
+#sermon-series-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 30px;
+}
+
+.sermon-container {
+  grid-area: ct;
+}
+
+#loading {
+  display: none;
+  grid-template-columns: 1 / 12;
+}
+
+#loading svg {
+  width: 100px;
+  height: 100px;
+}
+
+#loading svg path,
+#loading svg rect{
+  fill: var(--highlight-colour);
+}
+
+#loading-error {
+  display: none;
+}
+
+.page-picker {
+  padding-top: calc(var(--general-padding) * 3);
+}
+.page-picker:nth-of-type(1) {
+  grid-area: pg;
+}
+
+.page-picker:nth-of-type(2) {
+  grid-area: pg2;
+}
+
+.pagelink {
+  display: inline-block;
+  width:30px;
+  padding: 2px;
+}
+
+.current-pagelink {
+  /* font-weight: bold; */
+  border: 1px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--highlight-colour);
+}
+
+.sermon-series {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-column-gap: var(--general-padding);
+  grid-template-rows: auto auto;
+  grid-template-areas: "title title"
+    "details details"
+    "image sermons";
+}
+
+.sermon-series:nth-of-type(even) {
+  grid-template-columns: 5fr 1fr;
+  grid-template-areas: "title title"
+    "details details"
+    "sermons image";
+}
+
+.series-heading {
+  grid-area: title;
+}
+
+.series-info {
+  display: none;
+  grid-area: details;
+}
+
+.series-info div {
+  display: none;
+}
+
+.series-graphic {
+  grid-area: image;
+  width: 180px;
+  height: 180px;
+  border-color: var(--dark-colour);
+  border-style: solid;
+  border-width: 1px;
+  background-size: contain;
+  justify-self: center;
+}
+
+.sermon-list {
+  grid-area: sermons;
+  display: grid;
+  grid-template-columns: 1fr;
+  font-size: 0.8em;
+}
+
+.sermon {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 30px;
+  grid-template-rows: 40px;
+  grid-template-areas: "title speaker passage date download";
+  grid-column-gap: var(--general-padding);
+  line-height: 1em;
+  padding: var(--general-padding);
+  height: 30px;
+  justify-content: center;
+
+  align-items: center;
+}
+
+.sermon:nth-of-type(even) {
+  background: var(--alternate-tabular-highlight);
+}
+
+.sermon div {
+  text-align: left;
+}
+
+.sermon-title {
+  grid-area: title;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sermon-speaker {
+  grid-area: speaker;
+  display: inline-block;
+}
+
+.sermon-passage {
+  grid-area: passage;
+  display: inline-block;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sermon-date {
+  grid-area: date;
+  display: inline-block;
+}
+
+.sermon-download {
+  grid-area: download;
+  display: inline-block;
+}
+
+.sermon-download svg{
+  width: 20px;
+  height: 20px;
+}
+
+.sermon-player {
+  grid-area: player;
+  display: none;
+}
+
+@media only screen and (max-width: 1290px) {
+  .sermon {
+    grid-template-columns: 2fr 1fr 1fr 30px;
+    grid-template-areas: "title speaker passage download";
+  }
+
+  .sermon-date {
+    display: none;
+  }
+}
+
+@media only screen  and (max-width: 1140px) {
+  .sermon {
+    grid-template-columns: 2fr 1fr 30px;
+    grid-template-areas: "title passage download";
+  }
+
+  .sermon-speaker {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 890px) {
+
+  .sermon-series,
+  .sermon-series:nth-of-type(even) {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: var(--general-padding);
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "title"
+      "details "
+      "sermons";
+  }
+
+  .series-graphic {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  .sermon {
+    grid-template-columns: 1fr 30px;
+    grid-template-areas: "title download";
+  }
+
+  .sermon-series h1 {
+    font-size: 1.4em;
+  }
+
+  .sermon-passage {
+    display: none;
+  }  
+}
+
+/* MUSIC RELEASES */
+
+.music-release-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: "title"
+    ". .";
+  grid-row-gap: 100px;
+}
+
+.music-release {
+  display: grid;
+  grid-template-columns: 1fr 1.618fr;
+  grid-column-gap: calc(var(--general-padding) * 3);
+  grid-row-gap: var(--general-padding);
+  grid-template-areas: ". title"
+    "cover details"
+    ". links";
+}
+
+.music-release:nth-of-type(even) {
+  grid-template-columns: 1.618fr 1fr;
+  grid-template-areas: "title ."
+    "details cover"
+    "links .";
+}
+
+.music-service-link  {
+  display:inline-block;
+  overflow:hidden;
+  width:158px;
+  height:45px;
+}
+
+.music-release-cover {
+  grid-area: cover;
+  width: 250px;
+  height: 250px;
+  border-color: var(--dark-colour);
+  border-style: solid;
+  border-width: 1px;
+  justify-self: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.music-release-title {
+  grid-area: title;
+}
+
+.music-service-links {
+  grid-area: links;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "apple-music spotify";
+  grid-column-gap: var(--general-padding);
+}
+
+.spotify-link {
+  grid-area: spotify;
+  background: url(/assets/images/Listen_on_spotify.svg) no-repeat;
+  justify-self: start;
+}
+
+.apple-music-link {
+  grid-area: apple-music;
+  background: url(https://tools.applemusic.com/assets/shared/badges/en-us/music-lrg.svg) no-repeat;
+  justify-self: end;
+}
+
+.music-release-description {
+  grid-area: details;
+}
+
+.music-release-details p {
+  font-size: 0.8em;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+@media only screen and (max-width: 860px) {
+  .music-release,
+  .music-release:nth-of-type(even) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "title"
+      "cover"
+      "links";
+  }
+
+  .music-release-description {
+    display: none;
+  }
+
+  .music-service-link {
+    width:40px;
+    height:40px;
+  }
+
+  .apple-music-link {
+    background: url(https://tools.applemusic.com/embed/v1/app-icon.svg) no-repeat;
+  }
+
+  .spotify-link {
+    background: url(../images/spotify_small.svg) no-repeat;
+  }
+}
+
+/* MUSIC TRAINING VIDEOS */
+
+.music-videos {
+  display: grid;
+  margin-top: var(--general-padding);
+}
+
+.music-video {
+  display: grid;
+  grid-template-columns: 20px auto 20px;
+  grid-template-areas: "index title link";
+  padding: var(--general-padding);
+}
+
+.music-video:nth-of-type(even) {
+  background-color: var(--alternate-tabular-highlight);
+}
+
+.music-video .music-video-index {
+  grid-area: index;
+}
+
+.music-video .music-video-title {
+  grid-area: title;
+}
+
+.music-video .music-video-play-link {
+  grid-area: link;
+}
+
+/* FIND US */
+
+
+
+section.find-us {
+  background-color: var(--dark-colour);
+  grid-template-areas: ". title title title title title title title title title title title title ."
+    ". address address address address address address map map map map map map .";
+}
+
+@media screen and (max-width: 768px) {
+  section.find-us {
+    grid-template-areas: ". title title title title ."
+    ". address address address address .";
+  }
+}
+
+.find-us h1 {
+  color: var(--light-colour);
+  grid-area: title;
+
+  padding-bottom: 0.1em;
+  border-width: 0px;
+  border-bottom-width: 2px;
+  border-color: var(--light-colour);
+  border-style: solid;
+}
+
+.find-us .location {
+  grid-area: address;
+  background-color: var(--light-colour);
+  display: block;
+  padding: var(--general-padding);
+
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto;
+  grid-template-areas: "address"
+  "button";
+}
+
+.find-us .address {
+  font-size: 1.5em;
+}
+
+.location .button {
+  align-self: end;
+  grid-area: button;
+}
+
+.location .address {
+  grid-area: address;
+}
+
+/* @media only screen and (max-width: 768px) {
+  section.find-us {
+    grid-template-columns: 1fr;
+    grid-template-areas: "title"
+      "address"
+      "tube"
+      "directions";
+  }
+} */
+
+section.find-us h1 {
+  grid-area: title;
+}
+
+#address {
+  grid-area: address;
+}
+
+.map {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 0px;
+  grid-area: map;
+}
+
+@media only screen and (max-width: 768px) {
+  .map {
+    display:none;
+  }
+}
+
+.map iframe {
+  width: 100%;
+  height: 50vh;
+  border: 0;
+}
+
+/* FIND OUT MORE */
+
+section.find-out-more {
+  display: grid;
+  grid-template-areas: ". title title title title title title title title title title title title ."
+  ". info info info info info info info info photo photo photo photo .";
+}
+
+@media screen and (max-width: 768px) {
+  section.find-out-more {
+    grid-template-areas: ". title title title title ."
+    ". info info info info .";
+  }
+
+  .find-out-more .photo {
+    display: none;
+  }
+}
+
+.find-out-more h1 {
+  grid-area: title
+}
+
+.find-out-more .info {
+  grid-area: info;
+}
+
+.find-out-more .photo {
+  grid-area: photo;
+}
+
+
+#home p {
+  font-size: 1.4em;
+  line-height: 2em;
+}
+
+#home strong {
+  color: var(--highlight-colour);
+}

@@ -1,0 +1,13 @@
+<section id="services" class="services">
+  <h1>Our Sunday Services</h1>
+  {% for service in services %}
+  <div class="service">
+    <div class="photo" style="background-image: url({{service.image}})"></div>
+    <h1 class="title">{{ service.title }}</h1>
+    <h2 class="time" >{{ service.time}}</h2>
+    <div class="info">
+      {{ service.content }}
+    </div>
+  </div>
+{% endfor %}
+</section>

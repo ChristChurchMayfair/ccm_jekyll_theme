@@ -1,0 +1,75 @@
+---
+layout: default
+---
+
+{% assign events = site.events | where: "status", "live" %}
+
+{% assign services = site.services | where: "type", "service" %}
+
+
+
+<section class="hero" responsive-background-image>
+  <img class="responsive-background" src="/images/test-1600.jpg"
+    sizes="
+      (min-width: 640px) 100vw,
+      (max-width: 640px) 100vw"
+    srcset="
+      {{ page.mainImage }} 3840w,
+      {{ page.mobileImage }} 2147w" >
+  <h1>{{ page.overlayCaption }}</h1>
+</section>
+<section class="intro">
+  <div class="text">
+    {{ content }}
+  </div>
+  <a id="find-us-button" class="button index-top-section-btn" href="#find-us">
+    Find Us
+  </a>
+  <a id="services-button"   class="button index-top-section-btn" href="#services">
+    Our Meetings
+  </a>
+</section>
+
+{%- if events.size > 0 -%}
+{% assign event = events.first %}
+<section class="promotion" style="background-color:{{ event.backgroundColour }}; color: {{event.textColour}};">
+  <h1 >{{ event.overlayCaption }}</h1>
+  <p>&gt;&gt; Find out more &lt;&lt;</p>
+</section>
+{%- endif -%}
+
+{% for event in events %}
+<section class="event-section">
+  <div class="event">
+    <h1>{{ event.name }}</h1>
+    <p>{{ event.content }}</p>
+  </div>
+</section>
+{% endfor %}
+
+{%- include services.html -%}
+
+<section id="midweek" class="info-panel image-right">
+  <div class="photo">
+    <img src="/assets/images/phobe_leading.jpg"/>
+  </div>
+  <div class="text">
+    <h1>Midweek</h1>
+    We are a church who seek to engage heart and mind, as we learn from the Bible of what God is like, we look after one another in community and reach out to those around us and tell them about Jesus.
+  </div>
+</section>
+  
+{%- include find-us.html -%}
+
+
+<section class="bio">
+    <div class="photo">
+      <img src="/assets/headshots/Ali.jpg"/>
+    </div>
+      <h1>Find Out More</h1>
+      <div class="text">
+          The best way to find out more about us is to come along, but if you have any questions get in touch with Sharon our lovely administrator. <a href="mailto:info@christchurchmayfair.org">info@christchurchmayfair.org</a>.
+      </div>
+  </section>
+
+<script src="assets/javascript/maps.js"></script>

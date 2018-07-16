@@ -1,0 +1,14 @@
+<div id="viewsizedebug"></div>
+<script type="text/javascript">
+  function writeViewPortSize() {
+    var viewportwidth;
+    var viewportheight;
+    if (typeof window.innerWidth != 'undefined') {
+      viewportwidth = window.innerWidth;
+      viewportheight = window.innerHeight;
+    }
+    document.getElementById("viewsizedebug").textContent = 'Debug: w:'+viewportwidth+'px ⨉ h:'+viewportheight+'px'; 
+  }
+  window.addEventListener('resize',writeViewPortSize);
+  writeViewPortSize();
+</script>

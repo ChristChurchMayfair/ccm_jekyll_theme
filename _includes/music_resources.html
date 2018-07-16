@@ -1,0 +1,16 @@
+
+<section>
+<h1>Resources</h1>
+<p>Some blurb about music resources.</p>
+{% for resource in site.music_resources %}
+
+<div class="music-resource">
+  <h2>{{ resource.title }}</h2>
+  <div class="downloads">
+  {% for download in resource.downloads %}
+    <a class="download" href="{{ download.link }}">{{ download.title }}</a>
+  {% endfor %}
+  </div>
+</div>
+{% endfor %}
+</section>
