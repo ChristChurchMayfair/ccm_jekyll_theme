@@ -49,7 +49,7 @@
   --body-font: 'Klinic Slab';
 }
 
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   :root {
     --body-margin: var(--general-padding);
     --logo-height: 15vw;
@@ -321,13 +321,13 @@ header.mobile-header {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   header.mobile-header {
     display: grid;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   header.desktop-header {
     display: none;
   }
@@ -429,7 +429,7 @@ section.intro.wider {
   grid-template-areas: ". content content content content content content content content content . . . .";
 }
 
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   section.intro {
     grid-template-areas: ". content content content content ."
     ". leftbutton leftbutton rightbutton rightbutton .";
@@ -441,7 +441,7 @@ section.intro.wider {
   font-size: 1.4em;
 }
 
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .intro .text {
     font-size: 1em;
   }
@@ -694,7 +694,7 @@ section.info-panel {
   padding: 0;
 }
 
-@media screen and (max-width:768px) {
+@media only screen and (max-width:768px) {
   section.info-panel {
     height:auto;
   }
@@ -713,7 +713,7 @@ section.image-right {
   grid-template-areas: ". text text text text text . image image image image image image image";
 }
 
-@media screen and (max-width:768px) {
+@media only screen and (max-width:768px) {
   section.image-right {
     grid-template-areas: ". text text text text ."
     "image image image image image image";
@@ -724,7 +724,7 @@ section.fancy-overlay {
   grid-template-areas: "image image image image image image image text text text text text text .";
 }
 
-@media screen and (max-width:768px) {
+@media only screen and (max-width:768px) {
   section.fancy-overlay {
     grid-template-areas: ". text text text text ."
     "image image image image image image";
@@ -760,7 +760,7 @@ section.full-bleed {
   background-size: cover;
 }
 
-@media screen and (max-width:768px) {
+@media only screen and (max-width:768px) {
   section.full-bleed {
     grid-template-areas: ". text text text text .";
   }
@@ -776,7 +776,7 @@ section.bio {
   grid-template-rows: auto, 100px;
 }
 
-@media screen and (max-width:768px) {
+@media only screen and (max-width:768px) {
   section.bio {
     grid-template-areas: ". name name name name ."
     ". photo photo info info .";
@@ -1253,7 +1253,7 @@ section.find-us {
     ". address address address address address address map map map map map map .";
 }
 
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   section.find-us {
     grid-template-areas: ". title title title title ."
     ". address address address address .";
@@ -1342,7 +1342,7 @@ section.find-out-more {
   ". info info info info info info info info photo photo photo photo .";
 }
 
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   section.find-out-more {
     grid-template-areas: ". title title title title ."
     ". info info info info .";
