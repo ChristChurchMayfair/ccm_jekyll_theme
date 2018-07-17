@@ -118,7 +118,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 4em;
   margin-top: 0.2em;
   margin-bottom: 0.5em;
 }
@@ -690,8 +690,8 @@ address {
 /* ABOUT US */
 
 section.info-panel {
-  height: 70vh;
   padding: 0;
+  height: 90vh;
 }
 
 @media only screen and (max-width:968px) {
@@ -744,7 +744,7 @@ section.fancy-overlay {
   grid-area: image;
   display: block;
   width: 100%;
-  height: 70vh;
+  height: 100%;
   object-fit: contain;
   overflow: hidden;
 }
@@ -754,10 +754,12 @@ section.fancy-overlay {
 }
 
 section.full-bleed {
-  grid-template-areas: ". text text text text text . . . . . . . .";
+  grid-template-areas: ". text text text text text text text . . . . . .";
   padding: 0;
   color: var(--light-colour);
   background-size: cover;
+  background-color: rgb(150,150,150);
+  background-blend-mode: multiply;
 }
 
 @media only screen and (max-width:968px) {
@@ -1250,13 +1252,16 @@ section.sermons {
 section.find-us {
   background-color: var(--dark-colour);
   grid-template-areas: ". title title title title title title title title title title title title ."
-    ". address address address address address address map map map map map map .";
+    ". address address address address address address map map map map map map ."
+    ". button button button button button button map map map map map map .";
 }
 
 @media only screen and (max-width: 968px) {
   section.find-us {
     grid-template-areas: ". title title title title ."
-    ". address address address address .";
+    ". address address address address ."
+    ". button button button button ."
+    "map map map map map map";
   }
 }
 
@@ -1276,36 +1281,32 @@ section.find-us {
   background-color: var(--light-colour);
   display: block;
   padding: var(--general-padding);
+  margin-bottom: var(--general-padding);
+
+  font-size: 1.4em;
 
   display: grid;
+  grid-gap: var(--general-padding);
   grid-template-rows: auto auto;
-  grid-template-columns: auto;
-  grid-template-areas: "address"
-  "button";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "pin address address address address address "
+  "roundel tube tube tube tube tube";
 }
 
-.find-us .address {
-  font-size: 1.5em;
-}
-
-.location .button {
-  align-self: end;
-  grid-area: button;
-}
-
-.location .address {
+.find-us .location .address {
   grid-area: address;
 }
 
-/* @media only screen and (max-width: 968px) {
-  section.find-us {
-    grid-template-columns: 1fr;
-    grid-template-areas: "title"
-      "address"
-      "tube"
-      "directions";
-  }
-} */
+.find-us .location .tube-stations {
+  grid-area: tube;
+}
+
+.find-us .button {
+  align-self: end;
+  grid-area: button;
+  color: var(--dark-colour);
+  background-color: var(--light-colour);
+}
 
 section.find-us h1 {
   grid-area: title;
@@ -1320,12 +1321,6 @@ section.find-us h1 {
   margin-right: 0px;
   padding: 0px;
   grid-area: map;
-}
-
-@media only screen and (max-width: 968px) {
-  .map {
-    display:none;
-  }
 }
 
 .map iframe {

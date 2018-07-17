@@ -5,15 +5,18 @@ layout: default
 {% assign events = site.events | where: "status", "live" %}
 
 {% assign services = site.services | where: "type", "service" %}
+<style>
+  section.hero {
+      background-image: url('{{ page.mobileImage }}'); 
+  }
 
-<section class="hero" responsive-background-image>
-  <img class="responsive-background" src="/images/test-1600.jpg"
-    sizes="
-      (min-width: 640px) 100vw,
-      (max-width: 640px) 100vw"
-    srcset="
-      {{ page.mainImage }} 3840w,
-      {{ page.mobileImage }} 2147w" >
+  @media (min-width: 968px) { 
+    section.hero {   
+          background-image: url('{{ page.mainImage }}');
+      }
+  }
+</style>
+<section class="hero">
   <h1>{{ page.overlayCaption }}</h1>
 </section>
 <section class="intro">
@@ -55,7 +58,7 @@ layout: default
   </div>
   <div class="text">
     <h1>{{midweek.title}}</h1>
-    {{ midweek.content }}
+    {{ midweek.content | markdownify }}
   </div>
 </section>
   

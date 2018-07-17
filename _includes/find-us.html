@@ -1,14 +1,21 @@
 <section id="find-us" class="find-us">
   <h1>Find Us</h1>
   <div class="location">
+    <svg class="pin">
+
+    </svg>
     <div class="address">
-        {{ site.church_address }}
-        {% for tube_station in site.nearest_tube_stations %}
-        {{ tube_station }}
-        {%endfor%}
+      {{ site.church_address | join: " <br/>"}}
     </div>
-    <a id="directions-button" class="button" href="#">Directions</a>
+    <svg class="roundel">
+      
+    </svg>
+    <div class="tube-stations">
+      Nearest tube stations:<br/>
+      {{ site.nearest_tube_stations | join: " or " }}
+    </div>
   </div>
+  <a id="directions-button" class="button" href="#">Get Directions</a>
   <div class="map">
     <iframe
       frameborder="0" style="border:0"
