@@ -49,7 +49,7 @@
   --body-font: 'Klinic Slab';
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 968px) {
   :root {
     --body-margin: var(--general-padding);
     --logo-height: 15vw;
@@ -321,13 +321,13 @@ header.mobile-header {
   display: none;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 968px) {
   header.mobile-header {
     display: grid;
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 968px) {
   header.desktop-header {
     display: none;
   }
@@ -399,7 +399,7 @@ section.highlight {
   background-color: var(--highlight-colour);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 968px) {
   section {
     grid-template-columns: 0px 1fr 1fr 1fr 1fr 0px;
   }
@@ -429,7 +429,7 @@ section.intro.wider {
   grid-template-areas: ". content content content content content content content content content . . . .";
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 968px) {
   section.intro {
     grid-template-areas: ". content content content content ."
     ". leftbutton leftbutton rightbutton rightbutton .";
@@ -441,7 +441,7 @@ section.intro.wider {
   font-size: 1.4em;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 968px) {
   .intro .text {
     font-size: 1em;
   }
@@ -484,7 +484,7 @@ section.intro.wider {
   font-size: 1.5em;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 968px) {
   .promotion {
     text-align: center;
   }
@@ -494,7 +494,7 @@ section.intro.wider {
   grid-area: caption;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 968px) {
   .caption-overlay {
     display: none;
   }
@@ -551,7 +551,7 @@ section.services {
   background-color: var(--highlight-colour);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 968px) {
   section.services {
     grid-template-areas: ". title title title title ."
     ". left left left left ."
@@ -694,7 +694,7 @@ section.info-panel {
   padding: 0;
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width:968px) {
   section.info-panel {
     height:auto;
   }
@@ -713,7 +713,7 @@ section.image-right {
   grid-template-areas: ". text text text text text . image image image image image image image";
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width:968px) {
   section.image-right {
     grid-template-areas: ". text text text text ."
     "image image image image image image";
@@ -724,7 +724,7 @@ section.fancy-overlay {
   grid-template-areas: "image image image image image image image text text text text text text .";
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width:968px) {
   section.fancy-overlay {
     grid-template-areas: ". text text text text ."
     "image image image image image image";
@@ -760,7 +760,7 @@ section.full-bleed {
   background-size: cover;
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width:968px) {
   section.full-bleed {
     grid-template-areas: ". text text text text .";
   }
@@ -776,7 +776,7 @@ section.bio {
   grid-template-rows: auto, 100px;
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width:968px) {
   section.bio {
     grid-template-areas: ". name name name name ."
     ". photo photo info info .";
@@ -1088,7 +1088,7 @@ section.sermons {
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 968px) {
 
   .sermon {
     grid-template-columns: 1fr 30px;
@@ -1253,7 +1253,7 @@ section.find-us {
     ". address address address address address address map map map map map map .";
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 968px) {
   section.find-us {
     grid-template-areas: ". title title title title ."
     ". address address address address .";
@@ -1297,7 +1297,7 @@ section.find-us {
   grid-area: address;
 }
 
-/* @media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 968px) {
   section.find-us {
     grid-template-columns: 1fr;
     grid-template-areas: "title"
@@ -1322,7 +1322,7 @@ section.find-us h1 {
   grid-area: map;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 968px) {
   .map {
     display:none;
   }
@@ -1342,7 +1342,7 @@ section.find-out-more {
   ". info info info info info info info info photo photo photo photo .";
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 968px) {
   section.find-out-more {
     grid-template-areas: ". title title title title ."
     ". info info info info .";
