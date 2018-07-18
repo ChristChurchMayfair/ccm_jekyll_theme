@@ -10,14 +10,22 @@ layout: default
     {{ extra.content }}
   </div>
   <div class="photo">
-  <img src="{{ extra.image }}"/>
-</div>
+    <picture>
+        <source srcset="{{ extra.mainImage }}" media="(min-width: 968px)" />
+        <img src="{{ extra.mobileImage }}" />
+    </picture>
+  </div>
 </section>
 
 {% assign littlelambs = site.pages | where: "path","littlelambs.md" | first %}
 
-<section class="info-panel full-bleed" responsive-background-image>
-  <img src="{{littlelambs.image}}"/>
+<section class="info-panel full-bleed darken" responsive-background-image>
+  <div class="photo">
+    <picture>
+        <source srcset="{{ littlelambs.mainImage }}" media="(min-width: 968px)" />
+        <img src="{{ littlelambs.mobileImage }}" />
+    </picture>
+  </div>
   <div class="text">
     <h1>{{littlelambs.title}}</h1>
     {{ littlelambs.content }}

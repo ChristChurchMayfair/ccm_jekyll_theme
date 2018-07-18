@@ -7,6 +7,9 @@
     {{ include.content }}
   </div>
   <div class="photo">
-    <img src="{{ include.image }}"/>
+      <picture>
+          <source srcset="{{ include.mainImage }}" media="(min-width: 968px)" />
+          <img src="{{ include.mobileImage }}" />
+      </picture>
   </div>
 </section>

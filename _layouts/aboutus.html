@@ -16,29 +16,34 @@ layout: default
     {{ section.content }}
   </div>
   <div class="photo">
-    <img src="{{ section.image }}"/>
+    <picture>
+        <source srcset="{{ section.mainImage }}" media="(min-width: 968px)" />
+        <img src="{{ section.mobileImage }}" />
+    </picture>
   </div>
 </section>
 {% endfor %}
 
-{% assign staff = site.people | where: "type", "staff" | sort: "order" %}
+{% assign staff = site.people | where_exp: "person", "person.roles contains 'staff'" | sort: "order" %}
+
 <section class="highlight">
   <div>
   <h1>Ministry Team</h1>
-  Lorem ipsum dolor sit amet, sea ne nibh facilisi aliquando. Id his cibo ludus fastidii. Pro ad homero insolens cu.
   </div>
 </section>
 
 <section class="staff ministry">
-{% for person in staff %}
-  <div id="{{ person.name | replace: " ", "_" }}" class="person ministry">
-    <div class="info">
-      <h1>{{ person.name }}</h1>
-      <p class="role">{{ person.role }}</p>
-      <a class="email" href="mailto:{{ person.email }}">Email</a>
-    <div class="bio">{{ person.content }}</div>
+  <div class="people">
+      {% for person in staff %}
+    <div id="{{ person.name | replace: " ", "_" }}" class="person">
+      <div class="info">
+        <h1>{{ person.name }}</h1>
+        <p class="role">{{ person.role }}</p>
+        <a class="email" href="mailto:{{ person.email }}">Email</a>
+      <div class="bio">{{ person.content }}</div>
+      </div>
+      <img src="assets/headshots/{{person.headshot}}">
     </div>
-    <img src="assets/headshots/{{person.headshot}}">
-  </div>
   {% endfor %}
+  </div>
 </section>

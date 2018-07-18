@@ -1,17 +1,9 @@
-<style>
-    section.hero {
-        background-image: url('{{ include.mobileImage }}'); 
-    }
-    
-    @media (min-width: 968px) { 
-        section.hero {   
-            background-image: url('{{ include.mainImage }}');
-        }
-    }
-</style>
-
-<section class="hero {{include.textClass}}">
+<section class="hero {{include.textClass}}" responsive-background-image>
     <h1>{{ include.overlayCaption }}</h1>
+    <picture>
+        <source srcset="{{ include.mainImage }}" media="(min-width: 968px)" />
+        <img src="{{ include.mobileImage }}" />
+    </picture>
 </section>
 
 <section class="intro wider">

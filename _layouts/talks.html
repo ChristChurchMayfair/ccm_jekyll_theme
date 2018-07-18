@@ -2,14 +2,11 @@
 layout: default
 ---
 <section class="hero centred" responsive-background-image>
-  <img class="responsive-background" src="/images/test-1600.jpg"
-    sizes="
-      (min-width: 640px) 100vw,
-      (max-width: 640px) 100vw"
-    srcset="
-      {{ page.mainImage }} 3840w,
-      {{ page.mobileImage }} 2147w" >
-  <h1>{{ page.overlayCaption }}</h1>
+    <h1>{{ page.overlayCaption }}</h1>
+    <picture>
+        <source srcset="{{ page.mainImage }}" media="(min-width: 968px)" />
+        <img src="{{ page.mobileImage }}" />
+    </picture>
 </section>
 
 <section id="intro wider">

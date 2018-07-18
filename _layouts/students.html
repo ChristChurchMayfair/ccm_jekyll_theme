@@ -11,8 +11,11 @@ layout: default
     {{ extra.content }}
   </div>
   <div class="photo">
-  <img src="{{ extra.image }}"/>
-</div>
+      <picture>
+          <source srcset="{{ extra.mainImage }}" media="(min-width: 968px)" />
+          <img src="{{ extra.mobileImage }}" />
+      </picture>
+  </div>
 </section>
 
 {% include bio.html role_type="student_worker" %}

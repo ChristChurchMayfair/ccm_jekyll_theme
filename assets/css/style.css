@@ -16,6 +16,9 @@
 
   --body-margin: 11vw;
 
+  --info-section-height: 90vh;
+  --person-height: 40vh;
+
   --menu-button-size: 55px;
   --header-height: var(--menu-button-size);
   --nav-height: auto;
@@ -30,10 +33,10 @@
   --light-colour: white;
   --knockout-background-colour: #656565;
   --header-background-colour: rgba(16,14,40,0.2);
-  /* --header-background-colour: rgba(255,255,255,0.25);
-  --header-background-colour: rgba(255,255,255,0.0); */
+  --multiply-colour: rgb(150,150,150);
+
   --navigation-background-colour: rgba(246,246,255, 0.95);
-  /* --button-width: 200px; */
+
   --button-colour: var(--dark-colour);
   --button-text-colour: var(--light-colour);
   --alternate-tabular-highlight: rgba(16, 14, 40,0.03);
@@ -132,7 +135,7 @@ a:hover {
   text-decoration: underline;
 }
 
-[responsive-background-image] img {
+[responsive-background-image] picture, [responsive-background-image] img {
   display: none;
 }
 
@@ -391,7 +394,7 @@ section {
   /* end */
 }
 
-section div {
+section>div {
   grid-area: content;
 }
 
@@ -691,7 +694,7 @@ address {
 
 section.info-panel {
   padding: 0;
-  height: 90vh;
+  height: var(--info-section-height);
 }
 
 @media only screen and (max-width:968px) {
@@ -747,10 +750,16 @@ section.fancy-overlay {
   height: 100%;
   object-fit: contain;
   overflow: hidden;
+  height: var(--info-section-height); 
 }
 
-.info-panel .photo img {
+.info-panel .photo img, .info-panel .photo picture {
   height: 100%;
+}
+
+.darken {
+  background-color: var(--multiply-colour);
+  background-blend-mode: multiply;
 }
 
 section.full-bleed {
@@ -758,8 +767,6 @@ section.full-bleed {
   padding: 0;
   color: var(--light-colour);
   background-size: cover;
-  background-color: rgb(150,150,150);
-  background-blend-mode: multiply;
 }
 
 @media only screen and (max-width:968px) {
@@ -773,14 +780,14 @@ section.full-bleed {
 }
 
 section.bio {
-  grid-template-areas: ". name name name name name name name name name name name name ."
+  grid-template-areas: ". name name name name name name title title title title title title ."
   ". photo photo info info info info info info info info info info .";
   grid-template-rows: auto, 100px;
 }
 
 @media only screen and (max-width:968px) {
   section.bio {
-    grid-template-areas: ". name name name name ."
+    grid-template-areas: ". name name title title ."
     ". photo photo info info .";
   }
 }
@@ -800,8 +807,12 @@ section.bio {
   grid-area: info;
 }
 
-.bio h1 {
+.bio h2 {
   grid-area: name;
+}
+
+.bio h3 {
+  grid-area: title;
 }
 
 /* STAFF */
@@ -810,36 +821,46 @@ section.staff {
    background-color: var(--highlight-colour);
 }
 
-section.ministry {
-  grid-auto-rows: 300px;
-  grid-auto-flow: column;
+.staff.ministry .people {
+  grid-area: content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-column-gap: var(--general-padding);
+  grid-row-gap: var(--general-padding);
+  grid-auto-flow: row;
+}
+
+@media only screen and (max-width:968px) {
+  .staff.ministry .people {
+    grid-template-columns: 1fr;
+  }
 }
 
 div.person {
-  grid-column: 2 / span 6;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "photo text";
   grid-column-gap: var(--general-padding);
   background-color: var(--light-colour);
-}
-
-div.person:nth-last-of-type(1)
-
-div.person:nth-of-type(even) {
-  grid-column: 8 / span 6;
+  height: var(--person-height);
 }
 
 div.person .info {
   grid-area: text;
+  overflow: hidden;
+}
+
+div.person .info h1{
+  font-size: 2.4em;
 }
 
 div.person img {
   grid-area: photo;
-  height: 100px;
+  height: var(--person-height);
 }
 
-section.person:nth-of-type(even) {
+/* section.person:nth-of-type(even) {
   grid-template-areas: "title photo"
     "bio photo";
   grid-template-columns: 1.618fr 1fr;
@@ -876,7 +897,7 @@ section.people img {
   grid-area: photo;
   border-radius: 50%;
   width: 200px;
-}
+} */
 
 /* SERMONS/TALKS */
 
@@ -1110,10 +1131,8 @@ section.sermons {
 
 .music-release-list {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto;
-  grid-template-areas: "title"
-    ". .";
   grid-row-gap: 100px;
 }
 
@@ -1122,29 +1141,29 @@ section.sermons {
   grid-template-columns: 1fr 1.618fr;
   grid-column-gap: calc(var(--general-padding) * 3);
   grid-row-gap: var(--general-padding);
-  grid-template-areas: ". title"
-    "cover details"
-    ". links";
+  grid-template-areas: "title"
+    "cover"
+    "links";
 }
 
 .music-release:nth-of-type(even) {
   grid-template-columns: 1.618fr 1fr;
-  grid-template-areas: "title ."
-    "details cover"
-    "links .";
+  grid-template-areas: "title"
+    "cover"
+    "links";
 }
 
 .music-service-link  {
   display:inline-block;
   overflow:hidden;
-  width:158px;
-  height:45px;
+  width:100px;
+  height:30px;
 }
 
 .music-release-cover {
   grid-area: cover;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   border-color: var(--dark-colour);
   border-style: solid;
   border-width: 1px;
