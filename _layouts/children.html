@@ -3,16 +3,16 @@ layout: default
 ---
 {% include hero_and_intro.html content=content overlayCaption=page.overlayCaption mainImage=page.mainImage mobileImage=page.mobileImage textClass="centred vertical-centred"%}
 
-{% assign extra = site.pages | where: "path","extra_childrens_section.md" | first %}
+{% assign youth = site.pages | where: "path","youth_at_ccm.md" | first %}
 
 <section class="info-panel dark image-right">
-  <div class="text"><h1>{{extra.title}}</h1>
-    {{ extra.content }}
+  <div class="text"><h1>{{youth.title}}</h1>
+    {{ youth.content }}
   </div>
-  <div class="photo {{ extra.image_alignment_classes | join: " " }}" responsive-background-image>
+  <div class="photo {{ youth.image_alignment_classes | join: " " }}" responsive-background-image>
     <picture>
-        <source srcset="{{ extra.mainImage }}" media="(min-width: 968px)" />
-        <img src="{{ extra.mobileImage }}" />
+        <source srcset="{{ youth.mainImage }}" media="(min-width: 968px)" />
+        <img src="{{ youth.mobileImage }}" />
     </picture>
   </div>
 </section>
