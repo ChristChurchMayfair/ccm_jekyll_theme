@@ -188,14 +188,6 @@ nav svg {
   transition: transform 0.1s;
 }
 
-.logo svg:hover {
-  transform: scale(1.05);
-}
-
-.logo svg:active {
-  transform: scale(0.9);
-}
-
 nav .logo {
   grid-area: logo;
 }
@@ -211,14 +203,6 @@ nav #close-menu-icon {
   margin: auto;
   fill: var(--dark-colour);
   transition: transform, 0.1s;
-}
-
-nav #close-menu-icon:hover {
-  transform: scale(1.1);
-}
-
-nav #close-menu-icon:active {
-  transform: scale(0.9);
 }
 
 #menu-content {
@@ -349,14 +333,6 @@ header #open-menu {
   justify-content: right;
   margin: auto;
   transition: transform, 0.1s;
-}
-
-header #open-menu:hover {
-  transform: scale(1.1);
-}
-
-header #open-menu:active {
-  transform: scale(0.9);
 }
 
 header #open-menu svg {
@@ -675,16 +651,6 @@ address {
   line-height: var(--button-height);
   transition: transform 0.05s, background-color 0.05s;
   -webkit-transition: transform 0.05s, background-color 0.05s;
-}
-
-.button:hover {
-  transform: scale(1.05);
-  text-decoration: none;
-}
-
-.button:active {
-  transform: scale(0.95);
-  background-color: var(--button-push-colour);
 }
 
 .index-top-section-btn:nth-of-type(1) {
