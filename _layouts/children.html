@@ -9,7 +9,7 @@ layout: default
   <div class="text"><h1>{{extra.title}}</h1>
     {{ extra.content }}
   </div>
-  <div class="photo">
+  <div class="photo {{ extra.image_alignment_classes | join: " " }}" responsive-background-image>
     <picture>
         <source srcset="{{ extra.mainImage }}" media="(min-width: 968px)" />
         <img src="{{ extra.mobileImage }}" />
@@ -20,7 +20,7 @@ layout: default
 {% assign littlelambs = site.pages | where: "path","littlelambs.md" | first %}
 
 <section class="info-panel full-bleed darken" responsive-background-image>
-  <div class="photo">
+  <div class="photo {{ littlelambs.image_alignment_classes | join: " " }}">
     <picture>
         <source srcset="{{ littlelambs.mainImage }}" media="(min-width: 968px)" />
         <img src="{{ littlelambs.mobileImage }}" />

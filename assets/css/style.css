@@ -789,7 +789,7 @@ section.image-right {
   }
 }
 
-section.fancy-overlay {
+section.image-left {
   grid-template-areas: "image image image image image image image text text text text text text .";
 }
 
@@ -816,9 +816,22 @@ section.fancy-overlay {
   display: block;
   width: 100%;
   /*height: 100%;*/
-  object-fit: cover;
+  /* object-fit: cover; */
   overflow: hidden;
-  height: auto; 
+  height: auto;
+  background-size: cover;
+}
+
+.photo.right {
+  background-position: right;
+}
+
+.photo.left {
+  background-position: left;
+}
+
+.photo.centre {
+  background-position: center;
 }
 
 .info-panel .photo img, .info-panel .photo picture {

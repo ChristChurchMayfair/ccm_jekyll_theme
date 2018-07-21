@@ -15,7 +15,7 @@ layout: default
   <div class="text"><h1>{{ section.title }}</h1>
     {{ section.content }}
   </div>
-  <div class="photo">
+  <div class="photo {{ section.image_alignment_classes | join: " " }}" responsive-background-image>
     <picture>
         <source srcset="{{ section.mainImage }}" media="(min-width: 968px)" />
         <img src="{{ section.mobileImage }}" />
