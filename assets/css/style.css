@@ -2,12 +2,12 @@
 
   --section-columns: repeat(12, 1fr);
 
-  --logo-height: 60px;
+  --logo-height: 50px;
 
   --hero-height: 55vh;
   --hero-font-size: 5.6em;
 
-  --general-padding: 16px;
+  --general-padding: 32px;
   --header-vertical-padding: var(--general-padding);
   
   --ios-bottom-furniture-padding: 140px; /*This is tuned for iPhone X only!*/
@@ -16,7 +16,7 @@
 
   --body-margin: 11vw;
 
-  --info-section-height: 90vh;
+  --info-section-height: 42.5em;
   --person-height: 40vh;
 
   --menu-button-size: 55px;
@@ -42,7 +42,7 @@
   --alternate-tabular-highlight: rgba(16, 14, 40,0.03);
   --button-push-colour: rgb(200,200,200);
   --theme-colour: rgba(74,127,197,1);
-  --highlight-colour: rgb(65,150,190);
+  --highlight-colour: rgb(78,167,203);
 
   --menu-transition-time: 0.2s;
 
@@ -63,12 +63,64 @@
 
 @font-face {
   font-family: 'Klinic Slab';
+  font-style: normal;
+  font-weight: normal;
   src: url(../fonts/KlinicSlabMedium.otf);
+}
+
+@font-face {
+  font-family: 'Klinic Slab';
+  font-style: italic;
+  font-weight: normal;
+  src: url(../fonts/KlinicSlabMediumIt.otf);
+}
+
+@font-face {
+  font-family: 'Klinic Slab';
+  font-style: normal;
+  font-weight: bold;
+  src: url(../fonts/KlinicSlabBold.otf);
+}
+
+@font-face {
+  font-family: 'Klinic Slab';
+  font-style: italic;
+  font-weight: bold;
+  src: url(../fonts/KlinicSlabBoldIt.otf);
+}
+
+@font-face {
+  font-family: 'Klinic Slab';
+  font-style: normal;
+  font-weight: 300;
+  src: url(../fonts/KlinicSlabBook.otf);
+}
+
+@font-face {
+  font-family: 'Klinic Slab';
+  font-style: italic;
+  font-weight: 300;
+  src: url(../fonts/KlinicSlabBookIt.otf);
+}
+
+@font-face {
+  font-family: 'Klinic Slab';
+  font-style: normal;
+  font-weight: 200;
+  src: url(../fonts/KlinicSlabLight.otf);
+}
+
+@font-face {
+  font-family: 'Klinic Slab';
+  font-style: italic;
+  font-weight: 200;
+  src: url(../fonts/KlinicSlabLightIt.otf);
 }
 
 @font-face {
   font-family: 'Franchise';
   src: url(../fonts/Franchise-Bold-hinted.ttf);
+
 }
 
 body:after{
@@ -107,6 +159,7 @@ body {
   min-width: 320px;
   font-family: var(--body-font);
   font-size: var(--base-font-size);
+  font-weight: normal;
   line-height: 1.5;
   color: var(--dark-colour);
   display: grid;
@@ -124,6 +177,13 @@ h1 {
   font-size: 4em;
   margin-top: 0.2em;
   margin-bottom: 0.5em;
+  line-height: 1.5em;
+}
+
+@media only screen and (max-width:968px) {
+  h1 {
+    line-height: 0.9;
+  }
 }
 
 a {
@@ -180,6 +240,13 @@ nav svg {
 
 .logo svg {
   height: var(--logo-height);
+  max-height: 60px;
+}
+
+@media only screen and (max-width: 968px) {
+  .logo svg {
+  min-height: 60px;
+  }
 }
 
 .logo {
@@ -211,7 +278,7 @@ nav #close-menu-icon {
   /* width: calc(100vw - calc(var(--general-padding) * 2)); */
   justify-items: center;
 
-  margin-top: var(--general-padding);
+  margin-top: calc(var(--general-padding)/2);
 
   display: grid;
 
@@ -376,7 +443,7 @@ section.vertical-centred h1 {
 
 section.vertical-bottom h1 {
   align-self: end;
-  margin-bottom: 0px;
+  margin-bottom: -20px;
 }
 
 section>div {
@@ -405,8 +472,15 @@ section.highlight {
 
 
 section.intro {
-  grid-template-areas: ". content content content content content content . . . . . . ."
+  grid-template-areas: ". content content content content content content content . . . . . ."
   ". leftbutton leftbutton leftbutton rightbutton rightbutton rightbutton . . . . . . .";
+  padding: 40px 0px;
+}
+
+@media only screen and (max-width: 968px) {
+  section.intro {
+    padding: 20px 0px;
+  }
 }
 
 section.intro.wider {
@@ -422,7 +496,9 @@ section.intro.wider {
 
 .intro .text {
   grid-area: content;
-  font-size: 1.4em;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  font-weight: 300;
 }
 
 @media only screen and (max-width: 968px) {
@@ -436,8 +512,14 @@ section.intro.wider {
   background-size:cover;
   background-repeat: no-repeat;
   height: var(--hero-height);
-  grid-template-areas: ". text text text text . . . . . . . . .";
+  grid-template-areas: ". text text text text text text . . . . . . .";
 }
+
+/*@media only screen and (max-width: 968px) {
+  .hero {
+    padding-top: 2vh;
+  }
+}*/
 
 .hero.centred {
   grid-template-areas: ". . . text text text text text text text text . . .";
@@ -543,7 +625,16 @@ section.services {
   }
 }
 
+.service:nth-of-type(1) {
+  grid-area: left;
+}
+
+.service:nth-of-type(2) {
+  grid-area: right;
+}
+
 .services>h1 {
+  grid-area: title;
   color: var(--light-colour);
   padding-bottom: 0.1em;
   border-width: 0px;
@@ -562,57 +653,52 @@ section.services {
   "info";
 }
 
-.service>h1, .service>h2 {
-  font-family: var(--body-font);
-}
-
-.service>h1 {
+.service .title {
+  grid-area: title;
   font-size: 1.5em;
   color: var(--light-colour);
   margin-bottom: 0.1em;
   line-height: 1.1;
-}
-
-.service>h2 {
-  font-size: 1.2em;
-  margin-top: 0.1em;
-  margin-bottom: 0.2em;
-  line-height: 1em;
-}
-
-.service:nth-of-type(1) {
-  grid-area: left;
-}
-
-.service:nth-of-type(2) {
-  grid-area: right;
-}
-
-.services h1 {
-  grid-area: title;
-}
-
-.service .photo {
-    grid-area: image;
-    background: yellow;
-    height: 300px;
-    background-size: cover; /* <-- background size */
-    background-position: center; /* <-- background position */
-
-}
-
-.service .title {
-  grid-area: title;
+  padding: 30px 0px 0px 0px;
+  letter-spacing: 0.02em;
 }
 
 .service .time {
   grid-area: time;
+  font-size: 1.2em;
+  margin-top: 0.1em;
+  margin-bottom: 0.2em;
+  line-height: 1em;
+  font-weight: bold;
+}
+
+.service .photo {
+  grid-area: image;
+  background: yellow;
+  height: 300px;
+  background-size: cover; /* <-- background size */
+  background-position: center; /* <-- background position */
+}
+
+.service .time {
+  
 }
 
 .service .info {
   grid-area: info;
+  padding: 20px 0px 50px 0px;
+  margin: 0px 30px 0px 0px;
+  font-size: 0.9em;
+  color: var(--light-colour);
+  font-weight: 200;
+  letter-spacing: 0.02em;
 }
 
+@media only screen and (max-width: 968px) {
+  .service .info {
+    margin: 0px;
+  }
+}
 
 footer {
   display: grid;
@@ -640,17 +726,25 @@ address {
   padding-left: var(--general-padding);
   padding-right: var(--general-padding);
   height: var(--button-height);
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding: 8px 0px;
   align-content: center;
   justify-content: center;
   font-family: var(--body-font);
-  font-size: 0.8em;
+  font-size: 1em;
+  font-weight: 300;
   text-align: center;
   text-decoration: none;
   line-height: var(--button-height);
   transition: transform 0.05s, background-color 0.05s;
   -webkit-transition: transform 0.05s, background-color 0.05s;
+}
+
+@media only screen and (max-width: 968px) {
+
+.button {
+  font-size: 0.9em;
+  padding: 4px 0px;
+  }
 }
 
 .index-top-section-btn:nth-of-type(1) {
@@ -666,6 +760,7 @@ address {
 section.info-panel {
   padding: 0;
   height: var(--info-section-height);
+  min-height:840px;
 }
 
 @media only screen and (max-width:968px) {
@@ -706,26 +801,37 @@ section.fancy-overlay {
 }
 
 .info-panel h1 {
-  font-size: 6em;
-  line-height: 1em;
+    font-size: 4em;
+    line-height: 0.9em;
+    padding: 50px 0px 0px 0px;
 }
 
 .info-panel .text {
   grid-area: text;
+  font-weight: 300;
 }
 
 .info-panel .photo {
   grid-area: image;
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  /*height: 100%;*/
+  object-fit: cover;
   overflow: hidden;
-  height: var(--info-section-height); 
+  height: auto; 
 }
 
 .info-panel .photo img, .info-panel .photo picture {
-  height: 100%;
+  height: var(--info-section-height);
+}
+
+
+@media only screen and (max-width: 968px) {
+.info-panel .photo img, .info-panel .photo picture {
+  max-width:100vw;
+  height: auto;
+  min-width: 20em;
+  }
 }
 
 .darken {
@@ -1252,6 +1358,7 @@ section.find-us {
     ". address address address address ."
     ". button button button button ."
     "map map map map map map";
+    padding-bottom: 0px;
   }
 }
 
@@ -1273,14 +1380,20 @@ section.find-us {
   padding: var(--general-padding);
   margin-bottom: var(--general-padding);
 
-  font-size: 1.4em;
+  font-size: 1em;
+  line-height: 1.2em;
+  font-weight: 300;
 
   display: grid;
   grid-gap: var(--general-padding);
-  grid-template-rows: auto auto;
+  grid-template-rows: 100px 50px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: "pin address address address address address "
   "roundel tube tube tube tube tube";
+}
+
+.roundel, .pin {
+  height: 50px;
 }
 
 .find-us .location .address {
@@ -1292,7 +1405,7 @@ section.find-us {
 }
 
 .find-us .button {
-  align-self: end;
+  align-self: auto;
   grid-area: button;
   color: var(--dark-colour);
   background-color: var(--light-colour);
@@ -1318,6 +1431,15 @@ section.find-us h1 {
   height: 50vh;
   border: 0;
 }
+
+@media only screen and (max-width: 968px) {
+  .map iframe {
+    padding: 30px 0px 0px 0px;
+    height: 20vh;
+    margin-bottom: -12px;
+  }
+}
+
 
 /* FIND OUT MORE */
 

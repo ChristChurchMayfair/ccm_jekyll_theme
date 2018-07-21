@@ -3,8 +3,8 @@
   {% for service in services %}
   <div class="service">
     <div class="photo" style="background-image: url({{service.image}})"></div>
-    <h1 class="title">{{ service.title }}</h1>
-    <h2 class="time" >{{ service.time}}</h2>
+    <div class="title">{{ service.title }}</div>
+    <div class="time" >{{ service.time}}</div>
     <div class="info">
       {{ service.content }}
     </div>
