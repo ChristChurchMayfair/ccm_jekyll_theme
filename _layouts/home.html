@@ -5,13 +5,16 @@ layout: default
 {% assign events = site.events | where: "status", "live" %}
 
 {% assign services = site.services | where: "type", "service" %}
-<section class="hero" responsive-background-image>
+
+
+<section class="hero vertical-bottom" responsive-background-image>
   <h1>{{ page.overlayCaption }}</h1>
   <picture>
       <source srcset="{{ page.mainImage }}" media="(min-width: 968px)" />
       <img src="{{ page.mobileImage }}" />
   </picture>
 </section>
+
 <section class="intro">
   <div class="text">
     {{ content }}

@@ -394,6 +394,15 @@ section {
   /* end */
 }
 
+section.vertical-centred h1 {
+  align-self: center;
+}
+
+section.vertical-bottom h1 {
+  align-self: end;
+  margin-bottom: 0px;
+}
+
 section>div {
   grid-area: content;
 }
@@ -418,10 +427,6 @@ section.highlight {
   padding: 0;
 } */
 
-section:first-of-type h1 {
-  align-self: end;
-  margin-bottom: 0px;
-}
 
 section.intro {
   grid-template-areas: ". content content content content content content . . . . . . ."
