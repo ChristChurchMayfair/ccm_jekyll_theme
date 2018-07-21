@@ -17,6 +17,8 @@ layout: default
   </div>
 </section>
 
+{% include bio.html role_type="childrens_worker" %}
+
 {% assign littlelambs = site.pages | where: "path","littlelambs.md" | first %}
 
 <section class="info-panel full-bleed darken" responsive-background-image>
@@ -32,4 +34,4 @@ layout: default
   </div>
 </section>
 
-{% include bio.html role_type="childrens_worker" %}
+{% include bio.html role_type="littlelambs" %}

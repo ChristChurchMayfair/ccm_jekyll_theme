@@ -1,7 +1,6 @@
 
 {% assign people_to_render = site.people | where_exp: "person", "person.roles contains include.role_type" | sort: "order" %}
 {% for person in people_to_render %}
-
 <section class="bio">
 <div class="photo">
     <img src="/assets/headshots/{{ person.headshot }}"/>
@@ -12,5 +11,4 @@
     {{ person.content }}
     </div>
 </section>
-
 {% endfor %}
