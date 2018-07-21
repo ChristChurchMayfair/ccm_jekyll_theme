@@ -58,6 +58,13 @@
     --logo-height: 15vw;
     --hero-height: 55vh;
     --hero-font-size: 4em;
+    --general-padding: 15px;
+  }
+}
+
+@media only screen and (max-width: 422px) {
+  :root {
+    --logo-height: 10vw;
   }
 }
 
@@ -245,7 +252,7 @@ nav svg {
 
 @media only screen and (max-width: 968px) {
   .logo svg {
-  min-height: 60px;
+  min-height: 40px;
   }
 }
 
@@ -456,7 +463,7 @@ section.highlight {
 
 @media only screen and (max-width: 968px) {
   section {
-    grid-template-columns: 0px 1fr 1fr 1fr 1fr 0px;
+    grid-template-columns: 0 1fr 1fr 1fr 1fr 0;
   }
 }
 
@@ -515,11 +522,11 @@ section.intro.wider {
   grid-template-areas: ". text text text text text text . . . . . . .";
 }
 
-/*@media only screen and (max-width: 968px) {
+@media only screen and (max-width: 968px) {
   .hero {
-    padding-top: 2vh;
+    grid-template-areas: ". text text text text .";
   }
-}*/
+}
 
 .hero.centred {
   grid-template-areas: ". . . text text text text text text text text . . .";
@@ -646,11 +653,21 @@ section.services {
 .service {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto minmax(10px, 400px);;
+  grid-template-rows: auto auto auto minmax(10px, 400px);
   grid-template-areas: "image"
   "title"
   "time"
   "info";
+}
+
+@media only screen and (max-width: 968px) {
+  .service {
+    grid-template-rows: auto auto auto minmax(10px, 500px);
+    grid-template-areas: "title"
+    "time"
+    "image"
+    "info";
+  }
 }
 
 .service .title {
@@ -1399,7 +1416,7 @@ section.find-us {
 
   display: grid;
   grid-gap: var(--general-padding);
-  grid-template-rows: 100px 50px;
+  grid-template-rows: 2fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: "pin address address address address address "
   "roundel tube tube tube tube tube";
