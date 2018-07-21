@@ -646,7 +646,7 @@ section.services {
 .service {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto auto;
+  grid-template-rows: auto auto auto minmax(10px, 400px);;
   grid-template-areas: "image"
   "title"
   "time"

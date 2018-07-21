@@ -2,7 +2,11 @@
   <h1>Our Sunday Services</h1>
   {% for service in services %}
   <div class="service">
-    <div class="photo" style="background-image: url({{service.image}})"></div>
+    <div class="photo centre" responsive-background-image>
+      <picture>
+        <img src="{{service.image}}" />
+      </picture>
+    </div>
     <div class="title">{{ service.title }}</div>
     <div class="time" >{{ service.time}}</div>
     <div class="info">
