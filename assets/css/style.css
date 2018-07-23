@@ -16,7 +16,7 @@
 
   --body-margin: 11vw;
 
-  --info-section-height: 42.5em;
+  --info-section-height: 60vh;
   --person-height: 40vh;
 
   --menu-button-size: 55px;
@@ -585,10 +585,6 @@ section p {
   grid-column: 1/-1;
 }
 
-section.music-release {
-  height: 40vh;
-}
-
 .music-resource {
   display: grid;
   grid-template-columns: 1fr 1.618fr;
@@ -777,7 +773,7 @@ address {
 section.info-panel {
   padding: 0;
   height: var(--info-section-height);
-  min-height:840px;
+  /* min-height:840px; */
 }
 
 @media only screen and (max-width:968px) {
@@ -851,6 +847,10 @@ section.image-left {
   background-position: center;
 }
 
+.photo.centre.bottom {
+  background-position: center bottom;
+}
+
 .info-panel .photo img, .info-panel .photo picture {
   height: var(--info-section-height);
 }
@@ -870,7 +870,7 @@ section.image-left {
 }
 
 section.full-bleed {
-  grid-template-areas: ". text text text text text text text . . . . . .";
+  grid-template-areas: ". text text text text text text . . . . . . .";
   padding: 0;
   color: var(--light-colour);
   background-size: cover;
@@ -884,42 +884,6 @@ section.full-bleed {
 
 .full-bleed .text {
   grid-area: text;
-}
-
-section.bio {
-  grid-template-areas: ". name name name name name name title title title title title title ."
-  ". photo photo info info info info info info info info info info .";
-  grid-template-rows: auto, 100px;
-}
-
-@media only screen and (max-width:968px) {
-  section.bio {
-    grid-template-areas: ". name name title title ."
-    ". photo photo info info .";
-  }
-}
-
-.bio .photo {
-  grid-area: photo;
-  object-fit: cover;
-  height: 200px;
-  overflow: hidden;
-}
-
-.bio .photo img {
-  height: 100%;
-}
-
-.bio .text {
-  grid-area: info;
-}
-
-.bio h2 {
-  grid-area: name;
-}
-
-.bio h3 {
-  grid-area: title;
 }
 
 /* STAFF */
@@ -1236,41 +1200,35 @@ section.sermons {
 
 /* MUSIC RELEASES */
 
+section.music-release {
+  height: 40vh;
+}
+
 .music-release-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: var(--general-padding);
   grid-template-rows: auto auto;
   grid-row-gap: 100px;
 }
 
+
 .music-release {
   display: grid;
-  grid-template-columns: 1fr 1.618fr;
-  grid-column-gap: calc(var(--general-padding) * 3);
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(40px,70px) auto auto;
+  grid-column-gap: var(--general-padding);
   grid-row-gap: var(--general-padding);
   grid-template-areas: "title"
     "cover"
     "links";
 }
 
-.music-release:nth-of-type(even) {
-  grid-template-columns: 1.618fr 1fr;
-  grid-template-areas: "title"
-    "cover"
-    "links";
-}
 
-.music-service-link  {
-  display:inline-block;
-  overflow:hidden;
-  width:100px;
-  height:30px;
-}
 
 .music-release-cover {
   grid-area: cover;
-  width: 200px;
-  height: 200px;
+  width: 100%;
   border-color: var(--dark-colour);
   border-style: solid;
   border-width: 1px;
@@ -1288,7 +1246,14 @@ section.sermons {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "apple-music spotify";
-  grid-column-gap: var(--general-padding);
+}
+
+.music-service-link  {
+  display:inline-block;
+  overflow:hidden;
+  width: 160px;
+  height: 50px;
+  background-size: cover;
 }
 
 .spotify-link {
@@ -1476,7 +1441,8 @@ section.find-us h1 {
 section.find-out-more {
   display: grid;
   grid-template-areas: ". title title title title title title title title title title title title ."
-  ". info info info info info info info info photo photo photo photo .";
+  ". text text text text text text text text text text text text ."
+  ". info info info info info info info info info info info info .";
 }
 
 @media only screen and (max-width: 968px) {
@@ -1484,10 +1450,50 @@ section.find-out-more {
     grid-template-areas: ". title title title title ."
     ". info info info info .";
   }
+}
 
-  .find-out-more .photo {
-    display: none;
-  }
+.find-out-more p {
+  grid-area: text;
+}
+
+.find-out-more .people {
+  grid-area: info;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: var(--general-padding);
+}
+
+.bio {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto auto auto;
+  grid-column-gap: var(--general-padding);
+  grid-template-areas: "photo name"
+  "photo title"
+  "photo email";
+}
+
+.bio .photo {
+  grid-area: photo;
+  object-fit: cover;
+  height: 200px;
+  overflow: hidden;
+}
+
+.bio .photo img {
+  height: 100%;
+}
+
+.bio .title {
+  grid-area: title;
+}
+
+.bio .name {
+  grid-area: name;
+}
+
+.bio .email {
+  grid-area: email;
 }
 
 .find-out-more h1 {

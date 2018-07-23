@@ -13,7 +13,7 @@ layout: default
 {% endif %}
 <section class="info-panel {{ section.style_classes | join: " " }}" {{ extra_attribute }}>
   <div class="text"><h1>{{ section.title }}</h1>
-    {{ section.content }}
+    {{ section.content | markdownify}}
   </div>
   <div class="photo {{ section.image_alignment_classes | join: " " }}" responsive-background-image>
     <picture>
@@ -23,27 +23,3 @@ layout: default
   </div>
 </section>
 {% endfor %}
-
-{% assign staff = site.people | where_exp: "person", "person.roles contains 'staff'" | sort: "order" %}
-
-<section class="highlight">
-  <div>
-  <h1>Ministry Team</h1>
-  </div>
-</section>
-
-<section class="staff ministry">
-  <div class="people">
-      {% for person in staff %}
-    <div id="{{ person.name | replace: " ", "_" }}" class="person">
-      <div class="info">
-        <h1>{{ person.name }}</h1>
-        <p class="role">{{ person.role }}</p>
-        <a class="email" href="mailto:{{ person.email }}">Email</a>
-      <div class="bio">{{ person.content }}</div>
-      </div>
-      <img src="assets/headshots/{{person.headshot}}">
-    </div>
-  {% endfor %}
-  </div>
-</section>

@@ -3,13 +3,28 @@ layout: default
 ---
 {% include hero_and_intro.html content=content overlayCaption=page.overlayCaption mainImage=page.mainImage mobileImage=page.mobileImage textClass="centred vertical-centred"%}
 
+{% assign music_extra = site.pages | where: "path","music/music_extra.md" | first %}
+
+<section class="info-panel dark image-right">
+  <div class="text">
+    <h1>{{music_extra.title}}</h1>
+    {{ music_extra.content | markdownify }}
+  </div>
+  <div class="photo {{ music_extra.image_alignment_classes | join: " " }}" responsive-background-image>
+    <picture>
+        <source srcset="{{ music_extra.mainImage }}" media="(min-width: 968px)" />
+        <img src="{{ music_extra.mobileImage }}" />
+    </picture>
+  </div>
+</section>
+
 <a name="releases"></a>
 {%- include music_releases.html -%}
 
-<a name="music_resources"></a>
+<!-- <a name="music_resources"></a>
 {%- include music_resources.html -%}
 
 <a name="music_videos"></a>
-{%- include music_videos.html -%}
+{%- include music_videos.html -%} -->
 
 {% include bio.html role_type="music" %}
