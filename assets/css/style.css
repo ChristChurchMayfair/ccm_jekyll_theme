@@ -4,7 +4,9 @@
 
   --logo-height: 50px;
 
-  --hero-height: 55vh;
+  --text-margin-bottom: calc(2 * var(--general-padding));
+
+  --hero-height: 375px;
   --hero-font-size: 5.6em;
 
   --general-padding: 32px;
@@ -29,9 +31,11 @@
 
   --standard-shadow: 5px 5px 5px 5px rgba(0,0,0,0.3);
 
-  --dark-colour: rgb(40,50,70);
+  --dark-colour: rgba(36,50,70,1);
   --light-colour: white;
   --knockout-background-colour: #656565;
+  --dark-gray: rgb(150,150,150);
+  --mid-gray: rgb(230,230,230);
   --header-background-colour: rgba(16,14,40,0.2);
   --multiply-colour: rgb(150,150,150);
 
@@ -42,6 +46,7 @@
   --alternate-tabular-highlight: rgba(16, 14, 40,0.03);
   --button-push-colour: rgb(200,200,200);
   --theme-colour: rgba(74,127,197,1);
+  
   --highlight-colour: rgb(78,167,203);
 
   --menu-transition-time: 0.2s;
@@ -166,7 +171,7 @@ body {
   min-width: 320px;
   font-family: var(--body-font);
   font-size: var(--base-font-size);
-  font-weight: normal;
+  font-weight: 300;
   line-height: 1.5;
   color: var(--dark-colour);
   display: grid;
@@ -178,6 +183,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-font);
   text-transform: uppercase;
+  font-weight: 200;
 }
 
 h1 {
@@ -297,7 +303,7 @@ nav #close-menu-icon {
 @media only screen and (min-width: 900px) {
   #menu-content {
     grid-column-gap: var(--general-padding);
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto;
   }
 }
 
@@ -323,8 +329,22 @@ nav #close-menu-icon {
   height: 1.2em;;
 }
 
-#menu-content a.current {
+header.light #menu-content a.current,
+header.light #menu-content a.hover {
   border-bottom-color: var(--light-colour);
+}
+
+header.dark #menu-content a.current,
+header.dark #menu-content a.hover {
+  border-bottom-color: var(--dark-colour);
+}
+
+header.black #menu-content a.current,
+header.black #menu-content a.hover {
+  border-bottom-color: black;
+}
+
+#menu-content a.current {
   border-bottom-style: solid;
   border-bottom-width: 2px;
 }
@@ -334,7 +354,6 @@ nav #close-menu-icon {
   font-style: normal;
   display: block;
   text-decoration: none;
-  border-bottom-color: var(--light-colour);
   border-bottom-style: solid;
   border-bottom-width: 2px;
 }
@@ -361,6 +380,9 @@ header {
 
   align-content: start;
   display: grid;
+}
+
+header.light {
   background: linear-gradient(var(--header-background-colour), rgba(0,0,0,0));
 }
 
@@ -371,8 +393,16 @@ header.desktop-header {
   grid-template-areas: "logo menu-content";
 }
 
-header.desktop-header a {
+header.desktop-header.light a {
   color: var(--light-colour);
+}
+
+header.desktop-header.dark a {
+  color: var(--dark-colour);
+}
+
+header.desktop-header.black a {
+  color: black;
 }
 
 header.mobile-header {
@@ -398,8 +428,16 @@ header .logo {
   grid-column: 1;
 }
 
-header svg{
+header.light svg{
   fill: var(--light-colour);
+}
+
+header.dark svg{
+  fill: var(--dark-colour);
+}
+
+header.black svg{
+  fill: black;
 }
 
 header #open-menu {
@@ -418,34 +456,47 @@ main {
   grid-row: 1;
 }
 
-header, nav, footer {
+header, nav {
   padding-left: var(--body-margin);
   padding-right: var(--body-margin);
   padding-top: var(--general-padding);
   padding-bottom: var(--general-padding);
 }
 
-section {
-  padding-top: var(--general-padding);
-  padding-bottom: var(--general-padding);
-
+footer, section {
   display: grid;
   grid-template-columns: calc(var(--body-margin) - var(--general-padding)) 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr calc(var(--body-margin) - var(--general-padding));
   grid-template-areas: ". content content content content content content content content content content content content .";
   grid-column-gap: var(--general-padding);
+}
+
+section {
+  padding-top: var(--general-padding);
+  padding-bottom: var(--general-padding);
 
   background-color: var(--light-colour);
-  border-bottom: 1px;
-  border-left: 0px;
-  border-right: 0px;
-  border-top: 0px;
-  border-color: rgba(0,0,0,0.1);
-  border-style: solid;
-  /* end */
+}
+
+section .text {
+  margin-bottom: var(--text-margin-bottom);
+}
+
+section.intro .text {
+  margin-bottom: var(--general-padding);
+}
+
+section.header-underlay {
+  height: var(--header-height);
+  background-color: var(--light-colour);
 }
 
 section.vertical-centred h1 {
   align-self: center;
+}
+
+section.bottom-left h1 {
+  align-self: bottom;
+  justify-self: left;
 }
 
 section.vertical-bottom h1 {
@@ -453,9 +504,9 @@ section.vertical-bottom h1 {
   margin-bottom: -20px;
 }
 
-section>div {
+/* section>div {
   grid-area: content;
-}
+} */
 
 section.highlight {
   background-color: var(--highlight-colour);
@@ -490,6 +541,14 @@ section.intro {
   }
 }
 
+.text p:nth-of-type(1) {
+  font-weight: 400;
+}
+
+.find-out-more .text p:nth-of-type(1) {
+  font-weight: 300;
+}
+
 section.intro.wider {
   grid-template-areas: ". content content content content content content content content content . . . .";
 }
@@ -514,23 +573,42 @@ section.intro.wider {
   }
 }
 
+section.double-image-right {
+  grid-template-areas: ". content content content content content content topimage topimage topimage topimage topimage topimage ."
+                       ". content content content content content content bottomimage bottomimage bottomimage bottomimage bottomimage bottomimage .";
+  padding: 40px 0px;
+  grid-row-gap: var(--general-padding);
+}
+
+section.double-image-right .text {
+  grid-area: content;
+}
+
+section.double-image-right .photo {
+  height: 300px;
+  background-size: cover;
+}
+
+section.double-image-right .photo.topimage {
+  grid-area: topimage;
+}
+
+section.double-image-right .photo.bottomimage {
+  grid-area: bottomimage;
+}
+
 .hero {
   padding-top: calc(var(--header-height) + calc(var(--header-vertical-padding) * 2) + var(--general-padding));
   background-size:cover;
   background-repeat: no-repeat;
   height: var(--hero-height);
-  grid-template-areas: ". text text text text text text . . . . . . .";
+  grid-template-areas: ". text text text text text text text text text text text text .";
 }
 
 @media only screen and (max-width: 968px) {
   .hero {
     grid-template-areas: ". text text text text .";
   }
-}
-
-.hero.centred {
-  grid-template-areas: ". . . text text text text text text text text . . .";
-  justify-items: center
 }
 
 .hero h1 {
@@ -543,6 +621,27 @@ section.intro.wider {
   /* This is lame and needs fixing! */
   /* top: calc(var(--hero-height) - calc(var(--hero-font-size) / 3));*/
   
+}
+
+.hero.centred {
+  grid-template-areas: ". text text text text text text text text text text text text .";
+  justify-items: center;
+}
+
+.hero.left.bottom {
+  grid-template-areas: ". text text text text text text text text text text text text .";
+  align-content: end;
+}
+
+.hero.bottom h1 {
+  margin-bottom: calc(0px - var(--general-padding));
+}
+
+
+
+section.lightBlend {
+  background-color: var(--highlight-colour);
+  background-blend-mode: color-burn;
 }
 
 /* PROMOTIONAL */
@@ -617,7 +716,7 @@ section.services {
   grid-template-areas: ". title title title title title title title title title title title title ."
   ". left left left left left left right right right right right right .";
   grid-auto-rows: auto auto;
-  background-color: var(--highlight-colour);
+  background-color: var(--dark-colour);
 }
 
 @media only screen and (max-width: 968px) {
@@ -678,16 +777,15 @@ section.services {
 
 .service .time {
   grid-area: time;
+  color: var(--light-colour);
   font-size: 1.2em;
   margin-top: 0.1em;
   margin-bottom: 0.2em;
   line-height: 1em;
-  font-weight: bold;
 }
 
 .service .photo {
   grid-area: image;
-  background: yellow;
   height: 300px;
   background-size: cover; /* <-- background size */
   background-position: center; /* <-- background position */
@@ -714,16 +812,63 @@ section.services {
 }
 
 footer {
-  display: grid;
-  grid-template-columns: 1fr;
-  color: var(--light-colour);
-  background-color: var(--dark-colour);
+  grid-row-gap: var(--general-padding);
+  padding-top: var(--general-padding);
+  padding-bottom: var(--general-padding);
+  grid-template-areas: ". contact contact contact contact contact links links links links links links links ."
+  ". smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint  .";
+  color: var(--dark-gray);
+  background-color: var(--mid-gray);
   font-size: 0.7em;
+  font-weight: 300;
 }
 
-footer div.item {
-  display: inline;
+footer .logo svg {
+  fill: var(--dark-gray);
+}
+
+footer a {
+  color: var(--dark-gray);
+}
+
+footer .contact {
+  grid-area: contact;
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas: "logo"
+  "address"
+  "email"
+  "phone";
+  font-size: 1.6em;
+}
+
+footer .contact address {
+  grid-area: address;
   margin-bottom: var(--general-padding);
+}
+
+footer .contact .logo {
+  grid-area: logo;
+  margin-bottom: var(--general-padding);
+}
+
+footer .contact .email {
+  grid-area: email;
+}
+
+footer .contact .phone {
+  grid-area: phone;
+}
+
+footer .smallprint {
+  grid-area: smallprint;
+}
+
+footer .all-links {
+  grid-area: links;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: 1.6em;
 }
 
 address {
@@ -772,7 +917,7 @@ address {
 
 section.info-panel {
   padding: 0;
-  height: var(--info-section-height);
+  min-height: var(--info-section-height);
   /* min-height:840px; */
 }
 
@@ -814,7 +959,7 @@ section.image-left {
 }
 
 .info-panel h1 {
-    font-size: 4em;
+    font-size: 5.5em;
     line-height: 0.9em;
     padding: 50px 0px 0px 0px;
 }
@@ -822,6 +967,10 @@ section.image-left {
 .info-panel .text {
   grid-area: text;
   font-weight: 300;
+}
+
+.info-panel.dark .text, .info-panel.full-bleed.darken .text {
+  font-weight: 200;
 }
 
 .info-panel .photo {
@@ -908,7 +1057,7 @@ section.staff {
   }
 }
 
-div.person {
+.staff .person {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "photo text";
@@ -917,16 +1066,16 @@ div.person {
   height: var(--person-height);
 }
 
-div.person .info {
+.staff .person .info {
   grid-area: text;
   overflow: hidden;
 }
 
-div.person .info h1{
+.staff .person .info h1{
   font-size: 2.4em;
 }
 
-div.person img {
+.staff .person img {
   grid-area: photo;
   height: var(--person-height);
 }
@@ -973,9 +1122,17 @@ section.people img {
 /* SERMONS/TALKS */
 
 section.sermons {
-  grid-template-areas: "pg pg pg pg pg pg pg pg pg pg pg pg"
-  "ct ct ct ct ct ct ct ct ct ct ct ct "
-  "pg2 pg2 pg2 pg2 pg2 pg2 pg2 pg2 pg2 pg2 pg2 pg2"
+  grid-template-areas: ". title title title title title title title title title title title title ."
+  ". search search search search search search search search search search search search ."
+  ". ct ct ct ct ct ct ct ct ct ct ct ct .";
+}
+
+.sermons h1 {
+  grid-area: title;
+}
+
+.sermons .search {
+  grid-area: search;
 }
 
 #sermon-series-list {
@@ -986,6 +1143,9 @@ section.sermons {
 
 .sermon-container {
   grid-area: ct;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: var(--general-padding);
 }
 
 #loading {
@@ -1008,6 +1168,7 @@ section.sermons {
 }
 
 .page-picker {
+  display:none;
   padding-top: calc(var(--general-padding) * 3);
 }
 .page-picker:nth-of-type(1) {
@@ -1034,19 +1195,11 @@ section.sermons {
 
 .sermon-series {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr;
   grid-column-gap: var(--general-padding);
   grid-template-rows: auto auto;
-  grid-template-areas: "title title"
-    "details details"
-    "image sermons";
-}
-
-.sermon-series:nth-of-type(even) {
-  grid-template-columns: 5fr 1fr;
-  grid-template-areas: "title title"
-    "details details"
-    "sermons image";
+  grid-template-areas: "title"
+    "image";
 }
 
 .series-heading {
@@ -1064,18 +1217,19 @@ section.sermons {
 
 .series-graphic {
   grid-area: image;
-  width: 180px;
-  height: 180px;
+  width: 100%;
+  height: 210px;
   border-color: var(--dark-colour);
   border-style: solid;
   border-width: 1px;
-  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
   justify-self: center;
 }
 
 .sermon-list {
   grid-area: sermons;
-  display: grid;
+  display: none;
   grid-template-columns: 1fr;
   font-size: 0.8em;
 }
@@ -1204,6 +1358,10 @@ section.music-release {
   height: 40vh;
 }
 
+.music-releases>div {
+  grid-area: content;
+}
+
 .music-release-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -1239,6 +1397,7 @@ section.music-release {
 
 .music-release-title {
   grid-area: title;
+  font-weight: 700;
 }
 
 .music-service-links {
@@ -1344,14 +1503,14 @@ section.find-us {
   background-color: var(--dark-colour);
   grid-template-areas: ". title title title title title title title title title title title title ."
     ". address address address address address address map map map map map map ."
-    ". button button button button button button map map map map map map .";
+    ". buttonleft buttonleft buttonleft buttonright buttonright buttonright map map map map map map .";
 }
 
 @media only screen and (max-width: 968px) {
   section.find-us {
     grid-template-areas: ". title title title title ."
     ". address address address address ."
-    ". button button button button ."
+    ". buttonleft buttonleft buttonright buttonright ."
     "map map map map map map";
     padding-bottom: 0px;
   }
@@ -1375,13 +1534,13 @@ section.find-us {
   padding: var(--general-padding);
   margin-bottom: var(--general-padding);
 
-  font-size: 1em;
+  font-size: 1.2em;
   line-height: 1.2em;
-  font-weight: 300;
+  font-weight: 3  00;
 
   display: grid;
   grid-gap: var(--general-padding);
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: "pin address address address address address "
   "roundel tube tube tube tube tube";
@@ -1393,17 +1552,29 @@ section.find-us {
 
 .find-us .location .address {
   grid-area: address;
+  font-weight: 400;
 }
 
 .find-us .location .tube-stations {
   grid-area: tube;
 }
 
+.find-us .location .tube-stations .tube-station {
+  font-weight: 400;
+}
+
 .find-us .button {
   align-self: auto;
-  grid-area: button;
   color: var(--dark-colour);
   background-color: var(--light-colour);
+}
+
+.find-us .button:nth-of-type(1) {
+  grid-area: buttonleft;
+}
+
+.find-us .button:nth-of-type(2) {
+  grid-area: buttonright;
 }
 
 section.find-us h1 {
@@ -1441,59 +1612,80 @@ section.find-us h1 {
 section.find-out-more {
   display: grid;
   grid-template-areas: ". title title title title title title title title title title title title ."
-  ". text text text text text text text text text text text text ."
-  ". info info info info info info info info info info info info .";
+  ". people people people people people people text text text text text text .";
+}
+
+.find-out-more h1 {
+  padding-bottom: 0.1em;
+  border-width: 0px;
+  border-bottom-width: 2px;
+  border-color: var(--dark-colour);
+  border-style: solid;
 }
 
 @media only screen and (max-width: 968px) {
   section.find-out-more {
     grid-template-areas: ". title title title title ."
-    ". info info info info .";
+    ". text text text text ."
+    ". people people people people .";
   }
 }
 
-.find-out-more p {
+.find-out-more .text {
   grid-area: text;
 }
 
 .find-out-more .people {
-  grid-area: info;
+  grid-area: people;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-column-gap: var(--general-padding);
+  grid-row-gap: var(--general-padding);
 }
 
-.bio {
+.person {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto auto auto;
   grid-column-gap: var(--general-padding);
-  grid-template-areas: "photo name"
-  "photo title"
-  "photo email";
+  grid-template-areas: "photo info"
+  "photo info"
+  "photo info"
+  "photo info";
+  font-size: 1.1em;
 }
 
-.bio .photo {
+.person .photo {
   grid-area: photo;
   object-fit: cover;
   height: 200px;
   overflow: hidden;
+  background-size: cover;
 }
 
-.bio .photo img {
+.person .photo img {
   height: 100%;
 }
 
-.bio .title {
-  grid-area: title;
+.person .info {
+  grid-area: info;
 }
 
-.bio .name {
-  grid-area: name;
+.person .info .name {
+  font-weight: bold;
 }
 
-.bio .email {
-  grid-area: email;
+.person .info .role {
+  margin-bottom: var(--general-padding);
+}
+
+.person .info .email {
+  font-size: 0.9em;
+  hyphens: auto;
+}
+
+.person .info .phone {
+  font-size: 0.9em;
 }
 
 .find-out-more h1 {

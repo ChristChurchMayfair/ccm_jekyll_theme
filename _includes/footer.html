@@ -1,6 +1,26 @@
 <footer>
-  <div class="item"><address>The church office is at: <a href="{{ site.office_maps_link }}">{{ site.office_address }}</a></address>. You can telephone us on: <a href="tel:+442076295885">020 7629 5885</a></div>
-  <div class="item">Christ Church Mayfair is a <a href="https://www.churchofengland.org">Church of England</a> church and a member of the <a href="https://co-mission.org">Co-Mission</a> church planting network</div>
-  <div class="item">We're a registered charity, named "The Bible Talks", and our charity number is <a href="http://apps.charitycommission.gov.uk/Showcharity/RegisterOfCharities/CharityWithPartB.aspx?RegisteredCharityNumber={{ site.ccm_charity_number }}&SubsidiaryNumber=0">{{ site.ccm_charity_number }}</a></div>
-  <div class="item">This website is © Copyright Christ Church Mayfair 2018. All Rights Reserved. Read our <a href="privacy-policy.html">Privacy & Cookie Podivcy</a>. </div>
+  <div class="contact">
+      <div class="logo">
+          <svg viewbox="0 0 720 162">
+            <use xlink:href="/assets/images/ccm-logo-full.svg#full-logo" />
+          </svg>
+        </div>
+    <address>
+      <a href="{{ site.office_maps_link }}">{{ site.office_address | join: " <br/>"}}</a>
+    </address>
+    <a class="phone" href="tel:{{ site.office_phone_number }}">{{ site.office_phone_number }}</a>
+    <a class="email" href="mailto:{{ site.email }}">{{ site.email }}</a>
+  </div>
+  <div class="all-links">
+    {% for page in site.pages %}
+      {% if page.showInFooter == true %}
+      <a href="{{ page.url }}">{{page.title}}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="smallprint">
+    {% for smallprint in site.footer.smallprint %}
+    <div class="item">{{ smallprint }}</div>
+    {% endfor %}
+  </div>
 </footer>

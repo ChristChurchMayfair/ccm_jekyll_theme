@@ -12,10 +12,11 @@
       </svg>
     <div class="tube-stations">
       Nearest tube stations:<br/>
-      {{ site.nearest_tube_stations | join: " or " }}
+      <span class="tube-station">{{ site.nearest_tube_stations | join: " or " }}</span>
     </div>
   </div>
   <a id="directions-button" class="button" href="#">Get Directions</a>
+  <a class="button" href='https://citymapper.com/go/8hs1tgwo5g' target="_blank" alt="Get directions with Citymapper" />City Mapper</a>
   <div class="map">
     <iframe
       frameborder="0" style="border:0"

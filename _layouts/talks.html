@@ -9,10 +9,9 @@ layout: default
     </picture>
 </section>
 
-<section id="intro wider">
-  <div>
+<section class="intro wider">
+  <div class="text">
     {{ content }}
-
     <div style="display:none" id="podcast-link">
       <a href="pcast://{{ page.podcastURL }}"><img src="/assets/images/Listen_on_Apple_Podcasts_sRGB_US.svg"/></a>
       <a href="http://subscribeonandroid.com/{{ page.podcastURL }}" title="Subscribe on Android"><img src="/assets/images/Subscribe_on_Android.svg" alt="Subscribe on Android" style="border:0;" /></a>
@@ -21,50 +20,28 @@ layout: default
 </section>
 
 <section class="sermons">
-  <div class="page-picker">
-    <div class="pagelink back"><</div>
-    <span class="pagelinks">
-    </span>
-    <div class="pagelink forward">></div>
+  <h1>Archive</h1>
+
+  <div class="search">
+    <form>
+      <input type="text" value="" />
+      <button type="submit">Search</button>
+    </form>
   </div>
+
   <div id="sermon-container" class="sermon-container">
-    <div id="loading">
-        <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-      <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
-        s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
-        c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
-      <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
-        C22.32,8.481,24.301,9.057,26.013,10.047z">
-        <animateTransform attributeType="xml"
-          attributeName="transform"
-          type="rotate"
-          from="0 20 20"
-          to="360 20 20"
-          dur="0.5s"
-          repeatCount="indefinite"/>
-        </path>
-      </svg>
-      <p>Loading talks</p>
-    </div>
     <div id="loading-error">
       <p>There was a problem loading the talk data.</p>
     </div>
   </div>
 
-
-
-<div class="page-picker">
-    <div class="pagelink back"><</div>
-    <span class="pagelinks">
-    </span>
-    <div class="pagelink forward">></div>
-  </div>
-
 </section>
+
+<!-- TEMPLATES -->
 
 <template id="sermon_series_template">
     <div class="sermon-series">
-      <h1 class="series-heading series-title"></h1>
+      <div class="series-heading series-title"></div>
       <div class="series-info">
           <div class="series-book"></div>
           <div class="series-service"></div>
@@ -73,9 +50,6 @@ layout: default
       <div class="sermon-list"></div>
     </div>
   </template>
-
-<section id="sermons">
-</section>
 
 <template id="sermon-template">
   <div class="sermon">
@@ -89,6 +63,27 @@ layout: default
       </svg>
     </a>
     <audio class="sermon-player" controls preload="none"> Sorry. Your browser does not support the <code>audio</code> element.</audio>
+  </div>
+</template>
+
+<template id="loading">
+  <div class="loading">
+      <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+    <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+      s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
+      c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
+    <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+      C22.32,8.481,24.301,9.057,26.013,10.047z">
+      <animateTransform attributeType="xml"
+        attributeName="transform"
+        type="rotate"
+        from="0 20 20"
+        to="360 20 20"
+        dur="0.5s"
+        repeatCount="indefinite"/>
+      </path>
+    </svg>
+    <p>Loading talks</p>
   </div>
 </template>
 

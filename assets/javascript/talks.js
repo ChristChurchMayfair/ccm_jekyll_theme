@@ -96,7 +96,7 @@ function queryGraphCool(url, query) {
   .then(response => response.json());
 }
 
-var seriesPerPage = 5;
+var seriesPerPage = 30;
 
 function mainQuery(pageSize,pageNumber) {
   return { "query" :
@@ -149,7 +149,8 @@ function getTalksFromGraphCool(q,pageNumber,pageSize) {
 
 function showLoading() {
   var loadingDiv = document.getElementById("loading");
-  loadingDiv.style.display = "block";
+  console.log(loadingDiv);
+  //loadingDiv.style.display = "block";
 }
 
 function hideLoading() {

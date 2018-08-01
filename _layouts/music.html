@@ -1,7 +1,13 @@
 ---
 layout: default
 ---
-{% include hero_and_intro.html content=content overlayCaption=page.overlayCaption mainImage=page.mainImage mobileImage=page.mobileImage textClass="centred vertical-centred"%}
+{% include hero.html overlayCaption=page.overlayCaption mainImage=page.mainImage mobileImage=page.mobileImage textClass="centred vertical-centred"%}
+
+<section class="intro wider">
+  <div class="text">
+      {{ content }}
+  </div>
+</section>
 
 {% assign music_extra = site.pages | where: "path","music/music_extra.md" | first %}
 
@@ -21,10 +27,4 @@ layout: default
 <a name="releases"></a>
 {%- include music_releases.html -%}
 
-<!-- <a name="music_resources"></a>
-{%- include music_resources.html -%}
-
-<a name="music_videos"></a>
-{%- include music_videos.html -%} -->
-
-{% include bio.html role_type="music" %}
+{% include bio.html role_type="music" content=page.findOutMoreText %}

@@ -5,8 +5,6 @@ class ResponsiveBackgroundImage {
         this.img = element.querySelector('img');
         this.src = '';
 
-        console.log(element);
-
         this.img.addEventListener('load', () => {
             this.update();
         });
@@ -17,13 +15,9 @@ class ResponsiveBackgroundImage {
     }
 
     update() {
-        console.log(`currentSrc: ${this.img.currentSrc}`);
-        console.log(`current Src: ${this.img.src}`);
         let src = typeof this.img.currentSrc !== 'undefined' ? this.img.currentSrc : this.img.src;
-        console.log(`new src: ${src}`);
         if (this.src !== src) {
             this.src = src;
-            console.log(`Setting: ${this.src}`);
             this.element.style.backgroundImage = 'url("' + this.src + '")';
         }
     }

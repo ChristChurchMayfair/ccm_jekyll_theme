@@ -2,16 +2,21 @@
 {% assign people_to_render = site.people | where_exp: "person", "person.roles contains include.role_type" | sort: "order" %}
 <section class="find-out-more">
     <h1>Find out more</h1>
-    <p>To find out more get in touch with {{ people_to_render | map: "name" | join: " or " }}.</p>
+    <div class="text">
+        {{ include.content | markdownify }}
+    </div>
     <div class="people">
     {% for person in people_to_render %}
-        <div class="bio">
-            <div class="photo">
+        <div class="person">
+            <div class="photo" responsive-background-image>
                 <img src="{{ person.headshot }}"/>
             </div>
-            <div class="name">{{ person.name }}</div>
-            <div class="role">{{ person.title_role }}</div>
-            <div class="email"><a href="mailto:{{ person.email }}">{{ person.email }}</a></div>
+            <div class="info">
+                <div class="name">{{ person.name }}</div>
+                <div class="role">{{ person.title_role }}</div>
+                <div class="email"><a href="mailto:{{ person.email }}">{{ person.email }}</a></div>
+                <div class="phone"><a href="tel:{{ person.phonenumber }}">{{ person.phonenumber }}</a></div>
+            </div>
         </div>
     {% endfor %}
     </div>

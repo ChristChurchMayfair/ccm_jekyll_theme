@@ -7,7 +7,7 @@ layout: default
 {% assign services = site.services | where: "type", "service" %}
 
 
-<section class="hero vertical-bottom" responsive-background-image>
+<section class="hero left bottom {{ page.heroClasses | join: " " }}" responsive-background-image>
   <h1>{{ page.overlayCaption }}</h1>
   <picture>
       <source srcset="{{ page.mainImage }}" media="(min-width: 968px)" />
@@ -60,6 +60,6 @@ layout: default
   
 {%- include find-us.html -%}
 
-{% include bio.html role_type="administrator" %}
+{% include bio.html role_type="administrator" content=page.findOutMoreText %}
 
 <script src="/assets/javascript/maps.js"></script>
