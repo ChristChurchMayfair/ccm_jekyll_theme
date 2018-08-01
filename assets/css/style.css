@@ -143,7 +143,7 @@ body:after{
   height: 25px;
   background: var(--beta-banner-colour);
   top: 40px;
-  left: -35px;
+  left: -45px;
   text-align: center;
   font-size: 13px;
   font-family: Kl;
@@ -151,10 +151,11 @@ body:after{
   font-weight: bold;
   color: var(--light-colour);
   line-height: 27px;
-  
-  -ms-transform:rotate(-45deg);
-  -webkit-transform:rotate(-45deg);
-  transform:rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 #viewsizedebug {
