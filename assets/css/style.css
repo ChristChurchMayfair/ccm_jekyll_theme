@@ -870,8 +870,10 @@ footer .all-links {
   grid-area: links;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-auto-rows: 50px;
-  font-size: 1.6em;
+  grid-column-gap: var(--general-padding);
+  grid-auto-rows: 1.2em;
+  font-size: 1.4em;
+  grid-row-gap: 10px;
 }
 
 address {
