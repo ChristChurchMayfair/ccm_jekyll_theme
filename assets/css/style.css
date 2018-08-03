@@ -17,6 +17,8 @@
   --next-section-peek: 175px;
 
   --body-margin: 11vw;
+  --fixed-content-width: 936px;
+  --body-margin: calc(calc(100vw - var(--fixed-content-width)) / 2);
 
   --info-section-height: 60vh;
   --person-height: 40vh;
@@ -466,6 +468,9 @@ header, nav {
 
 footer, section {
   display: grid;
+  /* PROPORTIONAL SIDE MARGINS */
+  /* grid-template-columns: calc(var(--body-margin) - var(--general-padding)) 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr calc(var(--body-margin) - var(--general-padding)); */
+  /* FIXED CENTRE WIDTH */
   grid-template-columns: calc(var(--body-margin) - var(--general-padding)) 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr calc(var(--body-margin) - var(--general-padding));
   grid-template-areas: ". content content content content content content content content content content content content .";
   grid-column-gap: var(--general-padding);
@@ -514,7 +519,7 @@ section.highlight {
 }
 
 @media only screen and (max-width: 968px) {
-  section {
+  section, footer {
     grid-template-columns: 0 1fr 1fr 1fr 1fr 0;
   }
 }
@@ -824,6 +829,14 @@ footer {
   font-weight: 300;
 }
 
+@media only screen and (max-width:968px) {
+  footer {
+    grid-template-areas: ". contact contact contact contact ."
+    ". links links links links ."
+    ". smallprint smallprint smallprint smallprint .";
+  }
+}
+
 footer .logo svg {
   fill: var(--dark-gray);
 }
@@ -872,9 +885,28 @@ footer .all-links {
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: var(--general-padding);
   grid-auto-rows: 1.2em;
-  font-size: 1.4em;
+  font-size: 1.3em;
   grid-row-gap: 10px;
   margin-left: var(--general-padding);
+}
+
+@media only screen and (max-width: 968px) {
+  footer .contact, footer .all-links {
+    border-right-width: 0px;
+    border-right-style: none;
+    padding-bottom: var(--general-padding);
+    margin-bottom: var(--general-padding);
+    border-bottom: 1px solid var(--dark-gray);
+  }
+
+  footer .all-links {
+    margin-left: 0;
+    grid-auto-rows: minmax(40px,60px);
+  }
+
+  footer .smallprint .item {
+    padding-bottom: var(--general-padding);
+  }
 }
 
 address {
@@ -1029,6 +1061,8 @@ section.full-bleed {
   padding: 0;
   color: var(--light-colour);
   background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
 }
 
 @media only screen and (max-width:968px) {
