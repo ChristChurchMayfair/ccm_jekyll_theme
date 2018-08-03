@@ -2,7 +2,7 @@
 
   --section-columns: repeat(12, 1fr);
 
-  --logo-height: 50px;
+  --logo-height: 60px;
 
   --text-margin-bottom: calc(2 * var(--general-padding));
 
