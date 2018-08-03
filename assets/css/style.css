@@ -1663,11 +1663,13 @@ section.find-out-more {
 
 .person .photo {
   grid-area: photo;
-  object-fit: cover;
+  object-fit: contain;
   height: 200px;
   overflow: hidden;
   background-size: contain;
   background-repeat: no-repeat;
+  width: 100%;
+  background-position-y: bottom;
 }
 
 .person .photo img {
