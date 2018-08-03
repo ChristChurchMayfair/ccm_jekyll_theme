@@ -6,7 +6,7 @@
     {% for release in releases %}
       <div class="music-release">
         <img class="music-release-cover" src="{{ release.coverImage }}"/>
-          <div class="music-release-title">{{ release.title }}</div>
+          <div class="music-release-title">{{ release.title }} - {{ release.type }}</div>
           <div class="music-service-links">
             {% if release.spotifyLink %}
             <a class="music-service-link spotify-link" href="{{ release.spotifyLink }}"></a>

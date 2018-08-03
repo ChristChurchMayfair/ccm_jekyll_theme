@@ -1410,6 +1410,12 @@ section.music-release {
   grid-row-gap: 100px;
 }
 
+@media only screen and (max-width: 968px) {
+  .music-release-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .music-release {
   display: grid;
@@ -1445,25 +1451,27 @@ section.music-release {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "apple-music spotify";
+  grid-column-gap: var(--general-padding);
 }
 
 .music-service-link  {
   display:inline-block;
   overflow:hidden;
-  width: 160px;
+  width: 130px;
   height: 50px;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .spotify-link {
   grid-area: spotify;
-  background: url(/assets/images/Listen_on_spotify.svg) no-repeat;
+  background-image: url(/assets/images/Listen_on_spotify.svg);
   justify-self: start;
 }
 
 .apple-music-link {
   grid-area: apple-music;
-  background: url(https://tools.applemusic.com/assets/shared/badges/en-us/music-lrg.svg) no-repeat;
+  background-image: url(https://tools.applemusic.com/assets/shared/badges/en-us/music-lrg.svg);
   justify-self: end;
 }
 
@@ -1491,18 +1499,18 @@ section.music-release {
     display: none;
   }
 
-  .music-service-link {
+  /* .music-service-link {
     width:40px;
     height:40px;
-  }
+  } */
 
-  .apple-music-link {
+  /* .apple-music-link {
     background: url(https://tools.applemusic.com/embed/v1/app-icon.svg) no-repeat;
   }
 
   .spotify-link {
     background: url(../images/spotify_small.svg) no-repeat;
-  }
+  } */
 }
 
 /* MUSIC TRAINING VIDEOS */
