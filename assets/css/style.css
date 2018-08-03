@@ -814,7 +814,7 @@ section.services {
 
 footer {
   grid-row-gap: var(--general-padding);
-  padding-top: var(--general-padding);
+  padding-top: calc(2 * var(--general-padding));
   padding-bottom: var(--general-padding);
   grid-template-areas: ". contact contact contact contact contact links links links links links links links ."
   ". smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint  .";
@@ -874,6 +874,7 @@ footer .all-links {
   grid-auto-rows: 1.2em;
   font-size: 1.4em;
   grid-row-gap: 10px;
+  margin-left: var(--general-padding);
 }
 
 address {
