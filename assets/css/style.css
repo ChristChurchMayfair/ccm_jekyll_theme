@@ -66,6 +66,7 @@
     --hero-height: 55vh;
     --hero-font-size: 4em;
     --general-padding: 15px;
+    --text-margin-bottom: 0;
   }
 }
 
@@ -250,6 +251,7 @@ nav {
   -webkit-transition: opacity var(--menu-transition-time);
 }
 
+
 nav svg {
   fill: var(--dark-colour);
 }
@@ -307,12 +309,16 @@ nav #close-menu-icon {
   #menu-content {
     grid-column-gap: var(--general-padding);
     grid-template-columns: auto auto auto auto auto auto;
+    grid-auto-rows: 40px;
+    align-items: center;
   }
 }
 
 @media only screen and (min-width: 640px) and (max-width: 900px) {
   #menu-content {
     grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 40px;
+    align-items: center;
   }
 }
 
@@ -329,7 +335,9 @@ nav #close-menu-icon {
   font-style: normal;
   display: block;
   line-height: 1em;
-  height: 1.2em;;
+  height: 1.2em;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
 }
 
 header.light #menu-content a.current,
@@ -349,7 +357,6 @@ header.black #menu-content a.hover {
 
 #menu-content a.current {
   border-bottom-style: solid;
-  border-bottom-width: 2px;
 }
 
 #menu-content a:hover {
@@ -358,7 +365,7 @@ header.black #menu-content a.hover {
   display: block;
   text-decoration: none;
   border-bottom-style: solid;
-  border-bottom-width: 2px;
+
 }
 
 #menu-content a:visited {
@@ -584,6 +591,21 @@ section.double-image-right {
                        ". content content content content content content bottomimage bottomimage bottomimage bottomimage bottomimage bottomimage .";
   padding: 40px 0px;
   grid-row-gap: var(--general-padding);
+}
+
+@media only screen and (max-width: 968px) {
+  section.double-image-right {
+    grid-template-areas: ". content content content content ."
+                       ". topimage topimage bottomimage bottomimage .";
+  }
+}
+
+@media only screen and (max-width: 694px) {
+  section.double-image-right {
+    grid-template-areas: ". content content content content ."
+                       ". topimage topimage topimage topimage ."
+                       ". bottomimage bottomimage bottomimage bottomimage .";
+  }
 }
 
 section.double-image-right .text {
@@ -823,6 +845,8 @@ footer {
   padding-bottom: var(--general-padding);
   grid-template-areas: ". contact contact contact contact contact links links links links links links links ."
   ". smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint  .";
+  grid-template-areas: ". contact contact contact contact contact links links links links links links links ."
+  ". contact contact contact contact contact smallprint smallprint smallprint smallprint smallprint smallprint smallprint  .";
   color: var(--dark-gray);
   background-color: var(--mid-gray);
   font-size: 0.7em;
@@ -877,6 +901,7 @@ footer .contact .phone {
 
 footer .smallprint {
   grid-area: smallprint;
+  align-self: end
 }
 
 footer .all-links {
@@ -901,7 +926,7 @@ footer .all-links {
 
   footer .all-links {
     margin-left: 0;
-    grid-auto-rows: minmax(40px,60px);
+    font-size: 1em;
   }
 
   footer .smallprint .item {
@@ -990,6 +1015,13 @@ section.image-left {
 }
 
 @media only screen and (max-width:968px) {
+  section.image-left {
+    grid-template-areas: ". text text text text ."
+    "image image image image image image";
+  }
+}
+
+@media only screen and (max-width:968px) {
   section.fancy-overlay {
     grid-template-areas: ". text text text text ."
     "image image image image image image";
@@ -1015,11 +1047,15 @@ section.image-left {
   grid-area: image;
   display: block;
   width: 100%;
-  /*height: 100%;*/
-  /* object-fit: cover; */
   overflow: hidden;
   height: auto;
   background-size: cover;
+}
+
+@media only screen and (max-width: 968px) {
+  .info-panel .photo {
+    height: 300px;
+  }
 }
 
 .photo.right {
@@ -1265,6 +1301,8 @@ section.sermons {
   background-size: cover;
   background-repeat: no-repeat;
   justify-self: center;
+  background-position-x: center;
+  background-position-y: center;
 }
 
 .sermon-list {
@@ -1359,20 +1397,14 @@ section.sermons {
 }
 
 @media only screen and (max-width: 890px) {
-
-  .sermon-series,
-  .sermon-series:nth-of-type(even) {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-column-gap: var(--general-padding);
-    grid-template-rows: auto auto auto;
-    grid-template-areas: "title"
-      "details "
-      "sermons";
+  .sermon-container {
+    grid-template-columns: 1fr 1fr;
   }
+}
 
-  .series-graphic {
-    display: none;
+@media only screen and (max-width: 400px) {
+  .sermon-container {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1449,9 +1481,10 @@ section.music-release {
 .music-service-links {
   grid-area: links;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "apple-music spotify";
   grid-column-gap: var(--general-padding);
+  grid-auto-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-auto-flow: column;
 }
 
 .music-service-link  {
@@ -1464,15 +1497,13 @@ section.music-release {
 }
 
 .spotify-link {
-  grid-area: spotify;
   background-image: url(/assets/images/Listen_on_spotify.svg);
-  justify-self: start;
+  justify-self: center;
 }
 
 .apple-music-link {
-  grid-area: apple-music;
   background-image: url(https://tools.applemusic.com/assets/shared/badges/en-us/music-lrg.svg);
-  justify-self: end;
+  justify-self: center;
 }
 
 .music-release-description {
@@ -1733,6 +1764,7 @@ section.find-out-more {
 .person .info .email {
   font-size: 0.9em;
   hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .person .info .phone {

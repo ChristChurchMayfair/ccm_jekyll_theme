@@ -10,13 +10,9 @@
           <div class="music-service-links">
             {% if release.spotifyLink %}
             <a class="music-service-link spotify-link" href="{{ release.spotifyLink }}"></a>
-            {%else%}
-            <div class="music-service-link"></div>
             {% endif %}
             {% if release.appleMusicLink %}
             <a class="music-service-link apple-music-link" href="{{ release.appleMusicLink }}"></a>
-            {%else%}
-            <div class="music-service-link"></div>
             {% endif %}
           </div>
       </div>
