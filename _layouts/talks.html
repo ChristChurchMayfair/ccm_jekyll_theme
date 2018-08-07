@@ -9,12 +9,13 @@ layout: default
     </picture>
 </section>
 
-<section class="intro wider">
+<section class="intro wider dark">
   <div class="text">
     {{ content }}
     <div style="display:none" id="podcast-link">
-      <a href="pcast://{{ page.podcastURL }}"><img src="/assets/images/Listen_on_Apple_Podcasts_sRGB_US.svg"/></a>
-      <a href="http://subscribeonandroid.com/{{ page.podcastURL }}" title="Subscribe on Android"><img src="/assets/images/Subscribe_on_Android.svg" alt="Subscribe on Android" style="border:0;" /></a>
+      <a href="pcast://{{ page.podcastURL }}"><img src="/assets/badges/Listen_on_Apple_Podcasts_sRGB_US.svg"/></a>
+      <a href="http://subscribeonandroid.com/{{ page.podcastURL }}" title="Subscribe on Android"><img src="/assets/badges/Subscribe_on_Android.svg" alt="Subscribe on Android" style="border:0;" /></a>
+      <a href="{{ page.iosAppStoreLink }}" style="display:inline-block;overflow:hidden;background:url(/assets/badges/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg) no-repeat;width:135px;height:40px;background-size:contain;"></a>
     </div>
   </div>
 </section>

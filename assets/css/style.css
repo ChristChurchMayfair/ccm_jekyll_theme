@@ -1506,12 +1506,12 @@ section.music-release {
 }
 
 .spotify-link {
-  background-image: url(/assets/images/Listen_on_spotify.svg);
+  background-image: url(/assets/badges/Listen_on_spotify.svg);
   justify-self: center;
 }
 
 .apple-music-link {
-  background-image: url(https://tools.applemusic.com/assets/shared/badges/en-us/music-lrg.svg);
+  background-image: url(/assets/badges/music-lrg.svg);
   justify-self: center;
 }
 
