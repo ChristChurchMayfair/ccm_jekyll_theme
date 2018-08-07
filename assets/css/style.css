@@ -1636,6 +1636,13 @@ section.find-us {
 
 .roundel, .pin {
   height: 50px;
+  width: 50px;
+  stroke: var(--dark-colour);
+  fill: var(--dark-colour);
+}
+
+.roundel {
+  grid-area: roundel;
 }
 
 .find-us .location .address {
