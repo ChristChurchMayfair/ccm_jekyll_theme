@@ -1126,7 +1126,7 @@ section.staff > div {
   grid-area: content;
   display: grid;
   grid-template-columns: 1fr;
-  grid-row-gap: var(--general-padding);
+  grid-row-gap: calc(var(--general-padding) * 5);
 }
 
 .staff .person {
@@ -1135,19 +1135,52 @@ section.staff > div {
   grid-template-areas: "photo info";
   grid-column-gap: var(--general-padding);
   background-color: var(--light-colour);
-  height: var(--person-height);
   overflow: hidden;
+}
+
+@media screen and (max-width:968px) {
+  .staff .person {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "photo info";
+    grid-column-gap: var(--general-padding);
+    background-color: var(--light-colour);
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width:650px) {
+  .staff .person {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "name"
+    "title"
+    "email"
+    "photo"
+    "info";
+    grid-column-gap: var(--general-padding);
+    background-color: var(--light-colour);
+    overflow: hidden;
+  }
 }
 
 .staff .person .photo {
   grid-area: photo;
   object-fit: contain;
-  height: 600px;
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position-y: top;
   width: 100%;
-  background-position-y: bottom;
+  height: 0;
+  padding-top: 140%;
+}
+
+@media screen and (max-width: 968px) {
+  .staff .person .photo {
+    
+  }
 }
 
 .staff .person .info {
