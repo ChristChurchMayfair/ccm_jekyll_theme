@@ -1769,7 +1769,6 @@ section.find-out-more {
   grid-area: photo;
 }
 
-
 #home p {
   font-size: 1.4em;
   line-height: 2em;
@@ -1777,4 +1776,19 @@ section.find-out-more {
 
 #home strong {
   color: var(--highlight-colour);
+}
+
+section article {
+  grid-area: content;
+}
+
+section article h1 {
+  font-size: 3em;
+}
+
+section article h2 {
+  font-family: var(--body-font);
+  font-size: 1.6em;
+  text-transform: none;
+  font-weight: 400;
 }
