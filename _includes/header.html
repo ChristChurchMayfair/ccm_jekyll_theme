@@ -10,7 +10,8 @@
     </svg>
   </a>
   <div id="menu-content">
-    {% for page in site.pages | sort: "menuOrder" %}
+    {% assign sorted_pages = site.pages | sort: "menuOrder" %}
+    {% for page in sorted_pages %}
       {% if page.showInMenu == true %}
       <a href="{{ page.url }}">{{page.title}}</a>
       {% endif %}
@@ -38,7 +39,8 @@
     </svg>
   </a>
   <div id="menu-content">
-    {% for page in site.pages | sort: "menuOrder" %}
+    {% assign sorted_pages = site.pages | sort: "menuOrder" %}
+    {% for page in sorted_pages %}
       {% if page.showInMenu == true %}
       <a href="{{ page.url }}">{{page.title}}</a>
       {% endif %}
