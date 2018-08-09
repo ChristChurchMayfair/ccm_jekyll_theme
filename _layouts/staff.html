@@ -4,22 +4,21 @@ layout: default
 
 <section class="header-underlay"></section>
 
-{% assign about_us_sections = site.about_us | sort: "order" %}
+<section class="staff">
+  <div>
+  {% assign people = site.people | sort: "order" %}
 
-{% for section in about_us_sections %}
-{% assign extra_attribute = "" %}
-{% if section.style_classes contains "full-bleed" %}
-  {% assign extra_attribute = "responsive-background-image" %}
-{% endif %}
-<section class="info-panel {{ section.style_classes | join: " " }}" {{ extra_attribute }}>
-  <div class="text"><h1>{{ section.title }}</h1>
-    {{ section.content | markdownify}}
-  </div>
-  <div class="photo {{ section.image_alignment_classes | join: " " }}" responsive-background-image>
-    <picture>
-        <source srcset="{{ section.mainImage }}" media="(min-width: 968px)" />
-        <img src="{{ section.mobileImage }}" />
-    </picture>
+  {% for person in people %}
+    <div class=person>
+      <div class="photo" responsive-background-image><img src="{{ person.headshot }}"/></div>
+      <div class="info">
+        <div class="name">{{ person.name }}</div>
+        <div class="title">{{ person.title_role }}</div>
+        <div class="email"><a href="mailto:{{ person.email }}">{{ person.email }}</a></div>
+        <div class="bio">{{ person.content | markdownify }}</div>
+      </div>
+    </div>
+
+  {% endfor %}
   </div>
 </section>
-{% endfor %}

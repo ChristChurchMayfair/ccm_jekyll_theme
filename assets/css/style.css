@@ -1122,87 +1122,57 @@ section.full-bleed {
 
 /* STAFF */
 
-section.staff {
-   background-color: var(--highlight-colour);
-}
-
-.staff.ministry .people {
+section.staff > div {
   grid-area: content;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  grid-column-gap: var(--general-padding);
+  grid-template-columns: 1fr;
   grid-row-gap: var(--general-padding);
-  grid-auto-flow: row;
-}
-
-@media only screen and (max-width:968px) {
-  .staff.ministry .people {
-    grid-template-columns: 1fr;
-  }
 }
 
 .staff .person {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "photo text";
+  grid-template-areas: "photo info";
   grid-column-gap: var(--general-padding);
   background-color: var(--light-colour);
   height: var(--person-height);
-}
-
-.staff .person .info {
-  grid-area: text;
   overflow: hidden;
 }
 
-.staff .person .info h1{
-  font-size: 2.4em;
-}
-
-.staff .person img {
+.staff .person .photo {
   grid-area: photo;
-  height: var(--person-height);
+  object-fit: contain;
+  height: 600px;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-position-y: bottom;
 }
 
-/* section.person:nth-of-type(even) {
-  grid-template-areas: "title photo"
-    "bio photo";
-  grid-template-columns: 1.618fr 1fr;
+.staff .person .info {
+  grid-area: info;
 }
 
-section.person .title {
-  grid-area: title;
+.staff .person .name {
+  font-weight: 600;
+  font-size: 1.6em;
+  margin-bottom: 0.1em;
 }
 
-section.person img {
-  grid-area: photo;
-  border-radius: 50%;
-  width: 300px;
+.staff .person .title {
+  font-weight: 300;
+  font-size: 1.2em;
+  margin-bottom: 0.4em;
 }
 
-section.person .bio {
-  grid-area: bio;
+.staff .person .bio {
+  font-size: 0.8em;
 }
 
-section.people {
-  display: grid;
-  grid-column-gap: var(--general-padding);
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto;
-  grid-template-areas: "title title title title"
-    ". . . .";
+.staff .person .email {
+  margin-bottom: 1em;
 }
-
-section.people h1 {
-  grid-area: title;
-}
-
-section.people img {
-  grid-area: photo;
-  border-radius: 50%;
-  width: 200px;
-} */
 
 /* SERMONS/TALKS */
 
@@ -1738,7 +1708,7 @@ section.find-out-more {
   grid-row-gap: var(--general-padding);
 }
 
-.person {
+.find-out-more .person {
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: auto auto auto auto;
@@ -1750,7 +1720,7 @@ section.find-out-more {
   font-size: 1.1em;
 }
 
-.person .photo {
+.find-out-more .person .photo {
   grid-area: photo;
   object-fit: contain;
   height: 200px;
@@ -1761,29 +1731,29 @@ section.find-out-more {
   background-position-y: bottom;
 }
 
-.person .photo img {
+.find-out-more .person .photo img {
   height: 100%;
 }
 
-.person .info {
+.find-out-more .person .info {
   grid-area: info;
 }
 
-.person .info .name {
+.find-out-more .person .info .name {
   font-weight: bold;
 }
 
-.person .info .role {
+.find-out-more .person .info .role {
   margin-bottom: var(--general-padding);
 }
 
-.person .info .email {
+.find-out-more .person .info .email {
   font-size: 0.9em;
   hyphens: auto;
   -webkit-hyphens: auto;
 }
 
-.person .info .phone {
+.find-out-more .person .info .phone {
   font-size: 0.9em;
 }
 

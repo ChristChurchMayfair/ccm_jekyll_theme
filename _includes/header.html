@@ -10,12 +10,11 @@
     </svg>
   </a>
   <div id="menu-content">
-      <a href="/aboutus/">About Us</a>
-      <!-- <a href="/workers/">Workers</a> -->
-      <a href="/students/">Students</a>
-      <a href="/children/">Children</a>
-      <a href="/music/">Music</a>
-      <a href="/talks/">Talks</a>
+    {% for page in site.pages | sort: "menuOrder" %}
+      {% if page.showInMenu == true %}
+      <a href="{{ page.url }}">{{page.title}}</a>
+      {% endif %}
+    {% endfor %}
   </div>
 </nav>
 
@@ -39,11 +38,10 @@
     </svg>
   </a>
   <div id="menu-content">
-    <a href="/aboutus/">About Us</a>
-    <!-- <a href="/workers/">Workers</a> -->
-    <a href="/students/">Students</a>
-    <a href="/children/">Children</a>
-    <a href="/music/">Music</a>
-    <a href="/talks/">Talks</a>
+    {% for page in site.pages | sort: "menuOrder" %}
+      {% if page.showInMenu == true %}
+      <a href="{{ page.url }}">{{page.title}}</a>
+      {% endif %}
+    {% endfor %}
 </div>
 </header>
