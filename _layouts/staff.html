@@ -4,6 +4,12 @@ layout: default
 
 <section class="header-underlay"></section>
 
+<section class="intro wider dark">
+    <div class="text">
+      {{ content }}
+    </div>
+  </section>
+
 <section class="staff">
   <div>
   {% assign people = site.people | sort: "order" %}
