@@ -158,6 +158,14 @@ function hideLoading() {
   loadingDiv.style.display = "none";
 }
 
+function hideNoJavascript() {
+  var noJavascript = document.getElementsByClassName("no-javascript");
+  Array.from(noJavascript).forEach(function(item) {
+    console.log(item);
+    item.style.display = "none";
+  });
+}
+
 function showLoadingError() {
   var loadingErrorDiv = document.getElementById("loading-error");
   loadingErrorDiv.style.display = "block";
@@ -200,6 +208,7 @@ function loadPage(pageNumber,query) {
 //Do things when the DOM content has loaded so that we can safely manipulate the DOM.
 document.addEventListener("DOMContentLoaded", function() {
   
+  hideNoJavascript();
   showPodcastLink();
   setupPaginationLinks();
 
