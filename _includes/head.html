@@ -10,6 +10,9 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  {%- if page.meta.description -%}
+  <meta name="description" content="{{ page.meta.description }}"/>
+  {%- endif -%}
   {%- if page.title -%}
     <title>{{ site.title }} - {{ page.title }}</title>
   {%- else -%}
