@@ -880,7 +880,7 @@ footer .contact {
   "email"
   "phone";
   font-size: 1.6em;
-  border-right: 2px solid var(--dark-gray); 
+  border-right: 1px solid var(--dark-gray); 
 }
 
 footer .contact address {
