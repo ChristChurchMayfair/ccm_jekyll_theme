@@ -1117,7 +1117,7 @@ section.full-bleed {
 
 .promotion.full-bleed {
   grid-template-areas: ". text text text text text text text text text text text text ."
-  ". button button . . . . . . . . . . .";
+  ". button button button . . . . . . . . . .";
   padding-top: var(--general-padding);
   padding-bottom: var(--general-padding);
 }
