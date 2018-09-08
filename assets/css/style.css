@@ -604,26 +604,26 @@ section.double-image.right {
   grid-row-gap: var(--general-padding);
 }
 
+section.double-image.left {
+  grid-template-areas: ". topimage topimage topimage topimage topimage topimage content content content content content content ."
+                       ". bottomimage bottomimage bottomimage bottomimage bottomimage bottomimage content content content content content content .";
+  padding: 40px 0px;
+  grid-row-gap: var(--general-padding);
+}
+
 @media only screen and (max-width: 968px) {
-  section.double-image {
+  section.double-image.left, section.double-image.right {
     grid-template-areas: ". content content content content ."
                        ". topimage topimage bottomimage bottomimage .";
   }
 }
 
 @media only screen and (max-width: 694px) {
-  section.double-image {
+  section.double-image.left, section.double-image.right {
     grid-template-areas: ". content content content content ."
                        ". topimage topimage topimage topimage ."
                        ". bottomimage bottomimage bottomimage bottomimage .";
   }
-}
-
-section.double-image.left {
-  grid-template-areas: ". topimage topimage topimage topimage topimage topimage content content content content content content ."
-                       ". bottomimage bottomimage bottomimage bottomimage bottomimage bottomimage content content content content content content .";
-  padding: 40px 0px;
-  grid-row-gap: var(--general-padding);
 }
 
 section.double-image .text {
