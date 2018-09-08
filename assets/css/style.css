@@ -597,7 +597,7 @@ section.intro.wider {
   }
 }
 
-section.double-image-right {
+section.double-image.right {
   grid-template-areas: ". content content content content content content topimage topimage topimage topimage topimage topimage ."
                        ". content content content content content content bottomimage bottomimage bottomimage bottomimage bottomimage bottomimage .";
   padding: 40px 0px;
@@ -605,41 +605,41 @@ section.double-image-right {
 }
 
 @media only screen and (max-width: 968px) {
-  section.double-image-right, section.double-image-left {
+  section.double-image {
     grid-template-areas: ". content content content content ."
                        ". topimage topimage bottomimage bottomimage .";
   }
 }
 
 @media only screen and (max-width: 694px) {
-  section.double-image-right, section.double-image-left {
+  section.double-image {
     grid-template-areas: ". content content content content ."
                        ". topimage topimage topimage topimage ."
                        ". bottomimage bottomimage bottomimage bottomimage .";
   }
 }
 
-section.double-image-left {
+section.double-image.left {
   grid-template-areas: ". topimage topimage topimage topimage topimage topimage content content content content content content ."
                        ". bottomimage bottomimage bottomimage bottomimage bottomimage bottomimage content content content content content content .";
   padding: 40px 0px;
   grid-row-gap: var(--general-padding);
 }
 
-section.double-image-right .text {
+section.double-image .text {
   grid-area: content;
 }
 
-section.double-image-right .photo {
+section.double-image .photo {
   height: 300px;
   background-size: cover;
 }
 
-section.double-image-right .photo.topimage {
+section.double-image .photo.topimage {
   grid-area: topimage;
 }
 
-section.double-image-right .photo.bottomimage {
+section.double-image .photo.bottomimage {
   grid-area: bottomimage;
 }
 

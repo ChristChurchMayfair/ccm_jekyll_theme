@@ -3,7 +3,7 @@ layout: default
 ---
 {% include hero.html overlayCaption=page.overlayCaption mainImage=page.mainImage mobileImage=page.mobileImage textClass="left bottom"%}
 
-<section class="double-image-left">
+<section class="double-image left">
   <div class="text">
       {{ content }}
   </div>
@@ -21,7 +21,7 @@ layout: default
     </div>
 </section>
 
-{% assign youth = site.pages | where: "path","children/youth_at_ccm.md" | first %}
+{% assign youth = site.pages | where: "path","familes/youth_at_ccm.md" | first %}
 
 <section class="info-panel dark image-right">
   <div class="text">
