@@ -681,24 +681,6 @@ section.lightBlend {
   background-blend-mode: color-burn;
 }
 
-/* PROMOTIONAL */
-
-.promotion {
-  height: var(--next-section-peek);
-  background-color: var(--highlight-colour);
-  padding: var(--general-padding);
-}
-
-.promotion h1 {
-  font-size: 1.5em;
-}
-
-@media only screen and (min-width: 968px) {
-  .promotion {
-    text-align: center;
-  }
-}
-
 .caption-overlay {
   grid-area: caption;
 }
@@ -1118,6 +1100,30 @@ section.full-bleed {
 
 .full-bleed .text {
   grid-area: text;
+}
+
+/* PROMOTIONAL */
+
+.promotion.full-bleed {
+  grid-template-areas: ". text text text text text text text text text text text text ."
+  ". button button . . . . . . . . . . .";
+  padding-top: var(--general-padding);
+  padding-bottom: var(--general-padding);
+}
+
+.promotion > div {
+  grid-area: text;
+}
+
+.promotion h1 {
+  font-size: 5em;
+  margin-bottom: 0;
+}
+
+.promotion a.button {
+  grid-area: button;
+  background-color: var(--light-colour);
+  color: var(--dark-colour);
 }
 
 /* STAFF */

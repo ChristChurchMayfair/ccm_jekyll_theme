@@ -7,11 +7,15 @@ layout: default
 {% assign services = site.services | where: "type", "service" %}
 
 
-<section class="hero left bottom {{ page.heroClasses | join: " " }}" responsive-background-image>
+<section class="hero left bottom carousel {{ page.heroClasses | join: " " }}" responsive-background-image>
   <h1>{{ page.overlayCaption }}</h1>
   <picture>
       <source srcset="{{ page.mainImage }}" media="(min-width: 968px)" />
       <img src="{{ page.mobileImage }}" />
+  </picture>
+  <picture>
+    <source srcset="{{ page.nextMainImage }}" media="(min-width: 968px)" />
+    <img src="{{ page.nextMobileImage }}" />
   </picture>
 </section>
 
@@ -29,20 +33,24 @@ layout: default
 
 {%- if events.size > 0 -%}
 {% assign event = events.first %}
-<section class="promotion" style="background-color:{{ event.backgroundColour }}; color: {{event.textColour}};">
-  <h1 >{{ event.overlayCaption }}</h1>
-  <p>&gt;&gt; Find out more &lt;&lt;</p>
-</section>
-{%- endif -%}
-
-{% for event in events %}
-<section class="event-section">
-  <div class="event">
-    <h1>{{ event.name }}</h1>
-    <p>{{ event.content }}</p>
+<section class="promotion full-bleed" responsive-background-image>
+  <div>
+    <h1 >{{ event.overlayCaption }}</h1>
+    {{ event.content | markdownify }}
+  </div>
+  {%- if event.findOutMoreText -%}
+  <a id="promo-button" class="button index-top-section-btn" href="{{ event.findOutMoreLink }}">
+      {{ event.findOutMoreText }}
+    </a>
+  {%- endif -%}
+  <div class="photo {{ section.image_alignment_classes | join: " " }}">
+    <picture>
+        <source srcset="{{ event.mainImage }}" media="(min-width: 968px)" />
+        <img src="{{ event.mobileImage }}" />
+    </picture>
   </div>
 </section>
-{% endfor %}
+{%- endif -%}
 
 {%- include services.html -%}
 
@@ -63,3 +71,4 @@ layout: default
 {% include bio.html role_type="administrator" content=page.findOutMoreText %}
 
 <script src="/assets/javascript/maps.js"></script>
+<!-- <script src="/assets/javascript/carousel.js"></script> -->
