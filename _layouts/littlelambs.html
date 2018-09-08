@@ -1,0 +1,12 @@
+---
+layout: default
+---
+{% include hero.html overlayCaption=page.overlayCaption mainImage=page.mainImage mobileImage=page.mobileImage textClass="left bottom"%}
+
+<section class="intro wide">
+  <div class="text">
+      {{ content }}
+  </div>
+</section>
+
+{% include bio.html role_type="littlelambs" content=page.findOutMoreText %}
