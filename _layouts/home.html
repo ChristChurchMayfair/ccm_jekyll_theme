@@ -7,7 +7,7 @@ layout: default
 {% assign services = site.services | where: "type", "service" %}
 
 
-<section class="hero left bottom carousel {{ page.heroClasses | join: " " }}" responsive-background-image>
+<section id="home-hero" class="hero left bottom carousel {{ page.heroClasses | join: " " }}" responsive-background-image>
   <h1>{{ page.overlayCaption }}</h1>
   <picture>
       <source srcset="{{ page.mainImage }}" media="(min-width: 968px)" />
