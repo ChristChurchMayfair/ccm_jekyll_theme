@@ -1420,10 +1420,19 @@ section.find-us {
 
   .find-us .location {
     grid-template-columns: 1fr 3fr 3fr 3fr 3fr 3fr;
+    height: 180px;
   }
 
   .pin, .roundel {
     justify-self: right;
+  }
+}
+
+/*Increased element height to account for text wrap on v.small mobile screens*/
+
+@media only screen and (max-width: 400px) {
+  .find-us .location {
+    height: 200px
   }
 }
 
