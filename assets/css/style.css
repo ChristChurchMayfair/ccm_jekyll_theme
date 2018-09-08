@@ -1548,6 +1548,18 @@ section.find-out-more {
   font-size: 1.1em;
 }
 
+@media only screen and (max-width: 968px) {
+  .find-out-more .person {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-column-gap: var(--general-padding);
+    grid-template-areas: "photo"
+    "info";
+    font-size: 1.1em;
+  }
+}
+
 .find-out-more .person .photo {
   grid-area: photo;
   object-fit: contain;
