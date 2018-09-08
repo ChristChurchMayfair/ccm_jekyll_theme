@@ -1388,27 +1388,7 @@ section.find-us {
   grid-template-areas: ". title title title title title title title title title title title title ."
     ". address address address address address address map map map map map map ."
     ". buttonleft buttonleft buttonleft buttonright buttonright buttonright map map map map map map .";
-}
-
-@media only screen and (max-width: 968px) {
-  section.find-us {
-    grid-template-areas: ". title title title title ."
-    ". address address address address ."
-    ". buttonleft buttonleft buttonright buttonright ."
-    "map map map map map map";
-    padding-bottom: 0px;
-  }
-}
-
-.find-us h1 {
-  color: var(--light-colour);
-  grid-area: title;
-
-  padding-bottom: 0.1em;
-  border-width: 0px;
-  border-bottom-width: 2px;
-  border-color: var(--light-colour);
-  border-style: solid;
+  padding-bottom: calc(var(--general-padding) + 40px);
 }
 
 .find-us .location {
@@ -1428,6 +1408,36 @@ section.find-us {
   "roundel tube tube tube tube tube";
 }
 
+
+@media only screen and (max-width: 968px) {
+  section.find-us {
+    grid-template-areas: ". title title title title ."
+    ". address address address address ."
+    ". buttonleft buttonleft buttonright buttonright ."
+    "map map map map map map";
+    padding-bottom: 0px;
+  }
+
+  .find-us .location {
+    grid-template-columns: 1fr 3fr 3fr 3fr 3fr 3fr;
+  }
+
+  .pin, .roundel {
+    justify-self: right;
+  }
+}
+
+.find-us h1 {
+  color: var(--light-colour);
+  grid-area: title;
+
+  padding-bottom: 0.1em;
+  border-width: 0px;
+  border-bottom-width: 2px;
+  border-color: var(--light-colour);
+  border-style: solid;
+}
+
 .pin {
   height: 30px;
   width: 30px;
@@ -1442,6 +1452,8 @@ section.find-us {
   fill: var(--dark-colour);
   grid-area: roundel;
 }
+
+
 
 .find-us .location .address {
   grid-area: address;
@@ -1487,7 +1499,7 @@ section.find-us h1 {
 
 .map iframe {
   width: 100%;
-  height: 50vh;
+  height: 100%;
   border: 0;
 }
 
