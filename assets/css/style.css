@@ -11,6 +11,8 @@
 
   --general-padding: 32px;
   --header-vertical-padding: var(--general-padding);
+
+  --intro-text-margin-bottom: 0px;
   
   --ios-bottom-furniture-padding: 140px; /*This is tuned for iPhone X only!*/
 
@@ -498,7 +500,7 @@ section .text {
 }
 
 section.intro .text {
-  margin-bottom: var(--general-padding);
+  margin-bottom: var(--intro-text-margin-bottom);
 }
 
 section.header-underlay {
@@ -1409,26 +1411,29 @@ section.find-us {
   padding: var(--general-padding);
   margin-bottom: var(--general-padding);
 
-  font-size: 1.2em;
   line-height: 1.2em;
   font-weight: 3  00;
 
   display: grid;
-  grid-gap: var(--general-padding);
-  grid-template-rows: 1fr 1fr;
+  /*grid-gap: var(--general-padding);*/
+  /*grid-template-rows: 1fr 1fr;*/
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: "pin address address address address address "
   "roundel tube tube tube tube tube";
 }
 
-.roundel, .pin {
-  height: 50px;
-  width: 50px;
+.pin {
+  height: 30px;
+  width: 30px;
   stroke: var(--dark-colour);
   fill: var(--dark-colour);
 }
 
 .roundel {
+  height: 25px;
+  width: 25px;
+  stroke: var(--dark-colour);
+  fill: var(--dark-colour);
   grid-area: roundel;
 }
 
