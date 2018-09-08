@@ -143,6 +143,7 @@
 }
 
 body:after{
+  display: none;
   content: "Work in Progress";
   position: fixed;
   z-index: 3;
@@ -166,6 +167,7 @@ body:after{
 }
 
 #viewsizedebug {
+  display: none;
   position: fixed;
   right:0px;
   bottom:0;
