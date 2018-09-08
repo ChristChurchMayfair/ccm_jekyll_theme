@@ -1419,11 +1419,10 @@ section.find-us {
   margin-bottom: var(--general-padding);
 
   line-height: 1.2em;
-  font-weight: 3  00;
 
   display: grid;
-  /*grid-gap: var(--general-padding);*/
-  /*grid-template-rows: 1fr 1fr;*/
+  grid-gap: var(--general-padding);
+  grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: "pin address address address address address "
   "roundel tube tube tube tube tube";
