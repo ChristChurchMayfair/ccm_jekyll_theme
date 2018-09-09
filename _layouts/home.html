@@ -57,7 +57,7 @@ layout: default
 {% assign midweek = site.pages | where: "path","midweek.md" | first %}
 
 <section id="midweek" class="info-panel image-right">
-  <div class="photo {{ midweek.image_alignment_classes | join: " "}}" responsive-background-image>
+  <div class="photo {{ midweek.image_alignment_classes | join: " "}}" responsive-background-image id="midweek-photo-right">
     <img src="{{ midweek.image }}"/>
   </div>
   <div class="text">

@@ -198,7 +198,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 4em;
-  margin-top: 0.2em;
+  margin-top: 0em;
   margin-bottom: 0.2em;
   line-height: 1.5em;
 }
@@ -1405,7 +1405,7 @@ section.find-us {
   display: grid;
   grid-gap: var(--general-padding);
   grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 4% 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: "pin address address address address address "
   "roundel tube tube tube tube tube";
 }
@@ -1591,7 +1591,7 @@ section.find-out-more {
   background-size: contain;
   background-repeat: no-repeat;
   width: 100%;
-  background-position-y: bottom;
+  background-position-y: top;
 }
 
 .find-out-more .person .photo img {
@@ -1655,3 +1655,17 @@ section article h2 {
   text-transform: none;
   font-weight: 400;
 }
+
+/* image background position code */
+
+#midweek-photo-right {
+  background-position: right center;
+}
+
+@media only screen and (max-width: 1220px) and (min-width: 970px) {
+  #midweek-photo-right {
+  background-position: 600px center;
+}
+}
+
+
