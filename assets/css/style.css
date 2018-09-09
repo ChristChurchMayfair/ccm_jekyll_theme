@@ -1656,6 +1656,9 @@ section article h2 {
   font-weight: 400;
 }
 
+#home-hero {
+  background-position-y: -310px;
+}
 /* Talks react app heading size fix */
 .talks-react-app h1 {
   font-size: 2em;
