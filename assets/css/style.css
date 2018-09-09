@@ -1656,6 +1656,11 @@ section article h2 {
   font-weight: 400;
 }
 
+/* Talks react app heading size fix */
+.talks-react-app h1 {
+  font-size: 2em;
+}
+
 /* image background position code */
 
 #midweek-photo-right {
@@ -1667,5 +1672,23 @@ section article h2 {
   background-position: 600px center;
 }
 }
+
+#families-hero {
+  background-position: right;
+}
+
+@media only screen and (max-width: 400px) {
+  #families-hero {
+  background-position: center;
+}
+}
+
+@media only screen and (max-width: 1280px) and (min-width: 970px) {
+#youth-photo-right {
+  background-position-x: 640px;
+}
+
+
+    
 
 

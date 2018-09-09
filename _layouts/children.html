@@ -28,7 +28,7 @@ layout: default
     <h1>{{youth.title}}</h1>
     {{ youth.content | markdownify }}
   </div>
-  <div class="photo {{ youth.image_alignment_classes | join: " " }}" responsive-background-image>
+  <div class="photo {{ youth.image_alignment_classes | join: " " }}" responsive-background-image id="youth-photo-right">
     <picture>
         <source srcset="{{ youth.mainImage }}" media="(min-width: 968px)" />
         <img src="{{ youth.mobileImage }}" />
