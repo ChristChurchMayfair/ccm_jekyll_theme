@@ -206,6 +206,7 @@ h1 {
 @media only screen and (max-width:968px) {
   h1 {
     line-height: 0.9;
+    font-size: 3em;
   }
 }
 
@@ -671,6 +672,12 @@ section.double-image .photo.bottomimage {
   
 }
 
+@media only screen and (max-width: 968px) {
+  .hero h1 {
+    line-height: 0.9em;
+  }
+}
+
 .hero.centred {
   grid-template-areas: ". text text text text text text text text text text text text .";
   justify-items: center;
@@ -712,6 +719,15 @@ section p {
   margin-top: 0px;
   font-size: 1em;
   grid-column: 1/-1;
+}
+
+@media only screen and (max-width: 968px) {
+  section p {
+    font-size: 0.9em;
+  }
+  .find-out-more section p {
+    margin-top: 10px;
+  }
 }
 
 .music-resource {
@@ -775,6 +791,12 @@ section.services {
   border-style: solid;
 }
 
+@media only screen and (max-width: 968px) {
+  .services>h1 {
+    padding: 20px 0px 5px 0px;
+  }
+}
+
 .service {
   display: grid;
   grid-template-columns: 1fr;
@@ -819,6 +841,17 @@ section.services {
   height: 300px;
   background-size: cover; /* <-- background size */
   background-position: center; /* <-- background position */
+}
+
+@media only screen and (max-width: 968px) {
+  
+  .service .title {
+      padding: 10px 0px 0px 0px;
+  }
+
+  .service .photo {
+      margin-top: 10px;
+  }
 }
 
 .service .time {
@@ -1007,8 +1040,8 @@ section.image-right {
 
 @media only screen and (max-width:968px) {
   section.image-right {
-    grid-template-areas: ". text text text text ."
-    "image image image image image image";
+    grid-template-areas: 
+    "image image image image image image" ". text text text text .";
   }
 }
 
@@ -1033,7 +1066,7 @@ section.image-left {
 .info-panel h1 {
     font-size: 5.5em;
     line-height: 0.9em;
-    padding: 50px 0px 0px 0px;
+    padding: 40px 0px 10px 0px;
 }
 
 .info-panel .text {
@@ -1136,6 +1169,28 @@ section.full-bleed {
   background-color: var(--light-colour);
   color: var(--dark-colour);
 }
+
+@media only screen and (max-width:968px) {
+
+  .promotion h1 {
+    font-size: 3em;
+    margin-bottom: 0;
+  }
+
+  .promotion > div {
+    padding: calc(var(--general-padding) * 2) 0px var(--general-padding) 0px;
+  }
+
+  .promotion p {
+    margin-top: 1.5em;
+  }
+
+  .promotion a.button {
+    margin-bottom: 0.5em;
+  }
+
+}
+
 
 /* STAFF */
 
@@ -1449,6 +1504,12 @@ section.find-us {
   border-style: solid;
 }
 
+@media only screen and (max-width: 968px) {
+  .find-us h1 {
+    padding: 20px 0px 5px 0px;
+  }
+}
+
 .pin {
   height: 30px;
   width: 30px;
@@ -1463,8 +1524,6 @@ section.find-us {
   fill: var(--dark-colour);
   grid-area: roundel;
 }
-
-
 
 .find-us .location .address {
   grid-area: address;
@@ -1545,6 +1604,9 @@ section.find-out-more {
     ". text text text text ."
     ". people people people people .";
   }
+  .find-out-more h1 {
+    padding: 20px 0px 5px 0px;
+  }
 }
 
 .find-out-more .text {
@@ -1620,6 +1682,12 @@ section.find-out-more {
   font-size: 0.8em;
 }
 
+@media only screen and (max-width: 968px) {
+  .find-out-more .person .info {
+    padding-top: 10px;
+}
+}
+
 .find-out-more h1 {
   grid-area: title
 }
@@ -1690,8 +1758,11 @@ section article h2 {
 #youth-photo-right {
   background-position-x: 640px;
 }
+}
 
-
+#talks-hero {
+  background-position: center;
+}
     
 
 
