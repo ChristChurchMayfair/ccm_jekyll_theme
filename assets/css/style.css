@@ -844,7 +844,7 @@ section.services {
 footer {
   grid-row-gap: var(--general-padding);
   padding-top: calc(2 * var(--general-padding));
-  padding-bottom: var(--general-padding);
+  padding-bottom: calc(2 * var(--general-padding));
   grid-template-areas: ". contact contact contact contact contact links links links links links links links ."
   ". smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint smallprint  .";
   grid-template-areas: ". contact contact contact contact contact links links links links links links links ."
@@ -879,7 +879,7 @@ footer .contact {
   "address"
   "email"
   "phone";
-  font-size: 1.6em;
+  font-size: 1.3em;
   border-right: 1px solid var(--dark-gray); 
 }
 
@@ -1119,7 +1119,7 @@ section.full-bleed {
   grid-template-areas: ". text text text text text text text text text text text text ."
   ". button button button . . . . . . . . . .";
   padding-top: var(--general-padding);
-  padding-bottom: var(--general-padding);
+  padding-bottom: calc(var(--general-padding) * 2);
 }
 
 .promotion > div {
