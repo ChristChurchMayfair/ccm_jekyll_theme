@@ -862,7 +862,7 @@ section.services {
 
 @media only screen and (max-width: 968px) {
   .service {
-    grid-template-rows: auto auto auto minmax(10px, 500px);
+    grid-template-rows: auto auto auto auto;
     grid-template-areas: "title"
     "time"
     "image"
@@ -913,7 +913,7 @@ section.services {
 
 .service .info {
   grid-area: info;
-  padding: 20px 0px 50px 0px;
+  padding: 20px 0px 0px 0px;
   margin: 0px 30px 0px 0px;
   font-size: 0.9em;
   color: var(--light-colour);
