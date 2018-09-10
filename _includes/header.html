@@ -10,12 +10,18 @@
     </svg>
   </a>
   <div id="menu-content">
-    {% assign sorted_pages = site.pages | sort: "menuOrder" %}
+    <a href="/aboutus">About Us</a>
+    <a href="#midweek">Workers</a>
+    <a href="/families/">Families</a>
+    <a href="/students/">Students</a>
+    <a href="/music/">Music</a>
+    <a href="/talks/">Talks</a>
+    <!-- {% assign sorted_pages = site.pages | sort: "menuOrder" %}
     {% for page in sorted_pages %}
       {% if page.showInMenu == true %}
       <a href="{{ page.url }}">{{page.title}}</a>
       {% endif %}
-    {% endfor %}
+    {% endfor %} -->
   </div>
 </nav>
 
@@ -39,11 +45,17 @@
     </svg>
   </a>
   <div id="menu-content">
-    {% assign sorted_pages = site.pages | sort: "menuOrder" %}
-    {% for page in sorted_pages %}
-      {% if page.showInMenu == true %}
-      <a href="{{ page.url }}">{{page.title}}</a>
-      {% endif %}
-    {% endfor %}
+      <a href="/aboutus">About Us</a>
+      <a href="#midweek">Workers</a>
+      <a href="/families/">Families</a>
+      <a href="/students/">Students</a>
+      <a href="/music/">Music</a>
+      <a href="/talks/">Talks</a>
+      <!-- {% assign sorted_pages = site.pages | sort: "menuOrder" %}
+      {% for page in sorted_pages %}
+        {% if page.showInMenu == true %}
+        <a href="{{ page.url }}">{{page.title}}</a>
+        {% endif %}
+      {% endfor %} -->
 </div>
 </header>
