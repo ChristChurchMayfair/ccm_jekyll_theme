@@ -6,7 +6,7 @@
 
   --text-margin-bottom: calc(2 * var(--general-padding));
 
-  --hero-height: 375px;
+  --hero-height: 550px;
   --hero-font-size: 5.6em;
 
   --general-padding: 32px;
@@ -223,6 +223,54 @@ a:hover {
   display: none;
 }
 
+[responsive-carousel] {
+  display:block;
+}
+
+.hero .carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  width: 100vw;
+  height: var(--hero-height);
+  grid-template-columns: calc(var(--left-body-margin) - var(--general-padding)) 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr calc(var(--right-body-margin) - var(--general-padding));
+  grid-template-areas: ". text text text text text text text text text text text text .";
+  grid-column-gap: var(--general-padding);
+  align-content: end;
+}
+
+.carousel-overlay h1 {
+  grid-area: caption;
+  justify-self: left;
+  align-self: baseline;
+}
+
+.hero .carousel-images {
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  display: grid;
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-images .carousel-image {
+  display: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  background-size: cover;
+}
+
+.carousel-image picture, .carousel-image img {
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  max-width: 100vw;
+}
+
 footer, section, header {
   display: grid;
   /* PROPORTIONAL SIDE MARGINS */
@@ -239,6 +287,8 @@ section {
   padding-bottom: var(--general-padding);
 
   background-color: var(--light-colour);
+
+  overflow: hidden;
 }
 
 /* NAVIGATION */
@@ -647,7 +697,10 @@ section.double-image .photo.bottomimage {
 }
 
 .hero {
-  padding-top: calc(var(--header-height) + calc(var(--header-vertical-padding) * 2) + var(--general-padding));
+  /* padding-top: calc(var(--header-height) + calc(var(--header-vertical-padding) * 2) + var(--general-padding)); */
+  display: block;
+  width: 100vw;
+  padding-top: 0;
   background-size:cover;
   background-repeat: no-repeat;
   height: var(--hero-height);
@@ -689,7 +742,7 @@ section.double-image .photo.bottomimage {
 }
 
 .hero.bottom h1 {
-  margin-bottom: calc(0px - var(--general-padding));
+  margin-bottom: calc(30px - var(--general-padding));
 }
 
 

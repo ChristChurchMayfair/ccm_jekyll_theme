@@ -6,17 +6,20 @@ layout: default
 
 {% assign services = site.services | where: "type", "service" %}
 
-
-<section id="home-hero" class="hero left bottom carousel {{ page.heroClasses | join: " " }}" responsive-background-image>
-  <h1>{{ page.overlayCaption }}</h1>
-  <picture>
-      <source srcset="{{ page.mainImage }}" media="(min-width: 968px)" />
-      <img src="{{ page.mobileImage }}" />
-  </picture>
-  <picture>
-    <source srcset="{{ page.nextMainImage }}" media="(min-width: 968px)" />
-    <img src="{{ page.nextMobileImage }}" />
-  </picture>
+<section id="home-hero" class="hero left bottom {{ page.heroClasses | join: " " }}">
+  <div class="carousel-overlay">
+    <h1>{{ page.overlayCaption }}</h1>
+  </div>
+  <div class="carousel-images">
+  {% for image in page.carouselImages %}
+  <div class="carousel-image" responsive-background-image style="background-position: {{ image.position }};">
+    <picture>
+        <source srcset="{{ image.mainImage }}" media="(min-width: 968px)" data-position="{{ image.position }}" />
+        <img src="{{ image.mainImage }}" />
+    </picture>
+  </div>
+  {% endfor %}
+  </div>
 </section>
 
 <section class="intro">
@@ -71,4 +74,4 @@ layout: default
 {% include bio.html role_type="administrator" content=page.findOutMoreText %}
 
 <script src="/assets/javascript/maps.js"></script>
-<!-- <script src="/assets/javascript/carousel.js"></script> -->
+<script src="/assets/javascript/carousel.js"></script>

@@ -18,6 +18,7 @@ class ResponsiveBackgroundImage {
         let src = typeof this.img.currentSrc !== 'undefined' ? this.img.currentSrc : this.img.src;
         if (this.src !== src) {
             this.src = src;
+            console.log(src);
             this.element.style.backgroundImage = 'url("' + this.src + '")';
         }
     }
@@ -25,8 +26,6 @@ class ResponsiveBackgroundImage {
 
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Loaded responsive background images script...");
-    let elements = document.querySelectorAll('[responsive-background-image]');  
-    for (let i=0; i<elements.length; i++) {  
-    new ResponsiveBackgroundImage(elements[i]);
-    } 
+    let elements = Array.from(document.querySelectorAll('[responsive-background-image]'));
+    var responsiveBackgroundImages = elements.map(responsiveBackgroundImageElement => new ResponsiveBackgroundImage(responsiveBackgroundImageElement));
 });

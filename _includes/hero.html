@@ -1,5 +1,7 @@
 <section id="{{ include.id }}" class="hero {{include.textClass}}" responsive-background-image>
-    <h1>{{ include.overlayCaption }}</h1>
+    <div class="carousel-overlay">
+        <h1>{{ include.overlayCaption }}</h1>
+    </div>
     <picture>
         <source srcset="{{ include.mainImage }}" media="(min-width: 968px)" />
         <img src="{{ include.mobileImage }}" />
