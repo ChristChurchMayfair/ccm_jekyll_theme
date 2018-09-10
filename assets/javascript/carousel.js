@@ -21,17 +21,17 @@ class Carousel {
         //Remove current slide
         if (this.currentSlideIndex !== null) {
             this.pictures[this.currentSlideIndex].style.opacity = 0;
-            setTimeout( (function() {
-                this.style.display = 'none';
-            }).bind(this.pictures[this.currentSlideIndex]), 500);
+            // setTimeout( (function() {
+            //     this.style.display = 'none';
+            // }).bind(this.pictures[this.currentSlideIndex]), 5000);
         }
 
         this.currentSlideIndex = newCurrentSlideIndex;
 
         setTimeout( (function() {
-            this.style.display = 'block';
+            // this.style.display = 'block';
             this.style.opacity = 1;
-        }).bind(this.pictures[this.currentSlideIndex]), 500);
+        }).bind(this.pictures[this.currentSlideIndex]), 10);
         // this.pictures[this.currentSlideIndex].style.display = "block";
         // this.pictures[this.currentSlideIndex].style.opacity = 1;
         

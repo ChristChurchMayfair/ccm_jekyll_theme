@@ -238,6 +238,7 @@ a:hover {
   grid-template-areas: ". text text text text text text text text text text text text .";
   grid-column-gap: var(--general-padding);
   align-content: end;
+  z-index: 1;
 }
 
 .carousel-overlay h1 {
@@ -256,12 +257,15 @@ a:hover {
 }
 
 .carousel-images .carousel-image {
-  display: none;
+  position: absolute;
+  display: block;
   opacity: 0;
   -webkit-transition: opacity 0.5s ease-in-out;
   -moz-transition: opacity 0.5s ease-in-out;
   transition: opacity 0.5s ease-in-out;
   background-size: cover;
+  width: 100%;
+  height: var(--hero-height);
 }
 
 .carousel-image picture, .carousel-image img {
