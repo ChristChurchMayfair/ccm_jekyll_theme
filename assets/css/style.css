@@ -1104,8 +1104,7 @@ section.image-left {
 
 @media only screen and (max-width:968px) {
   section.image-left {
-    grid-template-areas: ". text text text text ."
-    "image image image image image image";
+    grid-template-areas: "image image image image image image" ". text text text text .";
   }
 }
 
@@ -1129,6 +1128,12 @@ section.image-left {
 
 .info-panel.dark .text, .info-panel.full-bleed.darken .text {
   font-weight: 200;
+}
+
+@media only screen and (max-width: 968px) {
+  .info-panel .text, .info-panel.dark .text, .info-panel.full-bleed.darken .text {
+    margin: 0 0 0.5em 0;
+  }
 }
 
 .info-panel .photo {
@@ -1192,6 +1197,7 @@ section.full-bleed {
 @media only screen and (max-width:968px) {
   section.full-bleed {
     grid-template-areas: ". text text text text .";
+    min-height: 200px;
   }
 }
 
@@ -1782,7 +1788,7 @@ section article h2 {
   background-position: center;
 }
 
-@media only screen and (max-width: 970px) {
+@media only screen and (max-width: 968px) {
   #home-hero {
     background-position: center 0px;
   }
@@ -1799,7 +1805,7 @@ section article h2 {
   background-position: right center;
 }
 
-@media only screen and (max-width: 1220px) and (min-width: 970px) {
+@media only screen and (max-width: 1220px) and (min-width: 968px) {
   #midweek-photo-right {
     background-position: 600px center;
   }
@@ -1815,7 +1821,7 @@ section article h2 {
   }
 }
 
-@media only screen and (max-width: 1280px) and (min-width: 970px) {
+@media only screen and (max-width: 1280px) and (min-width: 968px) {
   #youth-photo-right {
     background-position-x: 640px;
   }
@@ -1824,6 +1830,20 @@ section article h2 {
 #talks-hero {
   background-position: center;
 }
+
+/* Growing Together section mobile height fix */
+/* I'M SORRY THIS IS THE WORST HACK OF ALL TIME */
+@media only screen and (max-width: 968px) {
+  .info-panel.full-bleed.darken.mobile-height-fix .photo.centre {
+    display: none;
+  }
+
+  .info-panel.full-bleed.darken.mobile-height-fix {
+    background-image: none;
+  }
+}
+
+
     
 
 
