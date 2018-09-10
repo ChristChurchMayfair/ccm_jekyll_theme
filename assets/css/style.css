@@ -241,6 +241,19 @@ a:hover {
   z-index: 1;
 }
 
+@media only screen and (max-width: 968px) {
+  .hero .carousel-overlay {
+    grid-template-columns: 0 1fr 1fr 1fr 1fr 0;
+    grid-template-areas: ". text text text text .";
+  }
+
+  @supports (grid-template-columns: env(safe-area-inset-left)) {
+    .hero .carousel-overlay {
+      grid-template-columns: env(safe-area-inset-left) 1fr 1fr 1fr 1fr env(safe-area-inset-right);
+    }
+  }
+}
+
 .carousel-overlay h1 {
   grid-area: caption;
   justify-self: left;
