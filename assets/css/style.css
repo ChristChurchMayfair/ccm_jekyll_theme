@@ -44,6 +44,8 @@
   --mid-gray: rgb(230,230,230);
   --header-background-colour: rgba(16,14,40,0.5);
   --multiply-colour: rgb(150,150,150);
+  --cookie-notice-background: var(--mid-gray);
+  --cookie-notice-foreground: var(--dark-gray);
 
   --navigation-background-colour: rgba(246,246,255, 0.95);
 
@@ -288,7 +290,7 @@ a:hover {
   max-width: 100vw;
 }
 
-footer, section, header {
+footer, section, header, .cookie-notice {
   display: grid;
   /* PROPORTIONAL SIDE MARGINS */
   /* grid-template-columns: calc(var(--body-margin) - var(--general-padding)) 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr calc(var(--body-margin) - var(--general-padding)); */
@@ -601,12 +603,12 @@ section.highlight {
 }
 
 @media only screen and (max-width: 968px) {
-  section, footer, header, nav {
+  section, footer, header, nav, .cookie-notice {
     grid-template-columns: 0 1fr 1fr 1fr 1fr 0;
   }
 
   @supports (grid-template-columns: env(safe-area-inset-left)) {
-    footer, header, section, nav {
+    footer, header, section, nav, .cookie-notice {
       grid-template-columns: env(safe-area-inset-left) 1fr 1fr 1fr 1fr env(safe-area-inset-right);
     }
   }
@@ -1827,6 +1829,53 @@ section article h2 {
   font-size: 1.6em;
   text-transform: none;
   font-weight: 400;
+}
+
+.cookie-notice {
+  position: fixed;
+  left: 0px;
+  bottom: -300px;
+  background-color: var(--cookie-notice-background);
+  color: var(--cookie-notice-foreground);
+  width: 100%;
+  padding-top: var(--general-padding);
+  padding-bottom: var(--general-padding);
+
+  display: grid;
+  grid-template-areas: ". text text text text text text text text decline decline accept accept .";
+  transition: bottom 0.5s ease-in-out;
+  align-items: center;
+  grid-row-gap: var(--general-padding);
+}
+
+.cookie-notice .notice {
+  grid-area: text;
+}
+
+.cookie-notice .button.accept {
+  grid-area: accept;
+  background: var(--cookie-notice-foreground);
+  color: var(--cookie-notice-background);
+}
+
+.cookie-notice .button.decline {
+  grid-area: decline;
+  background-color: transparent;
+  border-width: 2px;
+  border-color: var(--cookie-notice-foreground);
+  color: var(--cookie-notice-foreground);
+  border-style: solid;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  height: 2.1em;
+}
+
+@media only screen and (max-width: 968px) {
+  .cookie-notice {
+    grid-template-areas: ". text text text text ."
+    ". decline decline accept accept .";
+  }
 }
 
 /* Desktop positioning of home hero image */
