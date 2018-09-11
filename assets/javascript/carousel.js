@@ -12,12 +12,10 @@ class Carousel {
 
         this.pictures = Array.from(this.rootElement.getElementsByClassName("carousel-image"));
 
-        console.log(this.pictures);
         this.setCurrentSlide(0);
     }
 
     setCurrentSlide(newCurrentSlideIndex) {
-        console.log("Set current slide to: " + newCurrentSlideIndex);
         //Remove current slide
         if (this.currentSlideIndex !== null) {
             this.pictures[this.currentSlideIndex].style.opacity = 0;
@@ -38,15 +36,10 @@ class Carousel {
     }
 
     nextSlide() {
-        console.log("Next slide called");
-        console.log("Current Slide: " + this.currentSlideIndex);
         var nextSlideIndex = this.currentSlideIndex + 1;
-        console.log(this);
-        console.log(this.pictures);
         if (nextSlideIndex >= this.pictures.length) {
             nextSlideIndex = 0;
         }
-        console.log("Next Slide: " + nextSlideIndex);
         this.setCurrentSlide(nextSlideIndex);
     }
 }
@@ -60,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     
     window.setInterval(function() {
-        console.log("Advancing carousels...");
         carousels.forEach(carousel => carousel.nextSlide());
     }, 5000);
 
