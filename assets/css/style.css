@@ -1854,11 +1854,17 @@ section article h2 {
   padding-top: var(--general-padding);
   padding-bottom: var(--general-padding);
 
+  font-size: 0.9em;
+
   display: grid;
   grid-template-areas: ". text text text text text text text text decline decline accept accept .";
   transition: bottom 0.5s ease-in-out;
   align-items: center;
   grid-row-gap: var(--general-padding);
+
+  -webkit-box-shadow: 0px 0px 68px -20px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 68px -20px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 68px -20px rgba(0,0,0,0.5);
 }
 
 .cookie-notice .notice {
@@ -1881,7 +1887,7 @@ section article h2 {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  height: 2.1em;
+  height: 2.2em;
 }
 
 @media only screen and (max-width: 968px) {
