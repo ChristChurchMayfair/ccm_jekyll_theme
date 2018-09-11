@@ -1954,12 +1954,13 @@ section article h2 {
 /* Growing Together section mobile height fix */
 /* I'M SORRY THIS IS THE WORST HACK OF ALL TIME */
 @media only screen and (max-width: 968px) {
-  .info-panel.full-bleed.darken.mobile-height-fix .photo.centre {
+  .info-panel.full-bleed.mobile-height-fix .photo.centre {
     display: none;
   }
 
-  .info-panel.full-bleed.darken.mobile-height-fix {
+  .info-panel.full-bleed.mobile-height-fix {
     background-image: none!important;
+    background-color: var(--dark-gray);
   }
 }
 
