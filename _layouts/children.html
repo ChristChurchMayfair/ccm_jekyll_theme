@@ -23,7 +23,7 @@ layout: default
 
 {% assign youth = site.pages | where: "path","families/youth_at_ccm.md" | first %}
 
-<section class="info-panel dark image-right">
+<section class="info-panel dark image-right mobile-image-text-swap">
   <div class="text">
     <h1>{{youth.title}}</h1>
     {{ youth.content | markdownify }}

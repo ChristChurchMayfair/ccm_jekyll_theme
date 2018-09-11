@@ -1128,6 +1128,12 @@ section.image-left {
 }
 
 @media only screen and (max-width:968px) {
+  .info-panel.dark.image-right.mobile-image-text-swap {
+    grid-template-areas: ". text text text text ." "image image image image image image";
+  }
+}
+
+@media only screen and (max-width:968px) {
   section.fancy-overlay {
     grid-template-areas: ". text text text text ."
     "image image image image image image";
@@ -1963,6 +1969,7 @@ section article h2 {
     background-color: var(--dark-gray);
   }
 }
+
 
 
     
