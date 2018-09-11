@@ -762,6 +762,7 @@ section.double-image .photo.bottomimage {
 
 .hero.bottom h1 {
   margin-bottom: calc(30px - var(--general-padding));
+  text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5)
 }
 
 
@@ -1913,6 +1914,7 @@ section article h2 {
 /* Desktop positioning of home hero image */
 #home-hero {
   background-position: center;
+  padding-bottom: 0px;
 }
 
 @media only screen and (max-width: 968px) {
@@ -1978,6 +1980,7 @@ section article h2 {
   }
 
   .info-panel.full-bleed.mobile-height-fix {
+    /* Keep an eye on this, it's very important */
     background-image: none!important;
     background-color: var(--dark-gray);
   }
