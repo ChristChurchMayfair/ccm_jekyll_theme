@@ -1697,6 +1697,13 @@ section.find-out-more {
   ". people people people people people people text text text text text text .";
 }
 
+section.find-out-more.no-bio {
+  display: grid;
+  grid-template-areas: ". title title title title title title title title title title title title ."
+  ". text text text text text text text text text text text text .";
+}
+
+
 .find-out-more h1 {
   padding-bottom: 0.1em;
   border-width: 0px;
@@ -1711,6 +1718,12 @@ section.find-out-more {
     ". text text text text ."
     ". people people people people .";
   }
+
+  section.find-out-more.no-bio {
+    grid-template-areas: ". title title title title ."
+    ". text text text text .";
+  }
+
   .find-out-more h1 {
     padding: 20px 0px 5px 0px;
   }
