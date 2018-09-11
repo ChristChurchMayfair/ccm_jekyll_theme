@@ -1210,6 +1210,13 @@ section.image-left {
   background-blend-mode: multiply;
 }
 
+@media only screen and (max-width: 968px) {
+  .mobile-darken {
+    background-color: var(--multiply-colour);
+    background-blend-mode: multiply;
+  }
+}
+
 section.full-bleed {
   grid-template-areas: ". text text text text text text . . . . . . .";
   padding: 0;
@@ -1955,6 +1962,12 @@ section article h2 {
 
 #talks-hero {
   background-position: center;
+}
+
+@media only screen and (max-width: 968px) {
+  .info-panel.full-bleed .photo {
+    height: auto;
+  }
 }
 
 /* Growing Together section mobile height fix */

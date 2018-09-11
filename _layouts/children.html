@@ -40,7 +40,7 @@ layout: default
 
 {% assign littlelambs = site.pages | where: "path","littlelambs/index.md" | first %}
 
-<section class="info-panel full-bleed darken" responsive-background-image>
+<section class="info-panel full-bleed mobile-darken" responsive-background-image>
   <div class="photo {{ littlelambs.image_alignment_classes | join: " " }}">
     <picture>
         <source srcset="{{ littlelambs.mainImage }}" media="(min-width: 968px)" />
