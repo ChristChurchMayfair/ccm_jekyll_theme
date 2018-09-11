@@ -1339,12 +1339,18 @@ section.staff > div {
   grid-area: photo;
   object-fit: contain;
   overflow: hidden;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position-y: top;
   width: 100%;
   height: 0;
-  padding-top: 140%;
+  padding-top: 130%;
+}
+
+@media screen and (min-width: 650px) and (max-width: 968px) {
+  .staff .person .photo {
+    margin-bottom: 1em;
+  }
 }
 
 @media screen and (max-width: 650px) {
