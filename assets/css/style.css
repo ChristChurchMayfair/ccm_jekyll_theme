@@ -1959,7 +1959,7 @@ section article h2 {
   }
 
   .info-panel.full-bleed.darken.mobile-height-fix {
-    background-image: none;
+    background-image: none!important;
   }
 }
 
