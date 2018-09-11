@@ -16,7 +16,7 @@ layout: default
   <div class="text"><h1>{{extra.title}}</h1>
     {{ extra.content }}
   </div>
-  <div class="photo {{ extra.image_alignment_classes | join: " " }}" responsive-background-image>
+  <div class="photo {{ extra.image_alignment_classes | join: " " }}" responsive-background-image id="students-midweek-right">
       <picture>
           <source srcset="{{ extra.mainImage }}" media="(min-width: 968px)" />
           <img src="{{ extra.mobileImage }}" />
