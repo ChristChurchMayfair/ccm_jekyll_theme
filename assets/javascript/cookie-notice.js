@@ -1,5 +1,3 @@
-//window['ga-disable-UA-XXXXX-Y'] = true;
-
 function hideCookieNotice() {
     var cookie_notice = document.getElementById("cookie-notice");
 
@@ -25,7 +23,7 @@ function declineCookies() {
 }
 
 function disableGATracking() {
-    window['ga-disable-UA-XXXXX-Y'] = true;
+    window['ga-disable-UA-39016872-2'] = true;
 }
 
 
@@ -46,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
         setTimeout(function() {
             cookie_notice.style.bottom = "0px";
         },2000); 
+    } else if (cookie_consent == "accepted") {
+        disableGATracking();
     }
-
-    console.log(cookie_consent);
 });
