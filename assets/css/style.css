@@ -1923,6 +1923,13 @@ section article h2 {
   }
 }
 
+/* Mobile home hero font size */
+@media only screen and (max-width: 460px) {
+  #home-hero h1{
+    font-size: 3em;
+  }
+}
+
 /* Talks react app heading size fix */
 .talks-react-app h1 {
   font-size: 2em;
