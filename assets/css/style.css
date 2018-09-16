@@ -399,8 +399,8 @@ nav #close-menu {
   display: grid;
 
   grid-template-columns: 1fr;
-  column-gap: var(--general-padding);
-  row-gap: var(--general-padding);
+  grid-column-gap: var(--general-padding);
+  grid-row-gap: var(--general-padding);
 }
 
 @media only screen and (min-width: 900px) {
