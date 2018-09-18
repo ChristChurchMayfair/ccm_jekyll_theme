@@ -1435,14 +1435,27 @@ section.music-release {
 .music-release {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: minmax(40px,70px) auto auto;
+  grid-template-rows: minmax(40px,70px) auto auto minmax(auto,200px);
   grid-column-gap: var(--general-padding);
   grid-row-gap: var(--general-padding);
   grid-template-areas: "title"
     "cover"
-    "links";
+    "links"
+    "resources";
 }
 
+.music-resources {
+  grid-area: resources;
+  font-size: 0.9em;
+  padding: 0;
+  margin: 0;
+}
+
+.music-track ul {
+  padding: 0;
+  margin: 0;
+  padding-left: var(--general-padding);
+}
 
 
 .music-release-cover {
@@ -1506,7 +1519,8 @@ section.music-release {
     grid-template-rows: auto auto auto;
     grid-template-areas: "title"
       "cover"
-      "links";
+      "links"
+      "resources";
   }
 
   .music-release-description {

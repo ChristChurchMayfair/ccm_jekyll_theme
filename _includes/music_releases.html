@@ -15,6 +15,20 @@
             <a class="music-service-link apple-music-link" href="{{ release.appleMusicLink }}"></a>
             {% endif %}
           </div>
+          {% if release.tracks %}
+          <ol class="music-resources">
+            {% for track in release.tracks %}
+            <li class="music-track">
+              {{ track.title }}
+              <ul>
+              {% for resource in track.files %}
+              <li><a href="{{ resource.url }}" download>{{ resource.name }}</a></li>
+              {% endfor %}  
+              </ul>
+            </li>
+            {% endfor %}
+          </ol>
+          {% endif %}
       </div>
     {% endfor %}
     </div>
