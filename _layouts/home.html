@@ -15,7 +15,7 @@ layout: default
   <div class="carousel-image" responsive-background-image style="background-position: {{ image.position }};">
     <picture>
         <source srcset="{{ image.mainImage }}" media="(min-width: 968px)" data-position="{{ image.position }}" />
-        <img src="{{ image.mainImage }}" />
+        <img src="{{ image.mobileImage }}" />
     </picture>
   </div>
   {% endfor %}

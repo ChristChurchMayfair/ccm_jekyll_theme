@@ -4,7 +4,8 @@
   <div class="service">
     <div class="photo centre" responsive-background-image>
       <picture>
-        <img src="{{service.image}}" />
+        <source srcset="{{ image.mainImage }}" media="(min-width: 968px)" data-position="{{ image.position }}" />
+        <img src="{{service.mobileImage}}" />
       </picture>
     </div>
     <div class="title">{{ service.title }}</div>
