@@ -38,4 +38,7 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <script src="/assets/javascript/menu.js"></script>
+  {% if site.podcast %}
+  <link type="application/rss+xml" rel="alternate" title="{{ site.podcast.title }}" href="{{ site.podcast.url }}"/>
+  {% endif %}
 </head>

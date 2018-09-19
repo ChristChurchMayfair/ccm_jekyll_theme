@@ -626,7 +626,7 @@ section.highlight {
 
 
 section.intro {
-  grid-template-areas: ". content content content content content content content . . . . . ."
+  grid-template-areas: ". content content content content content content content alt alt alt alt alt ."
   ". leftbutton leftbutton leftbutton rightbutton rightbutton rightbutton . . . . . . .";
   padding: 40px 0px;
 }
@@ -1405,6 +1405,49 @@ section.staff > div {
 }
 
 /* SERMONS/TALKS */
+
+section.intro.talks {
+  grid-template-areas: ". content content content content content content content content . . . . ."
+  ". podcast1 podcast1 podcast1 podcast2 podcast2 podcast2 app1 app1 app1 app2 app2 app2 .";
+  grid-row-gap: var(--general-padding);
+}
+
+@media only screen and (max-width: 968px) {
+  section.intro.talks {
+    grid-template-rows: auto auto auto;
+    grid-template-areas: ". content content content content ."
+    ". podcast1 podcast1 podcast2 podcast2 ."
+    ". app1 app1 app2 app2 .";
+  }
+}
+
+a.podcast-link, a.appstore-link {
+  height: 2em;
+  display: inline-block;
+  overflow: hidden;
+  background-size: contain;
+  padding-top: var(--general-padding);
+}
+
+#apple-podcast-link {
+  grid-area: podcast1;
+  justify-self: left;
+}
+
+#google-podcast-link  {
+  grid-area: podcast2;
+  justify-self: right;
+}
+
+#apple-appstore-link  {
+  grid-area: app1;
+  justify-self: left;
+}
+
+#google-playstore-link  {
+  grid-area: app2;
+  justify-self: right;
+}
 
 section.talks-react-app > div {
   grid-area:content;
