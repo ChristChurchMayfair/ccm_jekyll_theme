@@ -6,7 +6,9 @@
 
   --text-margin-bottom: calc(2 * var(--general-padding));
 
-  --hero-height: 550px;
+  --hero-height: 60vh;
+  --min-hero-height: 450px;
+  --max-hero-height: 700px;
   --hero-font-size: 5.6em;
 
   --general-padding: 32px;
@@ -70,6 +72,8 @@
     --body-margin: var(--general-padding);
     --logo-height: 15vw;
     --hero-height: 55vh;
+    --min-hero-height: 100px;
+    --max-hero-height: 500px;
     --hero-font-size: 4em;
     --general-padding: 15px;
     --text-margin-bottom: 0;
@@ -236,6 +240,8 @@ a:hover {
   display: grid;
   width: 100vw;
   height: var(--hero-height);
+  min-height: var(--min-hero-height);
+  max-height: var(--max-hero-height);
   grid-template-columns: calc(var(--left-body-margin) - var(--general-padding)) 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr calc(var(--right-body-margin) - var(--general-padding));
   grid-template-areas: ". text text text text text text text text text text text text .";
   grid-column-gap: var(--general-padding);
@@ -281,6 +287,8 @@ a:hover {
   background-size: cover;
   width: 100%;
   height: var(--hero-height);
+  min-height: var(--min-hero-height);
+  max-height: var(--max-hero-height);
 }
 
 .carousel-image picture, .carousel-image img {
@@ -723,6 +731,8 @@ section.double-image .photo.bottomimage {
   background-size:cover;
   background-repeat: no-repeat;
   height: var(--hero-height);
+  min-height: var(--min-hero-height);
+  max-height: var(--max-hero-height);
   grid-template-areas: ". text text text text text text text text text text text text .";
 }
 
