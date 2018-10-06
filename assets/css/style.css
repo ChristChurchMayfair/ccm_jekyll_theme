@@ -658,6 +658,12 @@ section.intro.wider {
 }
 
 @media only screen and (max-width: 968px) {
+  section.intro.wider {
+    grid-template-areas: ". content content content content .";
+  }
+}
+
+@media only screen and (max-width: 968px) {
   section.intro {
     grid-template-areas: ". content content content content ."
     ". leftbutton leftbutton rightbutton rightbutton .";
