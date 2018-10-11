@@ -819,6 +819,64 @@ section p {
   }
 }
 
+section.music-resources {
+  grid-template-areas: ". title title title title title title title title title title title title ."
+  ". text text text text text text text text text text text text ."
+  ". links links links links links links links links links links links links .";
+}
+
+.music-resources > h1 {
+  grid-area: title;
+}
+
+.music-resources > p {
+  grid-area: text;
+}
+
+.resources {
+  grid-area: links;
+}
+
+.resources .track {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: baseline;
+  padding-top: var(--general-padding);
+}
+
+@media only screen and (max-width: 968px) {
+  .resources .track {
+    flex-direction: column;
+  }
+}
+
+.track .title {
+  order: 0;
+  flex-grow: 1000;
+  font-size: 1.3em;
+  font-weight: 300;
+}
+
+@media only screen and (max-width: 968px) {
+  .track .title {
+    font-size: 1em;
+  }
+}
+
+.track a {
+  order: 1;
+  flex-grow: 1;
+  align-self: flex-end;
+  padding-left: var(--general-padding);
+}
+
+@media only screen and (max-width: 968px) {
+  .track a {
+    align-self: flex-start;
+  }
+}
+
 .music-resource {
   display: grid;
   grid-template-columns: 1fr 1.618fr;

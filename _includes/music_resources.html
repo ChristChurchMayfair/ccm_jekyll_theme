@@ -1,18 +1,16 @@
-{% assign page = site.pages | where: "path","music_resources.md" | first %}
-<section>
-  <div>
-    <h1>{{ page.title }}</h1>
-    <p>{{ page.content }}</p>
-    {% for resource in site.music_resources %}
-
-    <div class="music-resource">
-      <h2>{{ resource.title }}</h2>
-      <div class="downloads">
-      {% for download in resource.downloads %}
-        <a class="download" href="{{ download.link }}">{{ download.title }}</a>
-      {% endfor %}
+{% assign resources = site.pages | where: "path","music_resources.md" | first %}
+{% assign tracks = resources.tracks %}
+<section class="music-resources">
+  <h1>{{ resources.title }}</h1>
+  <p>{{ resources.content | markdownify }}</p>
+  <div class="resources">
+    {% for track in tracks %}
+      <div class="track">
+        <div class="title">{{ track.title }}</div>
+        {% for file in track.files %}
+        <a href="{{ file.url }}">{{ file.name }}</a>
+        {% endfor %}
       </div>
-    </div>
     {% endfor %}
   </div>
 </section>
