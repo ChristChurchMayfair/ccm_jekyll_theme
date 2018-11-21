@@ -148,6 +148,12 @@
 
 }
 
+@font-face {
+  font-family: 'OstrichProper-SemiBold';
+  src: url('../fonts/ostrichproper-semibold/38195C_0_0.eot');
+  src: url('../fonts/ostrichproper-semibold/38195C_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/ostrichproper-semibold/38195C_0_0.woff2') format('woff2'),url('../fonts/ostrichproper-semibold/38195C_0_0.woff') format('woff'),url('../fonts/ostrichproper-semibold/38195C_0_0.ttf') format('truetype');}
+
+
 body:after{
   display: none;
   content: "Work in Progress";
@@ -2134,8 +2140,28 @@ section.promotion.carols {
 }
 
 section.promotion.carols h1 {
-  background-color: rgb(19,23,30);
   color: rgb(197,158,116);
+  font-family: "OstrichProper-SemiBold";
+  border-color: rgb(197,158,116);
+  border-width: 4px;
+  border-style: solid;
+  letter-spacing: 0.6em;
+  font-size: 3em;
+  padding-left: 39px;
+  padding-right: 15px;
+  padding-top: 17px;
+  padding-bottom: 5px;
+  text-align: center;
+  margin-bottom: var(--general-padding);
+}
+
+
+@media only screen and (max-width: 968px) {
+  section.promotion.carols h1 {
+    border-width: 2px;
+    font-size: 1.2em;
+    padding-bottom: 11px;
+  }
 }
 
 section.carols .events {
@@ -2152,11 +2178,11 @@ section.carols .events {
 }
 
 section.carols .event .when {
-  font-family: var(--heading-font);
+  font-family: "OstrichProper-SemiBold";
   text-transform: uppercase;
   font-weight: 200;
   color: rgb(197,158,116);
-  font-size: 1.6em;
+  font-size: 1em;
 }
 
 @media only screen and (max-width: 968px) {

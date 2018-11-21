@@ -1,6 +1,6 @@
 <section class="promotion full-bleed carols" responsive-background-image>
     <div>
-        <h1>Christmas at CCM</h1>
+        <h1>{{ event.name }}</h1>
         <div>{{ event.content | markdownify }}</div>
         <div class="events">
             {%- for event in include.events -%}
