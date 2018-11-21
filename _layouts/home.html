@@ -35,24 +35,28 @@ layout: default
 </section>
 
 {%- if events.size > 0 -%}
-{% assign event = events.first %}
-<section class="promotion full-bleed" responsive-background-image>
-  <div>
-    <h1 >{{ event.overlayCaption }}</h1>
-    {{ event.content | markdownify }}
-  </div>
-  {%- if event.findOutMoreText -%}
-  <a id="promo-button" class="button index-top-section-btn" href="{{ event.findOutMoreLink }}">
-      {{ event.findOutMoreText }}
-    </a>
-  {%- endif -%}
-  <div class="photo {{ section.image_alignment_classes | join: " " }}">
-    <picture>
-        <source srcset="{{ event.mainImage }}" media="(min-width: 968px)" />
-        <img src="{{ event.mobileImage }}" />
-    </picture>
-  </div>
-</section>
+{%- assign event = events.first -%}
+  {%- unless event.eventType -%}
+  <section class="promotion full-bleed" responsive-background-image>
+    <div>
+      <h1 >{{ event.overlayCaption }}</h1>
+      {{ event.content | markdownify }}
+    </div>
+    {%- if event.findOutMoreText -%}
+    <a id="promo-button" class="button index-top-section-btn" href="{{ event.findOutMoreLink }}">
+        {{ event.findOutMoreText }}
+      </a>
+    {%- endif -%}
+    <div class="photo {{ section.image_alignment_classes | join: " " }}">
+      <picture>
+          <source srcset="{{ event.mainImage }}" media="(min-width: 968px)" />
+          <img src="{{ event.mobileImage }}" />
+      </picture>
+    </div>
+  </section>
+  {%- else -%}
+    {%- include {{event.eventType}}.html events=event.events -%}
+  {%- endunless -%}
 {%- endif -%}
 
 {%- include services.html -%}

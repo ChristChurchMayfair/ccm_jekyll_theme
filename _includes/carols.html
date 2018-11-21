@@ -1,0 +1,21 @@
+<section class="promotion full-bleed carols" responsive-background-image>
+    <div>
+        <h1>Christmas at CCM</h1>
+        <div>{{ event.content | markdownify }}</div>
+        <div class="events">
+            {%- for event in include.events -%}
+            <div class="event">
+                <div class="when"><span>{{ event.date }}</span> <span>{{ event.time }}</span></div>
+                <div class="title">{{ event.title }}</div>
+                <div class="description">{{ event.description }}</div>
+            </div>
+            {%- endfor -%}
+        </div>
+    </div>
+    <div class="photo {{ include.image_alignment_classes | join: " " }}">
+        <picture>
+            <source srcset="{{ include.mainImage }}" media="(min-width: 968px)" />
+            <img src="{{ include.mobileImage }}" />
+        </picture>
+      </div>
+</section>

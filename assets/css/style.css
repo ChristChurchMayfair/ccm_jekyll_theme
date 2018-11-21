@@ -2129,5 +2129,47 @@ section article h2 {
 
 
     
+section.promotion.carols {
+  background-color: rgb(19,23,30);
+}
 
+section.promotion.carols h1 {
+  background-color: rgb(19,23,30);
+  color: rgb(197,158,116);
+}
+
+section.carols .events {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: var(--general-padding);
+  grid-column-gap: var(--general-padding);
+}
+
+@media only screen and (max-width: 968px) {
+  section.carols .events {
+    grid-template-columns: 1fr;
+  }
+}
+
+section.carols .event .when {
+  font-family: var(--heading-font);
+  text-transform: uppercase;
+  font-weight: 200;
+  color: rgb(197,158,116);
+  font-size: 1.6em;
+}
+
+@media only screen and (max-width: 968px) {
+  section.carols .event .when {
+    font-size: 1.2em;
+  }
+}
+
+section.carols .event .title {
+  font-weight: 700;
+}
+
+section.carols .event .description {
+  font-weight: 200;
+}
 
