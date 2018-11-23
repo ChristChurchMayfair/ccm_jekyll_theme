@@ -4,7 +4,7 @@
         <div>{{ event.content | markdownify }}</div>
         <div class="events">
             {%- for event in include.events -%}
-            <div class="event">
+            <div class="event" valid_until="{{ event.expires }}">
                 <div class="when"><span>{{ event.date }}</span> <span>{{ event.time }}</span></div>
                 <div class="title">{{ event.title }}</div>
                 <div class="description">{{ event.description }}</div>
@@ -19,3 +19,4 @@
         </picture>
       </div>
 </section>
+<script src="/assets/javascript/carols.js"></script>
