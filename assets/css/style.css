@@ -2158,13 +2158,15 @@ section.promotion.carols {
 
 @media only screen and (max-width: 650px) {
   section.promotion.carols {
-    background-position: -500px -100px, right -550px top 300px;
+    background-position: -500px -300px, right -550px top 300px;
   }
 }
 
 section.carols .text {
   grid-area: blurb;
   padding: 0;
+  margin-bottom:0;
+  line-height: 1.2em;
 }
 
 section.carols .all-events {
@@ -2227,10 +2229,6 @@ section.carols .event .when {
 
 section.carols .event .title {
   font-weight: 700;
-}
-
-section.carols .event .description {
-  font-weight: 200;
 }
 
 section.carols .event .tags .tag {
