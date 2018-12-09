@@ -41,14 +41,29 @@ document.addEventListener("DOMContentLoaded", function() {
  
     var now = Date.now();
     
-    console.log("Hiding all events before: ${now}");
+    console.log("Remove all events before: ${now}");
     
-    var carolEvents = document.querySelectorAll("section.carols .events .event");
+    var carolEvents = document.querySelectorAll("section.carols .events.immediate .event");
     var i;
     for (i = 0; i < carolEvents.length; i++) {
         var validUntil = new Date(carolEvents[i].getAttribute("valid_until"));
         if (validUntil <= now) {
             carolEvents[i].parentNode.removeChild(carolEvents[i]);
+        }
+    }
+
+
+    console.log("Move later events into different section...");
+
+    var numberOfEventsToLeaveVisible = 2;
+
+    var laterEventsDiv = document.getElementById("laterCarolEvents");
+    var remainingCarolEvents = document.querySelectorAll("section.carols .events.immediate .event");
+    var i;
+    for (i = 0; i < remainingCarolEvents.length; i++) {
+        if (i >= numberOfEventsToLeaveVisible) {
+            remainingCarolEvents[i].parentNode.removeChild(remainingCarolEvents[i]);
+            laterEventsDiv.appendChild(remainingCarolEvents[i]);
         }
     }
 

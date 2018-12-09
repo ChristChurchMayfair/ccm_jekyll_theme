@@ -6,7 +6,7 @@
     <div class="text">{{ event.content | markdownify }}</div>
     <div class="all-events">
         <div class="events immediate">
-            {%- for event in first_two_services -%}
+            {%- for event in include.events -%}
             <div class="event" valid_until="{{ event.expires }}">
                 <div class="when"><span>{{ event.date }}</span> <span>{{ event.time }}</span></div>
                 <div class="title">{{ event.title }}</div>
@@ -29,19 +29,7 @@
                 <use xlink:href="/assets/icons/disclose_down.svg#disclose" />
             </svg>
         </a>
-        <div class="events later">
-            {%- for event in remaining_services -%}
-            <div class="event" valid_until="{{ event.expires }}">
-                <div class="when"><span>{{ event.date }}</span> <span>{{ event.time }}</span></div>
-                <div class="title">{{ event.title }}</div>
-                <div class="description">{{ event.description }}</div>
-                <!-- <div class="tags">
-                    {%- for tag in event.tags -%}
-                    <span class="tag">{{ tag }}</span>
-                    {%- endfor -%}        
-                </div> -->
-            </div>
-            {%- endfor -%}
+        <div class="events later" id="laterCarolEvents">
         </div>
     </div>
 </section>
