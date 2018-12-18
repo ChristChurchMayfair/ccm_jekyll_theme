@@ -1184,6 +1184,12 @@ button,
   padding-right: var(--general-padding);
 }
 
+@media only screen and (max-width: 968px) {
+  #mc_embed_signup input.button {
+    margin-left: 0;
+  }
+}
+
 input.email {
   border-color: var(--dark-gray);
   border-width: 1px;
@@ -1195,6 +1201,13 @@ input.email {
   width: 400px;
   box-sizing: content-box;
   line-height: var(--button-height);
+  margin-bottom: 1em;
+}
+
+@media only screen and (max-width: 968px) {
+  input.email {
+    width: calc(100% - calc(2 * var(--general-padding)));
+  }
 }
 
 .index-top-section-btn:nth-of-type(1) {
@@ -2017,6 +2030,12 @@ section article {
 
 section article h1 {
   font-size: 3em;
+}
+
+@media only screen and (max-width: 968px) {
+  section article h1 {
+    font-size: 2em;
+  }
 }
 
 section article h2 {
