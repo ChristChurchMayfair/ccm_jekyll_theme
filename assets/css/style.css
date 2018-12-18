@@ -1127,15 +1127,36 @@ address {
   display: inline;
 }
 
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+  border: none;
+}
+
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
 .button {
   display: block;
   color: var(--button-text-colour);
   background-color: var(--button-colour);
   /* min-width: 100px; */
-  padding-left: var(--general-padding);
-  padding-right: var(--general-padding);
+  /* padding-left: var(--general-padding);
+  padding-right: var(--general-padding); */
+  padding-top: 8px;
+  padding-bottom: 8px;
   height: var(--button-height);
-  padding: 8px 0px;
   align-content: center;
   justify-content: center;
   font-family: var(--body-font);
@@ -1146,14 +1167,34 @@ address {
   line-height: var(--button-height);
   transition: transform 0.05s, background-color 0.05s;
   -webkit-transition: transform 0.05s, background-color 0.05s;
+  box-sizing: content-box;
 }
 
 @media only screen and (max-width: 968px) {
-
-.button {
-  font-size: 0.9em;
-  padding: 4px 0px;
+  .button {
+    font-size: 0.9em;
+    padding: 4px 0px;
   }
+}
+
+#mc_embed_signup input.button {
+  display: inline-block;
+  margin-left: var(--general-padding);
+  padding-left: var(--general-padding);
+  padding-right: var(--general-padding);
+}
+
+input.email {
+  border-color: var(--dark-gray);
+  border-width: 1px;
+  border-style: solid;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 400px;
+  box-sizing: content-box;
+  line-height: var(--button-height);
 }
 
 .index-top-section-btn:nth-of-type(1) {
