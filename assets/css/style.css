@@ -1389,7 +1389,7 @@ section.full-bleed {
   grid-template-areas: ". text text text text text text text text text text text text ."
   ". button button button . . . . . . . . . .";
   padding-top: var(--general-padding);
-  padding-bottom: calc(var(--general-padding) * 2);
+  padding-bottom: var(--general-padding);
 }
 
 .promotion > div {
@@ -2351,25 +2351,13 @@ section.carols a.showfewer.button svg {
 section.promotion.honest-questions {
   background-color: rgb(208,208,208);
   background-image: url(../style-images/right-red-speech.svg),
-  url(../style-images/left-lightgreen-speech.svg),
-  url(../style-images/right-red-speech.svg),
-  url(../style-images/right-darkgreen-speech.svg),
-  url(../style-images/left-midgreen-speech.svg),
-  url(../style-images/left-purple-speech.svg),
-  url(../style-images/right-midgreen-speech.svg),
-  url(../style-images/left-purple-speech.svg),
-  url(../style-images/left-red-speech.svg);
+  url(../style-images/left-lightgreen-speech.svg);
+
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-  background-size: 460px, 395px, 200px, 450px, 200px, 250px, 500px, 200px, 175px;
-  background-position: left calc(50% + 150px) top 46px, 
-  left calc(50% - 180px) top 30px,
-  left calc(50% - 327px) top 190px,
-  left calc(50% - 572px) top 3px,
-  left calc(50% - 650px) top 255px,
-  left calc(50% - 55px) top 280px,
-  left calc(50% + 480px) top -96px,
-  left calc(50% + 430px) top 182px,
-  left calc(50% + 610px) top 290px;
+  background-size: 290px, 320px;
+  background-position: left calc(50% + 107px) top 40px, 
+  left calc(50% - 100px) top 30px;
+
   transition: height 2s;
   display: grid;
   grid-template-areas: ". title title title title title title title title title title title title ."
@@ -2387,8 +2375,10 @@ section.promotion.honest-questions {
   }
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 480px) {
   section.promotion.honest-questions {
+    background-size: 240px, 250px;
+    background-position: left calc(50% + 98px) top 40px, left calc(50% - 90px) top 30px;
   }
 }
 
@@ -2397,12 +2387,7 @@ section.honest-questions .leader {
   padding: 0;
   margin-bottom:0;
   line-height: 1.2em;
-}
-
-@media only screen and (max-width: 968px) {
-  section.honest-questions .leader {
-    font-weight: 700;
-  }
+  font-weight: 700;
 }
 
 section.honest-questions .info {
@@ -2420,11 +2405,11 @@ section.promotion.honest-questions h1 {
   grid-area: title;
   color: var(--light-colour);
   font-family: "MissionScript";
-  font-size: 6em;
+  font-size: 4em;
   text-align: center;
-  margin-bottom: calc(7 * var(--general-padding));
+  margin-bottom: calc(4 * var(--general-padding));
   text-transform: none;
-  margin-top: calc(3 * var(--general-padding));;
+  margin-top: calc(2 * var(--general-padding));;
 }
 
 
@@ -2433,15 +2418,25 @@ section.promotion.honest-questions h1 {
     border-width: 2px;
     font-size: 4em;
     padding-bottom: 11px;
-    margin-top: calc(10 * var(--general-padding));
-    margin-bottom: calc(3 * var(--general-padding));
+    margin-top: calc(7 * var(--general-padding));
+    margin-bottom: calc(7 * var(--general-padding));
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  section.promotion.honest-questions h1 {
+    border-width: 2px;
+    font-size: 2.4em;
+    padding-bottom: 11px;
+    margin-top: calc(6 * var(--general-padding));
+    margin-bottom: calc(6 * var(--general-padding));
   }
 }
 
 section.honest-questions .events {
   display: grid;
   grid-template-columns: 1fr;
-  grid-row-gap: var(--general-padding);
+  grid-row-gap: 9px;
   grid-column-gap: var(--general-padding);
 }
 
