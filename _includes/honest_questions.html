@@ -1,0 +1,21 @@
+{% assign first_two_services = include.events | slice:0, 2 %}
+{% assign remaining_services = include.events | slice:2, 100 %}
+
+<section class="promotion full-bleed honest-questions">
+    <h1>{{ event.name }}</h1>
+    <div class="leader">{{ event.leader | markdownify }}</div>
+    <div class="info">{{ event.content | markdownify }}</div>
+    <div class="all-events">
+        <div class="events immediate">
+            {%- for event in include.events -%}
+            <div class="event" valid_until="{{ event.expires }}">
+                <div>
+                    <span class="when">{{ event.date }}</span> 
+                    <span class="title">{{ event.title }}</span>
+                </div>
+            </div>
+            {%- endfor -%}
+        </div>
+    </div>
+</section>
+<script src="/assets/javascript/honest-questions.js"></script>

@@ -153,6 +153,13 @@
   src: url('../fonts/ostrichproper-semibold/38195C_0_0.eot');
   src: url('../fonts/ostrichproper-semibold/38195C_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/ostrichproper-semibold/38195C_0_0.woff2') format('woff2'),url('../fonts/ostrichproper-semibold/38195C_0_0.woff') format('woff'),url('../fonts/ostrichproper-semibold/38195C_0_0.ttf') format('truetype');}
 
+@font-face {
+  font-family: 'MissionScript';
+  src: url('../fonts/subset-Mission-Script.woff2') format('woff2'),
+      url('../fonts/subset-Mission-Script.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 body:after{
   display: none;
@@ -2339,3 +2346,175 @@ section.carols a.showfewer.button svg {
   vertical-align: 4px;
 }
 
+/* Honest Questions */
+
+section.promotion.honest-questions {
+  background-color: rgb(208,208,208);
+  background-image: url(../style-images/right-red-speech.svg),
+  url(../style-images/left-lightgreen-speech.svg),
+  url(../style-images/right-red-speech.svg),
+  url(../style-images/right-darkgreen-speech.svg),
+  url(../style-images/left-midgreen-speech.svg),
+  url(../style-images/left-purple-speech.svg),
+  url(../style-images/right-midgreen-speech.svg),
+  url(../style-images/left-purple-speech.svg),
+  url(../style-images/left-red-speech.svg);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 460px, 395px, 200px, 450px, 200px, 250px, 500px, 200px, 175px;
+  background-position: left calc(50% + 150px) top 46px, 
+  left calc(50% - 180px) top 30px,
+  left calc(50% - 327px) top 190px,
+  left calc(50% - 572px) top 3px,
+  left calc(50% - 650px) top 255px,
+  left calc(50% - 55px) top 280px,
+  left calc(50% + 480px) top -96px,
+  left calc(50% + 430px) top 182px,
+  left calc(50% + 610px) top 290px;
+  transition: height 2s;
+  display: grid;
+  grid-template-areas: ". title title title title title title title title title title title title ."
+  ". leader leader leader leader leader leader leader leader leader leader leader leader ."
+  ". info info info info info info events events events events events events .";
+  color: var(--dark-colour);
+}
+
+@media only screen and (max-width: 968px) {
+  section.promotion.honest-questions {
+    grid-template-areas: ". title title title title ."
+    ". leader leader leader leader ."
+    ". events events events events ."
+    ". info info info info .";
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  section.promotion.honest-questions {
+  }
+}
+
+section.honest-questions .leader {
+  grid-area: leader;
+  padding: 0;
+  margin-bottom:0;
+  line-height: 1.2em;
+}
+
+@media only screen and (max-width: 968px) {
+  section.honest-questions .leader {
+    font-weight: 700;
+  }
+}
+
+section.honest-questions .info {
+  grid-area: info;
+  padding: 0;
+  margin-bottom:0;
+  line-height: 1.2em;
+}
+
+section.honest-questions .all-events {
+  grid-area: events;
+}
+
+section.promotion.honest-questions h1 {
+  grid-area: title;
+  color: var(--light-colour);
+  font-family: "MissionScript";
+  font-size: 6em;
+  text-align: center;
+  margin-bottom: calc(7 * var(--general-padding));
+  text-transform: none;
+  margin-top: calc(3 * var(--general-padding));;
+}
+
+
+@media only screen and (max-width: 968px) {
+  section.promotion.honest-questions h1 {
+    border-width: 2px;
+    font-size: 4em;
+    padding-bottom: 11px;
+    margin-top: calc(10 * var(--general-padding));
+    margin-bottom: calc(3 * var(--general-padding));
+  }
+}
+
+section.honest-questions .events {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: var(--general-padding);
+  grid-column-gap: var(--general-padding);
+}
+
+@media only screen and (max-width: 968px) {
+  section.honest-questions .events {
+    grid-template-columns: 1fr;
+  }
+}
+
+section.honest-questions .event .when {
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+@media only screen and (max-width: 968px) {
+  section.honest-questions .event .when {
+    font-size: 1em;
+  }
+}
+
+section.honest-questions .event .title {
+  font-weight: 700;
+  font-size: 0.9em;
+}
+
+@media only screen and (max-width: 968px) {
+  section.honest-questions .event .title {
+    font-size: 1em;
+  }
+}
+
+section.honest-questions .event .tags .tag {
+  background-color: rgb(197,158,116);
+  color: rgb(19,23,30);
+  display: inline-block;
+  font-weight: 438;
+  margin-left: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 0.7em;
+  padding-top: 1px;
+  border-radius: 3px;
+}
+
+section.honest-questions a.showmore.button, a.showfewer.button {
+  margin-top: var(--general-padding);
+  margin-bottom: var(--general-padding);
+  width: auto;
+  background: None;
+  color: rgb(199,158,116);
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+
+section.honest-questions a.button:active {
+  text-decoration: none;
+}
+
+section.honest-questions a.button:hover {
+  text-decoration: none;
+}
+
+section.honest-questions a.showmore.button svg {
+  transform: rotate(-90deg);
+  width: 1em;
+  height: 0.5em;
+  vertical-align: 1px;
+}
+
+section.honest-questions a.showfewer.button svg {
+  transform: rotate(0);
+  width: 1em;
+  height: 0.5em;
+  vertical-align: 4px;
+}
