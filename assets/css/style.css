@@ -2557,7 +2557,7 @@ section.promotion.health-matters .info {
   grid-gap: var(--general-padding);
   grid-template-areas: "date location"
   "price location"
-  "signup .";
+  "signup signup";
 }
 @media only screen and (max-width: 968px) {
   section.promotion.health-matters .info {
@@ -2585,6 +2585,25 @@ section.promotion.health-matters .info .location {
 
 section.promotion.health-matters .info .signup {
   grid-area: signup;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-column-gap: var(--general-padding);
+}
+
+section.promotion.health-matters .info input {
+  padding: 0 1rem;
+}
+
+@media only screen and (max-width: 968px) {
+  section.promotion.health-matters .info .signup {
+    padding-top: var(--general-padding);
+    grid-template-columns: 1fr;
+    grid-row-gap: var(--general-padding);
+  }
+
+  section.promotion.health-matters .info input {
+    padding: 0.3rem 1rem;
+  }
 }
 
 section.health-matters .leader {
@@ -2650,10 +2669,10 @@ section.promotion.health-matters .info .price {
   font-size: 1.5em;
 }
 
-section.health-matters a.button:active {
+section.health-matters .button:active {
   text-decoration: none;
 }
 
-section.health-matters a.button:hover {
+section.health-matters .button:hover {
   text-decoration: underline;
 }

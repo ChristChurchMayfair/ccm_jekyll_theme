@@ -5,7 +5,11 @@
         <div class="date">{{ event.eventDate }}</div>
         <div class="location">{{ event.content | markdownify }}</div>
         <div class="price">{{ event.price }}</div>
-        <div class="signup"><a class="button" href="mailto:{{event.signUpEmail}}">Register</a></div>
+        <form name="health-matters" netlify class="signup">
+            <input type="email"  placeholder="Enter your email"/>
+            <button class="button" type="submit">Sign up</button>
+        </form>
+        <!--<a class="button" href="mailto:{{event.signUpEmail}}">Register</a>-->
     </div>
 </section>
 <!--<script src="/assets/javascript/honest-questions.js"></script>-->
