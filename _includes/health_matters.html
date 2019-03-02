@@ -1,0 +1,11 @@
+<section class="promotion full-bleed health-matters">
+    <h1>{{ event.name }}</h1>
+    <div class="leader">{{ event.leader | markdownify }}</div>
+    <div class="info">
+        <div class="date">{{ event.eventDate }}</div>
+        <div class="location">{{ event.content | markdownify }}</div>
+        <div class="price">{{ event.price }}</div>
+        <div class="signup"><a class="button" href="mailto:{{event.signUpEmail}}">Register</a></div>
+    </div>
+</section>
+<!--<script src="/assets/javascript/honest-questions.js"></script>-->
