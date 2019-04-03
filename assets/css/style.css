@@ -2676,3 +2676,80 @@ section.health-matters .button:active {
 section.health-matters .button:hover {
   text-decoration: underline;
 }
+
+/* Easter 2019 */
+
+@font-face {
+  font-family: LeagueSpartan;
+  font-weight: bold;
+  src: url(../fonts/league-spartan/LeagueSpartan-Bold.otf) format("opentype");
+}
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+section.promotion.easter {
+  background-color: #5da5b5;
+  color: #ffde59;
+  font-family: "LeagueSpartan";
+  text-align: center;
+
+  background-image: url(/assets/style-images/easter/egg1.svg),
+  url(/assets/style-images/easter/egg2.svg),
+  url(/assets/style-images/easter/egg3.svg),
+  url(/assets/style-images/easter/egg4.svg),
+  url(/assets/style-images/easter/egg5.svg),
+  url(/assets/style-images/easter/egg6.svg),
+  url(/assets/style-images/easter/egg7.svg),
+  url(/assets/style-images/easter/egg8.svg),
+  url(/assets/style-images/easter/egg9.svg);
+  background-size: 9%,9%,9%,9%,9%,9%,9%,9%,9%; 
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position:
+    50% 30px,
+    37% -30px,
+    64% -10px,
+    26% 80px,
+    76% -30px,
+    86% 70px,
+    15% -10px, 
+    99% 30px,
+    1% 90px;
+}
+
+@media only screen and (max-width: 968px) {
+  section.promotion.easter {
+    background-size: 10%,10%,10%,10%,10%,10%,10%,10%,10%; 
+    font-size: 0.9em;
+  }
+}
+
+section.promotion.easter h1 {
+  font-family: "LeagueSpartan";
+  color: var(--light-colour);
+  font-size: 2em;
+  line-height: 1.5em;
+  letter-spacing: 0.2em;
+  margin-bottom: var(--general-padding);
+  margin-top: calc(var(--general-padding) * 6);
+}
+
+@media only screen and (max-width: 968px) {
+  section.promotion.easter h1 {
+    font-size: 1.5em;
+    margin-top: calc(var(--general-padding) * 9); 
+  }
+}
+
+section.promotion.easter .text {
+  text-transform: uppercase;
+}
+
+section.promotion.easter .when {
+  font-family: 'Lato', sans-serif;
+  color: var(--light-colour);
+}
+
+section.promotion.easter .where {
+  font-family: 'Lato', sans-serif;
+  color: var(--light-colour);
+}

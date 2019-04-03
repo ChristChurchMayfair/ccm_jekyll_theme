@@ -1,0 +1,21 @@
+{% assign first_two_services = include.events | slice:0, 2 %}
+{% assign remaining_services = include.events | slice:2, 100 %}
+
+<section class="promotion full-bleed easter">
+    <div>
+        <h1>{{ event.name }}</h1>
+        <div class="text">{{ event.content | markdownify }}</div>
+        <div class="when">
+            <span class="date">Saturday April 6th</span> | 
+            <span class="time">10:30-12:15</span>
+        </div>
+        <div>
+
+        </div>
+        <div class="where">
+            Christ Church Mayfair
+            W1J 7AN
+        </div>
+    </div>
+</section>
+<script src="/assets/javascript/carols.js"></script>
