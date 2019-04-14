@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<section class="london-living header-underlay"></section>
+<section class="london-living">
+  <div class="text">
+      <h1><strong></strong>London</strong>:<em>Living?</em></h1>
+      <p class="strapline">{{ page.strapLine }}</p>
+      <div class="fliers">
+        {% for event in page.events %}
+        <div>
+          <img src="{{ event.flierImageUrl }}"/>
+          <div class="info">
+            <div class="when">{{ event.when }}</div>
+            <div class="price">{{ event.price }}</div>
+            <div class="where">{{ event.where }}</div>
+          </div>
+          <a class="button" href="{{ event.bookingLink }}">Book Tickets</a>
+        </div>
+        {% endfor %}
+      </div>
+  </div>
+</section>

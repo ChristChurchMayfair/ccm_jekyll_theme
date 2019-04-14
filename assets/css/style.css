@@ -2753,3 +2753,58 @@ section.promotion.easter .where {
   font-family: 'Lato', sans-serif;
   color: var(--light-colour);
 }
+
+
+/* London Living */
+
+section.london-living {
+  --background-color: rgb(30,30,30);
+  --light-color: #FAF8DF;
+  background-color: var(--background-color);
+  color: var(--light-color);
+}
+
+section.london-living div.text {
+    width: 100%;
+}
+
+section.london-living h1 {
+  font-family: 'archiabold';
+  font-size: 3em;
+}
+
+@media only screen and (max-width: 968px) {
+  section.london-living h1 {
+    font-size: 2em;
+  }
+}
+
+section.london-living div.fliers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: var(--general-padding);
+}
+
+section.london-living div.info {
+  margin-top: var(--general-padding);
+}
+
+@media only screen and (max-width: 968px) {
+  section.london-living div.fliers {
+    grid-template-columns: 1fr;
+  }
+}
+
+section.london-living div.text {
+  grid-area: content;
+}
+
+div.fliers img {
+  width: 100%;
+}
+
+div.fliers .button {
+  margin-top: var(--general-padding);
+  background-color: var(--light-color);
+  color: var(--background-color);
+}
