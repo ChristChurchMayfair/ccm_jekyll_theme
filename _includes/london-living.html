@@ -1,0 +1,14 @@
+{% assign first_two_services = include.events | slice:0, 2 %}
+{% assign remaining_services = include.events | slice:2, 100 %}
+
+<section class="promotion full-bleed london-living">
+    <div>
+        <div class="header">
+        <h1><span class="london">London:</span><span class="living">Living?</span></h1>
+        <h2>A solid hope in uncertain times</h2>
+        </div>
+        <div class="text">{{ event.content | markdownify }}</div>
+        <a class="button" href="/londonliving">More Info</a>
+    </div>
+</section>
+<script src="/assets/javascript/carols.js"></script>

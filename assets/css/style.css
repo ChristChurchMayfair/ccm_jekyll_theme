@@ -2757,6 +2757,50 @@ section.promotion.easter .where {
 
 /* London Living */
 
+@font-face {
+  font-family: 'basier_circlebold';
+  src: url('../fonts/basier-circle/basiercircle-bold-webfont.eot');
+  src: url('../fonts/basier-circle/basiercircle-bold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/basier-circle/basiercircle-bold-webfont.woff2') format('woff2'),
+       url('../fonts/basier-circle/basiercircle-bold-webfont.woff') format('woff'),
+       url('../fonts/basier-circle/basiercircle-bold-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'basier_circlemedium';
+  src: url('../fonts/basier-circle/basiercircle-medium-webfont.eot');
+  src: url('../fonts/basier-circle/basiercircle-medium-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/basier-circle/basiercircle-medium-webfont.woff2') format('woff2'),
+       url('../fonts/basier-circle/basiercircle-medium-webfont.woff') format('woff'),
+       url('../fonts/basier-circle/basiercircle-medium-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'basier_circlesemibold_italic';
+  src: url('../fonts/basier-circle/basiercircle-semibolditalic-webfont.eot');
+  src: url('../fonts/basier-circle/basiercircle-semibolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/basier-circle/basiercircle-semibolditalic-webfont.woff2') format('woff2'),
+       url('../fonts/basier-circle/basiercircle-semibolditalic-webfont.woff') format('woff'),
+       url('../fonts/basier-circle/basiercircle-semibolditalic-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'basier_circlemedium_italic';
+  src: url('../fonts/basier-circle/basiercircle-mediumitalic-webfont.eot');
+  src: url('../fonts/basier-circle/basiercircle-mediumitalic-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/basier-circle/basiercircle-mediumitalic-webfont.woff2') format('woff2'),
+       url('../fonts/basier-circle/basiercircle-mediumitalic-webfont.woff') format('woff'),
+       url('../fonts/basier-circle/basiercircle-mediumitalic-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 section.london-living {
   --background-color: rgb(30,30,30);
   --light-color: #FAF8DF;
@@ -2764,13 +2808,80 @@ section.london-living {
   color: var(--light-color);
 }
 
-section.london-living div.text {
-    width: 100%;
+section.london-living p, .text p:nth-of-type(1) {
+  font-weight: 200;
 }
 
-section.london-living h1 {
-  font-family: 'archiabold';
+section.promotion.london-living > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "header header header header header header header header header header header header"
+  "text text text text text text . . . . . ."
+  "button button button . . . . . . . . .";
+  grid-column-gap: var(--general-padding);
+}
+
+@media only screen and (max-width: 968px) {
+  section.promotion.london-living > div {
+    grid-template-areas: "header header header header header header header header header header header header"
+  "text text text text text text text text text text text text"
+  "button button button button button button button button button button button button";
+  }
+}
+
+section.promotion.london-living div.text {
+  width: 100%;
+  grid-area: text;
+  margin-bottom: 0;
+}
+
+section.london-living .header {
+  grid-area: header;
   font-size: 3em;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--general-padding);
+}
+
+@media only screen and (max-width: 968px) {
+  section.london-living .header {
+    font-size: 1.6em;
+  }
+}
+
+section.london-living .header h1 {
+  font-size: 1em;
+}
+
+section.london-living .header h2 {
+  font-size: 0.27em;
+  letter-spacing: 0.1em;
+  font-family: "Klinic Slab";
+  text-transform: none;
+  background-color: var(--light-color);
+  color: var(--background-color);
+  margin-top: -10px;
+  font-weight: 400;
+  padding-left: 10px;
+  margin-left: 18.3em;
+  width: 16.2em;
+  padding-right: 10px;
+}
+
+@media only screen and (max-width: 968px) {
+  section.london-living .header h2{
+    font-size: 0.5em;
+    margin-left: 0;
+    margin-top: var(--general-padding);
+    width: auto;
+  }
+}
+
+section.london-living .header h1 > .london {
+  font-family: 'basier_circlebold';
+}
+
+section.london-living .header h1 > .living {
+  font-family: 'basier_circlemedium_italic';
 }
 
 @media only screen and (max-width: 968px) {
@@ -2797,14 +2908,16 @@ section.london-living div.info {
 }
 
 section.london-living div.text {
+  width: 100%;
   grid-area: content;
 }
 
-div.fliers img {
+section.london-living div.fliers img {
   width: 100%;
 }
 
-div.fliers .button {
+section.london-living .button {
+  grid-area: button;
   margin-top: var(--general-padding);
   background-color: var(--light-color);
   color: var(--background-color);
