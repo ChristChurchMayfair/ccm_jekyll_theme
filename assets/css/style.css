@@ -2837,10 +2837,27 @@ section.promotion.london-living div.text {
 
 section.london-living .header {
   grid-area: header;
-  font-size: 3em;
-  letter-spacing: 0.1em;
-  margin-bottom: var(--general-padding);
+  margin-bottom: calc(var(--general-padding) / 2);
 }
+
+section.london-living .description {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "blurb blurb blurb blurb . .";
+  grid-gap: var(--general-padding);
+}
+
+@media only screen and (max-width: 968px) {
+  section.london-living .description {
+    grid-template-areas: "blurb blurb blurb blurb blurb blurb";
+  }
+}
+
+section.london-living .description .blurb {
+  grid-area: blurb;
+}
+
+/*
 
 @media only screen and (max-width: 968px) {
   section.london-living .header {
@@ -2889,6 +2906,7 @@ section.london-living .header h1 > .living {
     font-size: 1.5em;
   }
 }
+*/
 
 section.london-living div.fliers {
   display: grid;

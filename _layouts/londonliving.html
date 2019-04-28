@@ -5,10 +5,12 @@ layout: default
 <section class="london-living">
   <div class="text">
       <div class="header">
-          <h1><span class="london">London:</span><span class="living">Living?</span></h1>
-          <h2>A solid hope in uncertain times</h2>
-          </div>
-      <p class="strapline">{{ page.strapLine }}</p>
+        <img src="/assets/images/LL_logo.svg" />
+      </div>
+        <div class="description">
+        <!-- <p class="strapline">{{ page.strapLine }}</p> -->
+        <div class="blurb">{{ page.blurb }}</div>
+        </div>
       <div class="fliers">
         {% for event in page.events %}
         <div>
