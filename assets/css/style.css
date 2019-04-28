@@ -2812,6 +2812,12 @@ section.london-living p, .text p:nth-of-type(1) {
   font-weight: 200;
 }
 
+section.london-living h1 {
+  font-family: 'basier_circlemedium';
+  letter-spacing: 0.1em;
+  font-size: 0.5em;
+}
+
 section.promotion.london-living > div {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -2844,7 +2850,7 @@ section.london-living .description {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: "blurb blurb blurb blurb . .";
-  grid-gap: var(--general-padding);
+  grid-column-gap: var(--general-padding);
 }
 
 @media only screen and (max-width: 968px) {
@@ -2855,6 +2861,19 @@ section.london-living .description {
 
 section.london-living .description .blurb {
   grid-area: blurb;
+}
+
+section.london-living .podcast-link-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: var(--general-padding);
+  margin-bottom: calc(var(--general-padding) / 2);
+}
+
+section.london-living .podcast-link {
+  background-color: white;
+  color: black;
+  grid-area: 1fr;
 }
 
 /*
