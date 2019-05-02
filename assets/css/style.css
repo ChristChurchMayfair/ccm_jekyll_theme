@@ -2887,58 +2887,6 @@ section.london-living .description .blurb {
   grid-area: blurb;
 }
 
-
-/*
-
-@media only screen and (max-width: 968px) {
-  section.london-living .header {
-    font-size: 1.6em;
-  }
-}
-
-section.london-living .header h1 {
-  font-size: 1em;
-}
-
-section.london-living .header h2 {
-  font-size: 0.27em;
-  letter-spacing: 0.1em;
-  font-family: "Klinic Slab";
-  text-transform: none;
-  background-color: var(--light-color);
-  color: var(--background-color);
-  margin-top: -10px;
-  font-weight: 400;
-  padding-left: 10px;
-  margin-left: 18.3em;
-  width: 16.2em;
-  padding-right: 10px;
-}
-
-@media only screen and (max-width: 968px) {
-  section.london-living .header h2{
-    font-size: 0.5em;
-    margin-left: 0;
-    margin-top: var(--general-padding);
-    width: auto;
-  }
-}
-
-section.london-living .header h1 > .london {
-  font-family: 'basier_circlebold';
-}
-
-section.london-living .header h1 > .living {
-  font-family: 'basier_circlemedium_italic';
-}
-
-@media only screen and (max-width: 968px) {
-  section.london-living h1 {
-    font-size: 1.5em;
-  }
-}
-*/
-
 section.london-living div.fliers {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3015,7 +2963,7 @@ section.london-living .events {
 
 section.london-living .button {
   margin-top: var(--general-padding);
-  background-color: var(--light-color);
+  background-color: var(--highlight-color);
   color: var(--background-color);
 }
 
