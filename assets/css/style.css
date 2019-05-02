@@ -2804,12 +2804,21 @@ section.promotion.easter .where {
 section.london-living {
   --background-color: rgb(30,30,30);
   --light-color: #FAF8DF;
+  --highlight-color: #DDA443;
   background-color: var(--background-color);
   color: var(--light-color);
 }
 
 section.promotion.london-living {
   grid-template-areas: ". content content content content content content content content content content content content .";
+  background-image: url('/assets/images/desktop/LLbannerbg.jpg');
+  background-position-y: bottom;
+}
+
+section.promotion.london-living .button {
+  margin-top: 0;
+  background-color: var(--highlight-color);
+  color: var(--background-color);
 }
 
 section.london-living p, p:nth-of-type(1) {
@@ -2819,9 +2828,9 @@ section.london-living p, p:nth-of-type(1) {
 section.promotion.london-living > div {
   grid-area: content;
   display: grid;
-  grid-template-columns: repeat(12 1fr);
-  grid-template-areas: "header header header header header header header header header header header header"
-  "text text text text text text . . . . . ."
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "header header header header header header header header . . . ."
+  "text text text text text text text text . . . ."
   "button button button . . . . . . . . .";
   grid-column-gap: var(--general-padding);
 }
