@@ -2808,13 +2808,18 @@ section.london-living {
   color: var(--light-color);
 }
 
-section.london-living p, .text p:nth-of-type(1) {
+section.promotion.london-living {
+  grid-template-areas: ". content content content content content content content content content content content content .";
+}
+
+section.london-living p, p:nth-of-type(1) {
   font-weight: 200;
 }
 
 section.promotion.london-living > div {
+  grid-area: content;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(12 1fr);
   grid-template-areas: "header header header header header header header header header header header header"
   "text text text text text text . . . . . ."
   "button button button . . . . . . . . .";
@@ -2823,9 +2828,10 @@ section.promotion.london-living > div {
 
 @media only screen and (max-width: 968px) {
   section.promotion.london-living > div {
-    grid-template-areas: "header header header header header header header header header header header header"
-  "text text text text text text text text text text text text"
-  "button button button button button button button button button button button button";
+    grid-template-columns: 1fr;
+    grid-template-areas: "header"
+    "text"
+    "button";
   }
 }
 
@@ -2837,10 +2843,28 @@ section.promotion.london-living div.text {
 
 section.london-living .header {
   grid-area: header;
-  font-size: 3em;
-  letter-spacing: 0.1em;
-  margin-bottom: var(--general-padding);
+  margin-bottom: calc(var(--general-padding) / 2);
 }
+
+section.london-living .description {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "blurb blurb blurb blurb . .";
+  grid-column-gap: var(--general-padding);
+}
+
+@media only screen and (max-width: 968px) {
+  section.london-living .description {
+    grid-template-areas: "blurb blurb blurb blurb blurb blurb";
+  }
+}
+
+section.london-living .description .blurb {
+  grid-area: blurb;
+}
+
+
+/*
 
 @media only screen and (max-width: 968px) {
   section.london-living .header {
@@ -2889,6 +2913,7 @@ section.london-living .header h1 > .living {
     font-size: 1.5em;
   }
 }
+*/
 
 section.london-living div.fliers {
   display: grid;
@@ -2907,7 +2932,7 @@ section.london-living div.info {
   }
 }
 
-section.london-living div.text {
+section.london-living > div {
   width: 100%;
   grid-area: content;
 }
@@ -2916,9 +2941,159 @@ section.london-living div.fliers img {
   width: 100%;
 }
 
+section.london-living .intro {
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  grid-template-areas: "header header header header header header header header header header header header"
+  "blurb blurb blurb blurb blurb blurb blurb . . . . . "
+  "links links links links links links links links links links links links";
+  margin-bottom: var(--general-padding);
+}
+
+@media only screen and (max-width: 968px) {
+  section.london-living .intro {
+    grid-template-columns: 1fr;
+    grid-template-areas: "header"
+    "blurb"
+    "links";
+  }
+}
+
+section.london-living .intro .header {
+  grid-area: header;
+}
+
+section.london-living .intro .blurb {
+  grid-area: blurb;
+}
+
+section.london-living .intro .links {
+  grid-area: links;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: var(--general-padding);
+  margin-bottom: calc(var(--general-padding) / 2);
+  border-bottom-width:2px;
+  border-bottom-color: var(--light-color);
+  border-bottom-style: solid;
+  padding-bottom: var(--general-padding);
+}
+
+@media only screen and (max-width: 968px) {
+  section.london-living .intro .links {
+    grid-template-columns: 1fr;
+  }
+}
+
+section.london-living .events {
+  margin-top: var(--general-padding);
+}
+
 section.london-living .button {
-  grid-area: button;
   margin-top: var(--general-padding);
   background-color: var(--light-color);
   color: var(--background-color);
+}
+
+section.london-living .fliers .button {
+  grid-area: button;
+}
+
+section.london-living .podcast {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas: "header header header header header header header header header header header header"
+  "blurb blurb blurb blurb blurb blurb blurb . . . . . "
+  "episodes episodes episodes episodes episodes episodes episodes episodes episodes episodes episodes episodes "
+}
+
+@media only screen and (max-width: 968px) {
+  section.london-living .podcast {
+    grid-template-columns: 1fr;
+    grid-template-areas: "header"
+    "blurb"
+    "episodes";
+  }
+}
+
+section.london-living .podcast h1 {
+  grid-area: header;
+}
+
+section.london-living .podcast .blurb {
+  grid-area: blurb;
+  margin-bottom: var(--general-padding);
+}
+
+section.london-living .podcast .episodes {
+  grid-area: episodes;
+}
+
+section.london-living .podcast .episode {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: var(--general-padding);
+  grid-template-rows: auto auto 300px;
+  grid-template-areas: "header header header header header header header header header header header header"
+  "blurb blurb blurb blurb blurb blurb blurb . . . . . "
+  "image image image image media media media media media media media media "
+  "image image image image media media media media media media media media ";
+  border-width: 2px;
+  border-bottom-width:2px;
+  border-bottom-color: var(--light-color);
+  border-bottom-style: solid;
+  padding-bottom: var(--general-padding);
+}
+
+@media only screen and (max-width: 968px) {
+  section.london-living .podcast .episode {
+    grid-template-columns: 1fr;
+    grid-template-areas: "header"
+    "blurb"
+    "image"
+    "media";
+  }
+}
+
+section.london-living .podcast .episode:nth-of-type(1) {
+  border-width: 2px;
+  border-top-width:2px;
+  border-top-color: var(--light-color);
+  border-top-style: solid;
+}
+
+section.london-living .episode h2 {
+  grid-area: header;
+  font-family: var(--body-font);
+  font-weight: 500;
+  font-size: 1.4em;
+  text-transform: none;
+  margin-bottom: 0;
+}
+
+section.london-living .episode .blurb {
+  grid-area: blurb;
+}
+
+section.london-living .episode .image {
+  grid-area: image;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+}
+
+section.london-living .episode .media {
+  grid-area: media;
+  display: grid;
+  grid-template-rows: auto;
+  grid-row-gap: var(--general-padding);
+}
+
+section.london-living .episode .media .audio audio {
+  width: 100%;
+}
+
+section.london-living .episode .media .video .placeholder {
+  width: 100%;
+  text-align: center;
 }

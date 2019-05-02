@@ -1,0 +1,15 @@
+header.mobile-header {
+    display: none;
+}
+
+header.desktop-header {
+    display: none;
+}
+
+nav a.logo svg {
+    width: 200px;
+}
+
+nav a#close-menu {
+    display: none;
+}

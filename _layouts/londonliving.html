@@ -3,12 +3,56 @@ layout: default
 ---
 <section class="london-living header-underlay"></section>
 <section class="london-living">
-  <div class="text">
+  <div>
+    <div class="intro">
       <div class="header">
-          <h1><span class="london">London:</span><span class="living">Living?</span></h1>
-          <h2>A solid hope in uncertain times</h2>
+        <img src="/assets/images/LL_logo.svg" />
+      </div>
+      <div class="blurb">{{ page.content | markdownify }}</div>
+      <div class="links">
+          {% for link in page.podcast.links %}
+          <a href="{{ link.link }}" class="button">{{ link.name }}</a>
+          {% endfor %}
+      </div>
+    </div>
+    
+    <div class="podcast">
+      <h1>Episodes</h1>
+      <div class="blurb">{{ page.podcast.blurb }}</div>
+      <div class="episodes">
+        {% for episode in page.podcast.episodes %}
+        <div class="episode">
+          <h2>{{ forloop.index }}: {{ episode.title }}: {{ episode.person }}</h2>
+          <div class="blurb">{{ episode.blurb }}</div>
+          <div class="image" responsive-background-image>
+            <img src="{{ episode.imageUrl}}"/>
           </div>
-      <p class="strapline">{{ page.strapLine }}</p>
+          <div class="media">
+            <div class="audio">
+                <audio controls>
+                    <source src="{{ episode.audioUrl }}" type="audio/mpeg">
+                </audio>
+            </div>
+            <div class="video">
+              {% if episode.videoEmbedUrl %}
+              <iframe id="ytplayer" type="text/html" width="100%" height="360"
+              src="{{ episode.videoEmbedUrl }}"
+              frameborder="0">
+            </iframe>
+            {% else %}
+            <div class="placeholder">
+              Video Coming Soon
+            </div>
+            {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    
+    <div class="events">
+      <h1>Events</h1>
       <div class="fliers">
         {% for event in page.events %}
         <div>
@@ -22,5 +66,6 @@ layout: default
         </div>
         {% endfor %}
       </div>
+    </div>
   </div>
 </section>
