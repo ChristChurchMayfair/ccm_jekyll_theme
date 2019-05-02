@@ -2815,7 +2815,22 @@ section.promotion.london-living {
   background-position-y: bottom;
 }
 
+section.promotion.london-living .buttons {
+  grid-area: buttons;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: var(--general-padding);
+}
+
+@media only screen and (max-width: 968px) {
+  section.promotion.london-living .buttons {
+    grid-template-columns: 1fr;
+    grid-row-gap: var(--general-padding);
+  }
+}
+
 section.promotion.london-living .button {
+  grid-area: auto;
   margin-top: 0;
   background-color: var(--highlight-color);
   color: var(--background-color);
@@ -2831,7 +2846,7 @@ section.promotion.london-living > div {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: "header header header header header header header header . . . ."
   "text text text text text text text text . . . ."
-  "button button button . . . . . . . . .";
+  "buttons buttons buttons buttons buttons buttons buttons buttons buttons buttons buttons buttons";
   grid-column-gap: var(--general-padding);
 }
 
@@ -2840,7 +2855,7 @@ section.promotion.london-living > div {
     grid-template-columns: 1fr;
     grid-template-areas: "header"
     "text"
-    "button";
+    "buttons";
   }
 }
 
