@@ -10,20 +10,28 @@ layout: default
       </div>
       <div class="blurb">{{ page.content | markdownify }}</div>
       <div class="links">
-          {% for link in page.podcast.links %}
+        <a href="https://podcasts.apple.com/gb/podcast/christ-church-mayfair-london-living/id1462242037" target="_blank">
+          <div class="podcast-btn" id="applepodcasts-link"> </div>
+        </a>
+        <a href="https://open.spotify.com/show/2e9boaobJtY7rkgLLTmHjO" target="_blank">
+          <div class="podcast-btn" id="spotify-link"> </div>
+        </a>
+        {% for link in page.podcast.links %}
+      </div>
+      <!-- <div class="links">
           <a href="{{ link.link }}" class="button">{{ link.name }}</a>
           {% endfor %}
-      </div>
+      </div> -->
     </div>
     
     <div class="podcast">
       <h1>Episodes</h1>
-      <div class="blurb">{{ page.podcast.blurb }}</div>
+      <div class="blurb"><p>{{ page.podcast.blurb }}</p></div>
       <div class="episodes">
         {% for episode in page.podcast.episodes %}
         <div class="episode">
           <h2>{{ forloop.index }}: {{ episode.title }}: {{ episode.person }}</h2>
-          <div class="blurb">{{ episode.blurb }}</div>
+          <div class="blurb"><p>{{ episode.blurb }}</p></div>
           <div class="image" responsive-background-image>
             <img src="{{ episode.imageUrl}}"/>
           </div>
