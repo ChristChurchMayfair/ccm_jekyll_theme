@@ -2965,7 +2965,7 @@ section.london-living .intro .podcast-btn {
 
 @media only screen and (max-width: 968px) {
   section.london-living .intro .podcast-btn {
-    background-size: auto;
+    background-size: contain;
   }
 }
 
@@ -2979,9 +2979,16 @@ section.london-living .intro .links #spotify-link {
   background-image: url('/assets/images/podcast-service-btns/button-spotify.svg');
 }
 
-@media only screen and (max-width: 968px) {
+@media only screen and (max-width: 480px) {
   section.london-living .intro .links {
     grid-template-columns: 1fr 1fr;
+    margin-bottom: calc(var(--general-padding) / 2);
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 680px) {
+  section.london-living .intro .links {
+    grid-template-columns: 1fr 1fr 1fr;
     margin-bottom: calc(var(--general-padding) / 2);
   }
 }
