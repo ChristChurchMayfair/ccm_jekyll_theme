@@ -3065,6 +3065,16 @@ section.london-living .podcast .episode {
   padding-bottom: var(--general-padding);
 }
 
+section.london-living .podcast .episode.teaser {
+  grid-template-rows: auto;
+  grid-template-areas: "header header header header header header header header header header header header"
+  "due due due due due due due due due due due due";
+}
+
+section.london-living .podcast .episode.teaser .due {
+  grid-area: due;
+}
+
 @media only screen and (max-width: 968px) {
   section.london-living .podcast .episode {
     grid-template-columns: 1fr;
@@ -3073,7 +3083,14 @@ section.london-living .podcast .episode {
     "image"
     "media";
   }
+
+  section.london-living .podcast .episode.teaser {
+    grid-template-columns: 1fr;
+    grid-template-areas: "header"
+    "due";
+  }
 }
+
 
 section.london-living .podcast .episode:nth-of-type(1) {
   border-width: 2px;

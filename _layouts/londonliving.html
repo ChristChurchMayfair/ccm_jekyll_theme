@@ -29,6 +29,7 @@ layout: default
       <div class="blurb"><p>{{ page.podcast.blurb }}</p></div>
       <div class="episodes">
         {% for episode in page.podcast.episodes %}
+        {% unless episode.due %}
         <div class="episode">
           <h2>{{ forloop.index }}: {{ episode.title }}: {{ episode.person }}</h2>
           <div class="blurb"><p>{{ episode.blurb }}</p></div>
@@ -54,6 +55,12 @@ layout: default
             </div>
           </div>
         </div>
+        {% else %}
+        <div class="episode teaser">
+          <h2>{{ forloop.index }}: {{ episode.title }}: {{ episode.person }}</h2>
+          <div class="due">Coming {{ episode.due }}</div>
+        </div>
+        {% endunless %}
         {% endfor %}
       </div>
     </div>
