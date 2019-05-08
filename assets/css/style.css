@@ -3053,7 +3053,7 @@ section.london-living .podcast .episode {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: calc(var(--general-padding) / 2);
-  grid-template-rows: auto auto 300px;
+  grid-template-rows: auto auto 410px;
   grid-template-areas: "header header header header header header header header header header header header"
   "blurb blurb blurb blurb blurb blurb blurb blurb blurb . . . "
   "image image image image media media media media media media media media "

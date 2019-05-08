@@ -4,6 +4,7 @@ layout: default
 <section class="london-living header-underlay"></section>
 <section class="london-living">
   <div>
+
     <div class="intro">
       <div class="header">
         <img src="/assets/images/LL_logo.svg" />
@@ -16,12 +17,7 @@ layout: default
         <a href="https://open.spotify.com/show/2e9boaobJtY7rkgLLTmHjO" target="_blank">
           <div class="podcast-btn" id="spotify-link"> </div>
         </a>
-        {% for link in page.podcast.links %}
       </div>
-      <!-- <div class="links">
-          <a href="{{ link.link }}" class="button">{{ link.name }}</a>
-          {% endfor %}
-      </div> -->
     </div>
     
     <div class="podcast">
@@ -29,38 +25,42 @@ layout: default
       <div class="blurb"><p>{{ page.podcast.blurb }}</p></div>
       <div class="episodes">
         {% for episode in page.podcast.episodes %}
-        {% unless episode.due %}
-        <div class="episode">
-          <h2>{{ forloop.index }}: {{ episode.title }}: {{ episode.person }}</h2>
-          <div class="blurb"><p>{{ episode.blurb }}</p></div>
-          <div class="image" responsive-background-image>
-            <img src="{{ episode.imageUrl}}"/>
+        
+          {% unless episode.due %}
+          <div class="episode">
+            <h2>{{ forloop.index }}: {{ episode.title }}: {{ episode.person }}</h2>
+            <div class="blurb"><p>{{ episode.blurb }}</p></div>
+            <div class="image" responsive-background-image>
+              <img src="{{ episode.imageUrl}}"/>
+            </div>
+            <div class="media">
+              <div class="audio">
+                  <audio controls>
+                      <source src="{{ episode.audioUrl }}" type="audio/mpeg">
+                  </audio>
+              </div>
+              <div class="video">
+                {% if episode.videoEmbedUrl %}
+                <iframe id="ytplayer" type="text/html" width="100%" height="360"
+                src="{{ episode.videoEmbedUrl }}"
+                frameborder="0">
+              </iframe>
+              {% else %}
+              <div class="placeholder">
+              </div>
+              {% endif %}
+              </div>
+            </div>
           </div>
-          <div class="media">
-            <div class="audio">
-                <audio controls>
-                    <source src="{{ episode.audioUrl }}" type="audio/mpeg">
-                </audio>
-            </div>
-            <div class="video">
-              {% if episode.videoEmbedUrl %}
-              <iframe id="ytplayer" type="text/html" width="100%" height="360"
-              src="{{ episode.videoEmbedUrl }}"
-              frameborder="0">
-            </iframe>
-            {% else %}
-            <div class="placeholder">
-            </div>
-            {% endif %}
-            </div>
+          
+          {% else %}
+          
+          <div class="episode teaser">
+            <h2>{{ forloop.index }}: {{ episode.title }}: {{ episode.person }}</h2>
+            <div class="due">Coming {{ episode.due }}</div>
           </div>
-        </div>
-        {% else %}
-        <div class="episode teaser">
-          <h2>{{ forloop.index }}: {{ episode.title }}: {{ episode.person }}</h2>
-          <div class="due">Coming {{ episode.due }}</div>
-        </div>
-        {% endunless %}
+          
+          {% endunless %}
         {% endfor %}
       </div>
     </div>
