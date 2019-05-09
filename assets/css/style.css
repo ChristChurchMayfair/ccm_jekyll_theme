@@ -2997,7 +2997,7 @@ section.london-living .events {
   margin-top: var(--general-padding);
 }
 
-@media only screen and and (max-width: 968px) {
+@media only screen and (max-width: 968px) {
   section.london-living .events {
     margin-top: calc(var(--general-padding) * 2);
   }
