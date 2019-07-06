@@ -1259,6 +1259,11 @@ section.dark {
   color: var(--light-colour);
 }
 
+section.dark .button {
+  color: var(--dark-colour);
+  background-color: var(--light-colour);
+}
+
 section.image-right {
   grid-template-areas: ". text text text text text . image image image image image image image";
 }
@@ -3146,3 +3151,46 @@ section.london-living .episode .media .video .placeholder {
   text-align: center;
 }
 
+section.music-team-service {
+  grid-template-areas: ". title title title title title title title title title title title title ."
+  ". information information information information information information information information information information information information .";
+}
+
+.music-team-service > h1 {
+  grid-area: title;
+}
+
+.music-team-service .information {
+  grid-area: information;
+  font-size: 1em;
+}
+
+.music-team-service h2 {
+  margin-bottom: 0.2em;
+}
+
+.music-team-service ul.running-order {
+  list-style-type:none;
+  padding: 0;
+  margin: 0 0 1em;
+}
+
+.music-team-service ul.running-order li.non-song {
+  font-weight: 200;
+  font-size: 0.9em;
+}
+
+.music-team-service ul.running-order li.non-song.confession {
+  font-style: italic;
+}
+
+.music-team-service ul.running-order li.song {
+  font-weight: 400;
+  font-size: 1.3em;
+}
+
+.music-team-service ul.running-order li.viewer {
+  background-color: rgba(0.7, 0.7, 0.7, 0.25);
+  padding: 1em;
+  margin: 0.5em 0;
+}

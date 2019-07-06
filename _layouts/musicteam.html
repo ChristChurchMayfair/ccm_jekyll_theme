@@ -1,0 +1,30 @@
+---
+layout: default
+---
+{% include hero.html id="music-team-hero" overlayCaption=page.overlayCaption mainImage=page.mainImage mobileImage=page.mobileImage textClass="left bottom"%}
+
+<section class="intro wider">
+  <div class="text">
+    {{ content }}
+  </div>
+</section>
+
+<section class="music-team-service dark">
+  <h1>Morning Service</h1>
+  <div class="information">
+    {% include music_team_info.html service="morning" %}
+  </div>
+</section>
+
+<section class="music-team-service">
+  <h1>Evening Service</h1>
+  <div class="information">
+    {% include music_team_info.html service="evening" %}
+  </div>
+</section>
+
+<script type="text/javascript" src="/assets/javascript/music_team_info_import.js"></script>
+<script type="text/javascript"
+  src="https://spreadsheets.google.com/feeds/cells/{{ site.music_team_info_google_sheet.id }}/{{ site.music_team_info_google_sheet.morning_sheet_number }}/public/values?alt=json-in-script&callback=onResponseMorning"></script>
+<script type="text/javascript"
+  src="https://spreadsheets.google.com/feeds/cells/{{ site.music_team_info_google_sheet.id }}/{{ site.music_team_info_google_sheet.evening_sheet_number }}/public/values?alt=json-in-script&callback=onResponseEvening"></script>
