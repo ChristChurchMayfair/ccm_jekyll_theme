@@ -2840,7 +2840,7 @@ section.promotion.london-living .button {
   color: var(--background-color);
 }
 
-section.london-living p, p:nth-of-type(1) {
+section.london-living p {
   font-weight: 200;
 }
 
