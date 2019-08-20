@@ -1,0 +1,17 @@
+.timeout-container > div {
+  background-color: var(--mid-gray);
+  padding: 0.5rem 1.2rem;
+  max-width: 100%;
+}
+
+.timeout-container > div:not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+.timeout-container > div:last-of-type {
+  margin-bottom: 3rem;
+}
+
+.timeout-container img {
+  max-width: 100%;
+}
