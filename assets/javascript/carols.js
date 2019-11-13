@@ -1,6 +1,6 @@
 
 function show_more_events() {
-    var laterEvents = document.querySelectorAll("section.carols .events.later");
+    var laterEvents = document.querySelectorAll("section.christmas2019 .events.later");
     var i;
     for (i = 0; i < laterEvents.length; i++) {
         laterEvents[i].style.display = "grid";
@@ -14,7 +14,7 @@ function show_more_events() {
 }
 
 function show_fewer_events() {
-    var laterEvents = document.querySelectorAll("section.carols .events.later");
+    var laterEvents = document.querySelectorAll("section.christmas2019 .events.later");
     var i;
     for (i = 0; i < laterEvents.length; i++) {
         laterEvents[i].style.display = "None";
@@ -37,13 +37,13 @@ document.addEventListener("DOMContentLoaded", function() {
     var show_fewer_button = document.getElementById("showfewerevents");
     show_fewer_button.addEventListener("click",show_fewer_events);
 
-    console.log("Carols script loaded");
+    console.log("christmas2019 script loaded");
  
     var now = Date.now();
     
     console.log("Remove all events before: ${now}");
     
-    var carolEvents = document.querySelectorAll("section.carols .events.immediate .event");
+    var carolEvents = document.querySelectorAll("section.christmas2019 .events.immediate .event");
     var i;
     for (i = 0; i < carolEvents.length; i++) {
         var validUntil = new Date(carolEvents[i].getAttribute("valid_until"));
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var numberOfEventsToLeaveVisible = 2;
 
     var laterEventsDiv = document.getElementById("laterCarolEvents");
-    var remainingCarolEvents = document.querySelectorAll("section.carols .events.immediate .event");
+    var remainingCarolEvents = document.querySelectorAll("section.christmas2019 .events.immediate .event");
     var i;
     for (i = 0; i < remainingCarolEvents.length; i++) {
         if (i >= numberOfEventsToLeaveVisible) {
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var show_fewer_button = document.getElementById("showfewerevents");
     show_fewer_button.style.display = "None";
 
-    var laterEvents = document.querySelectorAll("section.carols .events.later");
+    var laterEvents = document.querySelectorAll("section.christmas2019 .events.later");
     var i;
     for (i = 0; i < laterEvents.length; i++) {
         laterEvents[i].style.display = "None";
