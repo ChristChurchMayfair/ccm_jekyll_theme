@@ -3244,31 +3244,69 @@ section.christmas2019 .all-events {
   grid-area: events;
 }
 
-section.promotion.christmas2019 h1 {
+section.promotion.christmas2019 .header {
   grid-area: title;
+  padding-top: 75px;
+  padding-bottom: 75px;
+
+  text-align: center;
+}
+
+section.promotion.christmas2019 .header hr{
+  border-top-color: rgb(19,23,29);
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-bottom-style: none;
+  width: 27%
+}
+
+section.promotion.christmas2019 .subtitle {
+  color: rgb(19,23,29);
+  font-family: "Parking";
+  font-size: 1.6em;
+  letter-spacing: 0.4em;
+}
+
+section.promotion.christmas2019 h1 {
   color: rgb(19,23,29);
   font-family: "Parking";
   
   letter-spacing: 0.2em;
   font-size: 5em;
-  padding-left: 39px;
-  padding-right: 17px;
-  padding-top: 75px;
-  padding-bottom: 75px;
-  text-align: center;
-  margin-bottom: var(--general-padding);
+  margin-top: -25px;
+  margin-bottom: -25px;
 }
 
 
 @media only screen and (max-width: 968px) {
-  section.promotion.christmas2019 h1 {
-    border-width: 2px;
-    font-size: 2.4em;
-    padding-top: 50px;
+  section.promotion.christmas2019 .header {
+    padding-top: 30px;
     padding-bottom: 11px;
     padding-left: 0;
     padding-right: 0;
   }
+
+  section.promotion.christmas2019 .header h1 {
+    font-size: 2.4em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+  }
+
+  section.promotion.christmas2019 .header .subtitle {
+    font-size: 0.8em;
+  }
+
+  section.promotion.christmas2019 .header hr {
+  width: 20%;
+  border-width: 2px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  section.promotion.christmas2019 .header hr {
+    width: 36%;
+    }
 }
 
 section.christmas2019 .events {
@@ -3290,7 +3328,7 @@ section.christmas2019 .event .when {
   font-weight: 200;
   color: rgb(19,23,29);
   font-size: 1em;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.1em;
 }
 
 @media only screen and (max-width: 968px) {
@@ -3311,8 +3349,8 @@ section.christmas2019 a.showmore.button, a.showfewer.button {
   color: rgb(19,23,29);
   text-align: left;
   text-transform: uppercase;
-  font-family: "OstrichProper-SemiBold";
-  letter-spacing: 0.3em;
+  font-family: "Parking";
+  letter-spacing: 0.1em;
 }
 
 section.christmas2019 a.button:active {
