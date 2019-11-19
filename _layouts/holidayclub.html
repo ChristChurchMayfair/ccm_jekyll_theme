@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<div class="holidayclub-bg">
+    <section class="holidayclub-headerunderlay"></section>
+    <section class="holidayclub-hero">
+        <h1 class="holidayclub-herofont">The Greatest Show</h1>
+        <p class="holidayclub-herofont holidayclub-tagline">Half Term Holiday Club</p>
+        <div class="holidayclub-herodates">Tuesday 20th – Thursday 22nd February 2020</div>
+        <div class="holidayclub-herotimes">From 10am–2pm each day</div>
+        <a class="holidayclub-booklink" href="https://google.com">
+            <span style="padding-top: 0.2em; line-height: initial;">Book now</span>
+            <span style="font-weight: 700; font-size: 0.6em; line-height: initial; padding-bottom: 0.3em;">£15 per child</span>
+        </a>
+    </section>
+    <section class="holidayclub-main">
+        <div style="grid-area: body;">
+            {{ page.content | markdownify }}
+        </div>
+    </section>
+</div>

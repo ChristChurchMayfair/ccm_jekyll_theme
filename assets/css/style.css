@@ -62,6 +62,7 @@
   --menu-transition-time: 0.2s;
 
   --beta-banner-colour: rgba(244,66,92,0.5);
+  --holiday-club-red: rgba(232, 81, 81, 1);
 
   --heading-font: 'Franchise';
   --body-font: 'Klinic Slab';
@@ -543,6 +544,11 @@ header.desktop-header.black a {
 header.mobile-header {
   align-items: center;
   display: none;
+}
+
+header.holidayclub * {
+  color: var(--holiday-club-red);
+  fill: var(--holiday-club-red);
 }
 
 @media only screen and (max-width: 968px) {
@@ -2806,6 +2812,15 @@ section.promotion.easter .where {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Fredoka One';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Fredoka One'), local('FredokaOne-Regular'), url(https://fonts.gstatic.com/s/fredokaone/v7/k3kUo8kEI-tA1RRcTZGmTlHGCaen8wf-.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 section.london-living {
   --background-color: rgb(30,30,30);
   --light-color: #FAF8DF;
@@ -3377,4 +3392,120 @@ section.christmas2019 a.showfewer.button svg {
   width: 1em;
   height: 0.5em;
   vertical-align: 4px;
+}
+
+/* Holiday Club */
+.holidayclub-bg {
+  background: none;
+  background-image: url(/assets/style-images/paper-texture.png);
+}
+.holidayclub-bg > * {
+  background: none;
+}
+
+.holidayclub-headerunderlay {
+  height: var(--header-height);
+  padding: var(--general-padding) 0;
+}
+
+.holidayclub-hero {
+  position: relative;
+  grid-area: heroimage;
+  background-color: var(--holiday-club-red);
+  color: white;
+  grid-template-areas:
+    ". title    title    title    title    title    title    title    title    title    title    title    title    ."
+    ". subtitle subtitle subtitle subtitle subtitle subtitle subtitle subtitle subtitle subtitle subtitle subtitle ."
+    ". dates    dates    dates    dates    dates    dates    .        .        .        book     book     book     ."
+    ". times    times    times    times    times    times    .        .        .        book     book     book     ."
+    ;
+}
+
+@media only screen and (max-width: 968px) {
+  /* We only have 4 columns rather than 12 now */
+  .holidayclub-hero {
+    grid-template-areas:
+      ". title    title    title    title    ."
+      ". subtitle subtitle subtitle subtitle ."
+      ". dates    dates    times    times    ."
+      ". .        book     book     .        ."
+      ;
+
+  }
+}
+
+.holidayclub-hero * {
+  /* ensures no children are covered by the texture */
+  position: relative;
+}
+
+.holidayclub-hero::before {
+  content: "";
+  background: url(/assets/style-images/paper-texture.png);
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+
+.holidayclub-hero h1 {
+  grid-area: title;
+  margin: 0.3em 0;
+  line-height: initial;
+  text-align: center;
+}
+
+.holidayclub-herofont {
+  font-family: Fredoka One;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.holidayclub-tagline {
+  grid-area: subtitle;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.holidayclub-herodates {
+  grid-area: dates;
+}
+
+.holidayclub-herotimes {
+  grid-area: times;
+}
+
+a.holidayclub-booklink {
+  grid-area: book;
+  background-color: white;
+  text-decoration: none;
+  border-radius: 0.4em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  color: var(--holiday-club-red);
+  font-weight: 400;
+  font-size: 1.2em;
+  box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.3);
+  transition: box-shadow 0.15s ease-out;
+}
+a.holidayclub-booklink:hover {
+  box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.3);
+}
+a.holidayclub-booklink:active {
+  box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.3);
+}
+
+.holidayclub-main {
+  row-gap: 1em;
+  grid-template-areas:
+    "heroimage heroimage heroimage heroimage heroimage heroimage heroimage heroimage heroimage heroimage heroimage heroimage heroimage heroimage"
+    ". body body body body body body body body body body body body .";
+}
+
+.holidayclub-main  a {
+  --highlight-colour: var(--holiday-club-red);
 }
