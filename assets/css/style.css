@@ -63,6 +63,8 @@
 
   --beta-banner-colour: rgba(244,66,92,0.5);
   --holiday-club-red: rgba(232, 81, 81, 1);
+  --holiday-club-texture-opacity: 0.7;
+  --holiday-club-price-size: 4em;
 
   --heading-font: 'Franchise';
   --body-font: 'Klinic Slab';
@@ -3396,9 +3398,20 @@ section.christmas2019 a.showfewer.button svg {
 
 /* Holiday Club */
 .holidayclub-bg {
+  position: relative;
   background: none;
-  background-image: url(/assets/style-images/paper-texture.png);
 }
+
+.holidayclub-bg::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(/assets/style-images/paper-texture.png);
+  opacity: var(--holiday-club-texture-opacity);
+  pointer-events: none;
+}
+
 .holidayclub-bg > * {
   background: none;
 }
@@ -3411,13 +3424,14 @@ section.christmas2019 a.showfewer.button svg {
 .holidayclub-hero {
   position: relative;
   grid-area: heroimage;
-  background-color: var(--holiday-club-red);
-  color: white;
+  background-color: white;
+  min-height: 19rem;
+  color: #484747;
+  font-weight: 700;
   grid-template-areas:
     ". title    title    title    title    title    title    title    title    title    title    title    title    ."
     ". subtitle subtitle subtitle subtitle subtitle subtitle subtitle subtitle subtitle subtitle subtitle subtitle ."
-    ". dates    dates    dates    dates    dates    dates    .        .        .        book     book     book     ."
-    ". times    times    times    times    times    times    .        .        .        book     book     book     ."
+    ". .        .        .        .         book     book     book     book    .        .        .        .        ."
     ;
 }
 
@@ -3427,9 +3441,9 @@ section.christmas2019 a.showfewer.button svg {
     grid-template-areas:
       ". title    title    title    title    ."
       ". subtitle subtitle subtitle subtitle ."
-      ". dates    dates    times    times    ."
       ". .        book     book     .        ."
       ;
+    text-align: center;
 
   }
 }
@@ -3439,15 +3453,19 @@ section.christmas2019 a.showfewer.button svg {
   position: relative;
 }
 
-.holidayclub-hero::before {
-  content: "";
-  background: url(/assets/style-images/paper-texture.png);
-  opacity: 0.4;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+.holidayclub-herobackground {
+  width: 100%;
+  height: 100%;
+  color: var(--holiday-club-red);
   position: absolute;
+}
+
+.holidayclub-herotexture {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url("/assets/style-images/paper-texture.png");
+  opacity: var(--holiday-club-texture-opacity);
 }
 
 .holidayclub-hero h1 {
@@ -3477,6 +3495,20 @@ section.christmas2019 a.showfewer.button svg {
   grid-area: times;
 }
 
+.holidayclub-herobookingnotice {
+  grid-area: book;
+  background-color: white;
+  padding: 0.5em;
+  color: var(--holiday-club-red);
+  text-align: center;
+  font-weight: 300;
+  border-radius: 0.3em;
+  align-self: center;
+  border: 1px solid 1px solid hsla(0, 0%, 93%, 1);
+  font-size: 0.9em;
+  margin-top: 1em;
+}
+
 a.holidayclub-booklink {
   grid-area: book;
   background-color: white;
@@ -3502,8 +3534,66 @@ a.holidayclub-booklink:active {
 .holidayclub-main {
   row-gap: 1em;
   grid-template-areas:
-    "heroimage heroimage heroimage heroimage heroimage heroimage heroimage heroimage heroimage heroimage heroimage heroimage heroimage heroimage"
     ". body body body body body body body body body body body body .";
+}
+
+.holidayclub-dateinfo {
+  grid-template-areas:
+    ". . body body body body body body body body body body . ."
+    ". . .    .    hr   hr   hr   hr   hr   hr   .    .    . .";
+  padding-bottom: 0;
+  color: var(--holiday-club-red);
+  font-weight: 500;
+  text-align: center;
+  padding-top: 0.5em;
+  font-size: 1.2em;
+}
+
+.holidayclub-dateinfobody {
+  grid-area: body;
+  padding-left: var(--holiday-club-price-size);
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.holidayclub-dateinfobody-copy {
+  flex: 1 1 auto;
+  font-family: Fredoka One;
+  letter-spacing: 0.04em;
+}
+
+.holidayclub-dateinfobody-copy p {
+  padding: 0.2em;
+  font-size: 0.9em;
+}
+
+.holidayclub-dateinfo p {
+  margin: 0;
+}
+
+.holidayclub-dateinfo hr {
+  grid-area: hr;
+  height: 3px;
+  background-color: var(--holiday-club-red);
+  border: none;
+  border-radius: 4px;
+  margin: 0;
+  margin-top: 0.4em;
+}
+
+.holidayclub-dateinfobody-price {
+  flex: 0 0 auto;
+  width: var(--holiday-club-price-size);
+  height: var(--holiday-club-price-size);
+  border-radius: calc(var(--holiday-club-price-size) / 2);
+  background-color: var(--holiday-club-red);
+  color: white;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  font-family: Fredoka One;
 }
 
 .holidayclub-main  a {
