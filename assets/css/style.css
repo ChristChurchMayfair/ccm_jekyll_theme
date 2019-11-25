@@ -3539,8 +3539,7 @@ a.holidayclub-booklink:active {
 
 .holidayclub-dateinfo {
   grid-template-areas:
-    ". . body body body body body body body body body body . ."
-    ". . .    .    hr   hr   hr   hr   hr   hr   .    .    . .";
+    ". content content content content content content content content content content content content .";
   padding-bottom: 0;
   color: var(--holiday-club-red);
   font-weight: 500;
@@ -3549,12 +3548,45 @@ a.holidayclub-booklink:active {
   font-size: 1.2em;
 }
 
+@media only screen and (max-width: 968px) {
+  .holidayclub-dateinfo {
+    grid-template-areas: ". content content content content .";
+    font-size: 1em;
+  }
+}
+
+.holidayclub-dateinfocontent {
+  grid-area: content;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-areas:
+    ". body body body body body body ."
+    ". .    hr   hr   hr   hr   .    ."
+}
+
+@media only screen and (max-width: 700px) {
+  .holidayclub-dateinfocontent {
+    grid-template-areas:
+    "body body body body body body body body"
+    ".    hr   hr   hr   hr   hr   hr   .   "
+    ;
+    font-size: 0.9em;
+  }
+}
+
 .holidayclub-dateinfobody {
   grid-area: body;
   padding-left: var(--holiday-club-price-size);
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+}
+
+@media only screen and (max-width: 700px) {
+  .holidayclub-dateinfobody {
+    padding-left: 0;
+    text-align: left;
+  }
 }
 
 .holidayclub-dateinfobody-copy {
@@ -3579,7 +3611,7 @@ a.holidayclub-booklink:active {
   border: none;
   border-radius: 4px;
   margin: 0;
-  margin-top: 0.4em;
+  margin-top: 0.6em;
 }
 
 .holidayclub-dateinfobody-price {
