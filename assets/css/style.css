@@ -3498,15 +3498,18 @@ section.christmas2019 a.showfewer.button svg {
 .holidayclub-herobookingnotice {
   grid-area: book;
   background-color: white;
-  padding: 0.5em;
+  padding: 1em 0.5em;
   color: var(--holiday-club-red);
   text-align: center;
   font-weight: 300;
   border-radius: 0.3em;
   align-self: center;
-  border: 1px solid 1px solid hsla(0, 0%, 93%, 1);
+  border: 1px solid hsla(0, 0%, 93%, 1);
   font-size: 0.9em;
   margin-top: 1em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 
 a.holidayclub-booklink {
@@ -3630,4 +3633,15 @@ a.holidayclub-booklink:active {
 
 .holidayclub-main  a {
   --highlight-colour: var(--holiday-club-red);
+}
+
+.holidayclub-bookbutton {
+  background-color: var(--holiday-club-red);
+  color: white;
+  box-shadow: 0 2px 3px hsla(0,0%,0%,0.2);
+  padding: 0.5em 1em;
+  border-radius: 2em;
+  margin-top: 0.5em;
+  cursor: pointer;
+  font-weight: 500;
 }
