@@ -1,34 +1,39 @@
 const VISIBLE = 1;
 const INVISIBLE = 0;
+const MAX_WIDTH_MOBILE_HEADER = 968;
 
 function openMenuButtonClicked() {
-
-  var header = document.getElementById("header");
+  const header = document.getElementById("mobile-header");
   header.style.display = "none";
 
-
-  var menu = document.getElementById("menu");
+  const menu = document.getElementById("menu");
   menu.style.visibility = "visible";
   menu.style.opacity = VISIBLE;
 }
 
 function closeMenuButtonClicked() {
-  var menu = document.getElementById("menu");
+  const menu = document.getElementById("menu");
+  menu.style.visibility = null;
+  menu.style.opacity = null;
 
-  menu.style.opacity = INVISIBLE;
-
-  var header = document.getElementById("header");
-  header.style.display = "grid";
+  const header = document.getElementById("mobile-header");
+  header.style.display = null;
 }
 
 function addHandlerToMenuButtons() {
-var openMenuButton = document.getElementById("open-menu");
-openMenuButton.onclick = openMenuButtonClicked;
+  const openMenuButton = document.getElementById("open-menu");
+  openMenuButton.onclick = openMenuButtonClicked;
 
-var closeMenuButton = document.getElementById("close-menu");
-closeMenuButton.onclick = closeMenuButtonClicked;
+  const closeMenuButton = document.getElementById("close-menu");
+  closeMenuButton.onclick = closeMenuButtonClicked;
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  addHandlerToMenuButtons();
-});
+function hideMobileElementsOnResize() {
+  if (window.innerWidth > MAX_WIDTH_MOBILE_HEADER) {
+    closeMenuButtonClicked();
+  }
+}
+
+document.addEventListener("DOMContentLoaded", addHandlerToMenuButtons);
+
+window.addEventListener("resize", hideMobileElementsOnResize);

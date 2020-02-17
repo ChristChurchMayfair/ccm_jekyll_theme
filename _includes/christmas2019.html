@@ -1,0 +1,35 @@
+{% assign first_two_services = include.events | slice:0, 2 %}
+{% assign remaining_services = include.events | slice:2, 100 %}
+
+<section class="promotion full-bleed christmas2019">
+    <div class="header">
+    <hr/>
+    <h1>{{ event.name }}</h1>
+    <hr/>
+    <div class="subtitle">2019</div>
+    </div>
+    <div class="all-events">
+        <div class="events immediate">
+            {%- for event in include.events -%}
+            <div class="event" valid_until="{{ event.expires }}">
+                <div class="when"><span>{{ event.date }}</span> <span>{{ event.time }}</span></div>
+                <div class="title">{{ event.title }}</div>
+                <div class="description">{{ event.description }}</div>
+            </div>
+            {%- endfor -%}
+        </div>
+        <a class="showmore button" id="showmoreevents" href="#/">More Events
+            <svg viewbox="0 0 100 100">
+                <use xlink:href="/assets/icons/disclose_down.svg#disclose" />
+            </svg>
+        </a>
+        <a class="showfewer button" id="showfewerevents" href="#/">Fewer Events
+            <svg viewbox="0 0 100 100">
+                <use xlink:href="/assets/icons/disclose_down.svg#disclose" />
+            </svg>
+        </a>
+        <div class="events later" id="laterCarolEvents">
+        </div>
+    </div>
+</section>
+<script src="/assets/javascript/carols.js"></script>

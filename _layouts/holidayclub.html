@@ -1,0 +1,49 @@
+---
+layout: default
+---
+<div class="holidayclub-bg">
+    <section class="holidayclub-headerunderlay"></section>
+    <section class="holidayclub-hero">
+        <svg
+            class="holidayclub-herobackground"
+            viewBox="0 0 1240.000000 1748.000000"
+            preserveAspectRatio="xMidYMin slice"
+        >
+            <use xlink:href="/assets/style-images/holidayclub.svg#image" />
+        </svg>
+        <div class="holidayclub-herotexture"></div>
+        <h1 class="holidayclub-herofont">The Greatest Show</h1>
+        <p class="holidayclub-herofont holidayclub-tagline">Half Term Holiday Club</p>
+        <div class="holidayclub-herobookingnotice">
+            <div>Tickets are now available!</div>
+            <a
+                class="holidayclub-bookbutton"
+                href="https://www.eventbrite.co.uk/e/holiday-club-registration-82050558429"
+                target="_blank"
+                rel="noopener"
+            >
+                Buy now
+            </a>
+        </div>
+    </section>
+    <section class="holidayclub-dateinfo">
+        <div class="holidayclub-dateinfocontent">
+            <div class="holidayclub-dateinfobody">
+                <div class="holidayclub-dateinfobody-copy">
+                    <p>Tues 18<sup>th</sup> &mdash; Thurs 20<sup>th</sup> February&nbsp;2020</p>
+                    <p>10am &mdash; 2pm each day</p>
+                </div>
+                <div class="holidayclub-dateinfobody-price">
+                    <p style="font-size: 1.5em; line-height: 1;">£15</p>
+                    <p style="font-size: 0.6em;">per child</p>
+                </div>
+            </div>
+            <hr></hr>
+        </div>
+    </section>
+    <section class="holidayclub-main">
+        <div style="grid-area: body;">
+            {{ page.content | markdownify }}
+        </div>
+    </section>
+</div>
