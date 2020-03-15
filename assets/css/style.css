@@ -2771,9 +2771,12 @@ section.promotion.easter .where {
 
 
 section.promotion.important-notice {
-  background-color: red;
-  color: var(--light-colour);
+  background-color: var(--light-colour);
+  color: var(--dark-colour);
   text-align: center;
+  border-top-color: var(--dark-colour);
+  border-top-style: solid;
+  border-top-width: 1px;
 }
 
 @media only screen and (max-width: 968px) {
@@ -2783,7 +2786,7 @@ section.promotion.important-notice {
 }
 
 section.promotion.important-notice h1 {
-  color: var(--light-colour);
+  color: red;
   font-size: 2em;
   line-height: 1.5em;
   letter-spacing: 0.2em;
