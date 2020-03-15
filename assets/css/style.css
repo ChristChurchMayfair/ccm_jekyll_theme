@@ -2767,6 +2767,40 @@ section.promotion.easter .where {
   color: var(--light-colour);
 }
 
+/* Important Notice */
+
+
+section.promotion.important-notice {
+  background-color: red;
+  color: var(--light-colour);
+  text-align: center;
+}
+
+@media only screen and (max-width: 968px) {
+  section.promotion.important-notice {
+    font-size: 0.9em;
+  }
+}
+
+section.promotion.important-notice h1 {
+  color: var(--light-colour);
+  font-size: 2em;
+  line-height: 1.5em;
+  letter-spacing: 0.2em;
+  margin-bottom: var(--general-padding);
+  margin-top: var(--general-padding);
+}
+
+section.promotion.important-notice text {
+  color: var(--light-colour)
+}
+
+@media only screen and (max-width: 968px) {
+  section.promotion.important-notice h1 {
+    font-size: 2.5em;
+    margin-top: calc(var(--general-padding) * 2); 
+  }
+}
 
 /* London Living */
 
@@ -3307,7 +3341,6 @@ section.promotion.christmas2019 h1 {
     font-size: 2.4em;
     margin-top: 5px;
     margin-bottom: 5px;
-
   }
 
   section.promotion.christmas2019 .header .subtitle {
@@ -3315,8 +3348,19 @@ section.promotion.christmas2019 h1 {
   }
 
   section.promotion.christmas2019 .header hr {
-  width: 20%;
-  border-width: 2px;
+    width: 20%;
+    border-width: 2px;
+  }
+
+  section.promotion.christmas2019 .events .event::after {
+    content: '';
+    position: absolute;
+    width: 100vw;
+    height: 1px;
+    left: 0;
+    display: block;
+    clear: both;
+    background-color: rgb(19,23,29);
   }
 }
 
