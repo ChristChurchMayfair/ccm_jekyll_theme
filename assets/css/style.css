@@ -3692,3 +3692,27 @@ a.holidayclub-booklink:active {
   cursor: pointer;
   font-weight: 500;
 }
+
+/* Blog */
+
+section.blog > div {
+  grid-area: content;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: calc(var(--general-padding) * 2);
+}
+
+@media screen and (max-width:968px) {
+  section.blog > div {
+      grid-row-gap: var(--general-padding);
+    }
+}
+
+section.blog .post h1 {
+  font-size: 2em;
+}
+
+section.blog .post .date {
+  font-size: 0.8em;
+  font-style: italic;
+}

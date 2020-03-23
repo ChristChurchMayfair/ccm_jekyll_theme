@@ -1,0 +1,44 @@
+---
+layout: default
+---
+<!-- {% include hero.html id="families-hero" overlayCaption=page.overlayCaption mainImage=page.mainImage mobileImage=page.mobileImage textClass="left bottom"%} -->
+{% assign posts = site.posts %}
+
+<section class="header-underlay"></section>
+<section class="intro wider dark">
+    <div class="text">
+      {{ content }}
+    </div>
+  </section>
+  
+  <section class="blog">
+    <div class="posts">
+        {% for post in posts %}
+      <div class="post">
+        <h1>{{ post.title }}</h1>
+        <div class="date">{{ post.date | date: "%-d %B %Y" }}</div>
+        <div class="content">{{ post.content }}</div>
+      </div>
+    {% endfor %}
+    </div>
+  </section>
+
+  <!-- <section class="blog">
+    <div class="pagination">
+        {% if paginator.previous_page %}
+          <a href="{{ paginator.previous_page_path }}" class="previous">
+            Previous
+          </a>
+        {% else %}
+          <span class="previous">Previous</span>
+        {% endif %}
+        <span class="page_number ">
+          Page: {{ paginator.page }} of {{ paginator.total_pages }}
+        </span>
+        {% if paginator.next_page %}
+          <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+        {% else %}
+          <span class="next ">Next</span>
+        {% endif %}
+      </div>
+  </section> -->
