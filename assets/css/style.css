@@ -3712,7 +3712,7 @@ section.blog .post h1 {
   font-size: 2em;
 }
 
-section.blog .post .date {
+section.blog .post .meta {
   font-size: 0.8em;
   font-style: italic;
   margin-bottom: var(--general-padding);

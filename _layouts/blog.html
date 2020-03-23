@@ -16,7 +16,12 @@ layout: default
         {% for post in posts %}
       <div class="post">
         <h1>{{ post.title }}</h1>
-        <div class="date">{{ post.date | date: "%-d %B %Y" }}</div>
+        <div class="meta">
+          {%- if post.author -%}
+          <span>{{ post.author }}</span><span> - </span>
+          {%- endif -%}
+          <span>{{ post.date | date: "%-d %B %Y" }}</span>
+          </div>
         <div class="content">{{ post.content }}</div>
       </div>
     {% endfor %}
