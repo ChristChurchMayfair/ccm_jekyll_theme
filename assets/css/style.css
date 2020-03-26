@@ -2767,6 +2767,43 @@ section.promotion.easter .where {
   color: var(--light-colour);
 }
 
+/* Important Notice */
+
+
+section.promotion.important-notice {
+  background-color: var(--light-colour);
+  color: var(--dark-colour);
+  text-align: center;
+  border-top-color: var(--dark-colour);
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+
+@media only screen and (max-width: 968px) {
+  section.promotion.important-notice {
+    font-size: 0.9em;
+  }
+}
+
+section.promotion.important-notice h1 {
+  color: red;
+  font-size: 2em;
+  line-height: 1.5em;
+  letter-spacing: 0.2em;
+  margin-bottom: var(--general-padding);
+  margin-top: var(--general-padding);
+}
+
+section.promotion.important-notice text {
+  color: var(--light-colour)
+}
+
+@media only screen and (max-width: 968px) {
+  section.promotion.important-notice h1 {
+    font-size: 2.5em;
+    margin-top: calc(var(--general-padding) * 2); 
+  }
+}
 
 /* London Living */
 
@@ -3307,7 +3344,6 @@ section.promotion.christmas2019 h1 {
     font-size: 2.4em;
     margin-top: 5px;
     margin-bottom: 5px;
-
   }
 
   section.promotion.christmas2019 .header .subtitle {
@@ -3315,8 +3351,19 @@ section.promotion.christmas2019 h1 {
   }
 
   section.promotion.christmas2019 .header hr {
-  width: 20%;
-  border-width: 2px;
+    width: 20%;
+    border-width: 2px;
+  }
+
+  section.promotion.christmas2019 .events .event::after {
+    content: '';
+    position: absolute;
+    width: 100vw;
+    height: 1px;
+    left: 0;
+    display: block;
+    clear: both;
+    background-color: rgb(19,23,29);
   }
 }
 
@@ -3644,4 +3691,29 @@ a.holidayclub-booklink:active {
   margin-top: 0.5em;
   cursor: pointer;
   font-weight: 500;
+}
+
+/* Blog */
+
+section.blog > div {
+  grid-area: content;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: calc(var(--general-padding) * 2);
+}
+
+@media screen and (max-width:968px) {
+  section.blog > div {
+      grid-row-gap: var(--general-padding);
+    }
+}
+
+section.blog .post h1 {
+  font-size: 2em;
+}
+
+section.blog .post .meta {
+  font-size: 0.8em;
+  font-style: italic;
+  margin-bottom: var(--general-padding);
 }
