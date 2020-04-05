@@ -3717,3 +3717,93 @@ section.blog .post .meta {
   font-style: italic;
   margin-bottom: var(--general-padding);
 }
+
+/* Easter 2020 */
+
+section.promotion.easter2020 {
+  background-color: #5da5b5;
+  color: var(--light-colour);
+  font-family: "LeagueSpartan";
+  text-align: center;
+  grid-template-areas: ". title title title title title title title title title title title title  ."
+  ". blurb blurb blurb blurb blurb blurb blurb blurb blurb blurb blurb blurb ."
+  ". events events events events events events events events events events events events .";
+}
+
+@media only screen and (max-width: 968px) {
+  section.promotion.easter2020 {
+    /* background-size: 10%,10%,10%,10%,10%,10%,10%,10%,10%;  */
+    font-size: 0.9em;
+  }
+}
+
+section.promotion.easter2020 .header {
+  grid-area: title;
+}
+
+section.promotion.easter2020 h1 {
+  font-family: "LeagueSpartan";
+  color: #ffde59;
+  font-size: 2em;
+  line-height: 1.5em;
+  letter-spacing: 0.2em;
+  margin-bottom: var(--general-padding);
+  margin-top: calc(var(--general-padding) * 1);
+}
+
+section.promotion.easter2020 .subtitle {
+  margin-bottom: var(--general-padding);
+}
+
+@media only screen and (max-width: 968px) {
+  section.promotion.easter2020 h1 {
+    font-size: 1.5em;
+  }
+}
+
+section.promotion.easter2020 .all-events {
+  grid-area: events;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: var(--general-padding);
+}
+
+@media only screen and (max-width: 968px) {
+  section.promotion.easter2020 .all-events {
+    grid-template-columns: 1fr;
+    grid-row-gap: calc(var(--general-padding) * 2);
+  }
+}
+
+section.promotion .all-events .event .description {
+  min-height: 100px;
+}
+
+section.promotion.easter2020 .title {
+  color: #ffde59;
+  margin-bottom: var(--general-padding);
+}
+
+section.promotion.easter2020 .text {
+  text-transform: uppercase;
+}
+
+section.promotion.easter2020 .when, section.promotion.easter2020 .description {
+  font-family: 'Lato', sans-serif;
+  color: var(--light-colour);
+  margin-bottom: var(--general-padding);
+}
+
+section.promotion.easter2020 .links a {
+  margin-bottom: var(--general-padding);
+}
+
+section.promotion.easter2020 .links a.facebook {
+  background-color: #3b5998;
+  color: var(--light-colour);
+}
+
+section.promotion.easter2020 .links a.youtube {
+  background-color: #c4302b;
+  color: var(--light-colour);
+}

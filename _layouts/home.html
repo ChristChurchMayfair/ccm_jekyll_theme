@@ -35,7 +35,8 @@ layout: default
 </section>
 
 {%- if events.size > 0 -%}
-{%- assign event = events.first -%}
+{% assign events = events | sort: "order" %}
+{%- for event in events -%}
   {%- unless event.eventType -%}
   <section class="promotion full-bleed" responsive-background-image>
     <div>
@@ -57,6 +58,7 @@ layout: default
   {%- else -%}
     {%- include {{event.eventType}}.html events=event.events -%}
   {%- endunless -%}
+  {%- endfor -%}
 {%- endif -%}
 
 {%- include services.html -%}
