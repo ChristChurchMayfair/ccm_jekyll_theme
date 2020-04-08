@@ -17,6 +17,9 @@
       <a href="{{ page.url }}">{{page.title}}</a>
       {% endif %}
     {% endfor %}
+    {% for link in site.footer.extra_links %}
+      <a href="{{ link.url }}">{{link.title}}</a>
+    {% endfor %}
   </div>
   <div class="smallprint">
     {% for smallprint in site.footer.smallprint %}
