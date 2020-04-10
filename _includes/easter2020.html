@@ -15,10 +15,10 @@
             {%- if event.links -%}
             <div class="links">
                 {%- if event.links.facebook -%}
-                <a class="facebook button" href="{{ event.link }}">Facebook Live</a>
+                <a class="facebook button" href="{{ event.links.facebook }}">Facebook Live</a>
                 {%- endif -%}
                 {%- if event.links.youtube -%}
-                <a class="youtube button" href="{{ event.link }}">YouTube</a>
+                <a class="youtube button" href="{{ event.links.youtube }}">YouTube</a>
                 {%- endif -%}
             </div>
             {%- else -%}
