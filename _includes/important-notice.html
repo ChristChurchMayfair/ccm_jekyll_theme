@@ -1,6 +1,28 @@
 <section class="promotion full-bleed important-notice">
-    <div>
-        <h1>{{ event.name }}</h1>
-        <div class="text">{{ event.content | markdownify }}</div>
+  <div>
+    <h1>{{ event.name }}</h1>
+    <div class="text">
+      {{ event.content | markdownify }} {%- if event.lastUpdated -%}
+      <p class="last-updated">
+        This was last updated at {{event.lastUpdated}}.
+      </p>
+      {%- endif -%}
     </div>
+    {%- if event.features and event.features.size > 0 -%}
+    <hr class="separator" />
+    <div class="features">
+      {%- for feature in event.features -%}
+      <div class="feature">
+        <h2 class="title">{{ feature.title }}</h2>
+        <div class="description">{{ feature.description | markdownify }}</div>
+        {%- if feature.buttonText and feature.buttonLink -%}
+        <a class="button" href="{{ feature.buttonLink }}">
+          {{feature.buttonText}}
+        </a>
+        {%- endif -%}
+      </div>
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+  </div>
 </section>
